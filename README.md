@@ -5,11 +5,11 @@
         - [x] BicicletaCarretera
         - [x] BicicletaMontana
     - [x] Carrera
-        -[x] CarreraMontana
-        -[x] CarreraCarretera
+        - [x] CarreraMontana
+        - [x] CarreraCarretera
     - [x] FactoriaCarreraYBicicleta
-        -[x] FactoriaCarretera
-        -[x] FactoriaMontana
+        - [x] FactoriaCarretera
+        - [x] FactoriaMontana
 
 -[] Revisar 
 
