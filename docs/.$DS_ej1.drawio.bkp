@@ -1,17 +1,17 @@
-<mxfile host="Electron" modified="2024-02-29T09:40:38.014Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Yjs0ZxzGgXFvZObwpfd-" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-02-29T09:35:10.716Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="bMmdGR2bM6dKG7JKl23Y" version="23.1.5" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1834" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="eIwMA6RZp4UQQGY7Jjtt-0" value="FactoriaCarreraYBicicleta" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="258" y="830" width="280" height="150" as="geometry" />
+          <mxGeometry x="258" y="830" width="180" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-1" value="+ crearCarrera(bicicletas: ArrayList): Carrera" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-0" vertex="1">
-          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-1" value="+ crearCarrera(): Carrera" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-0" vertex="1">
+          <mxGeometry y="26" width="180" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-2" value="+ crearBicicleta(id: int): Bicicleta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-0" vertex="1">
-          <mxGeometry y="52" width="280" height="98" as="geometry" />
+        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-2" value="+ crearBicicleta(): Bicicleta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-0" vertex="1">
+          <mxGeometry y="52" width="180" height="48" as="geometry" />
         </mxCell>
         <mxCell id="eIwMA6RZp4UQQGY7Jjtt-4" value="Carrera&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="128" y="202" width="180" height="86" as="geometry" />
@@ -38,22 +38,22 @@
           <mxGeometry y="60" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="eIwMA6RZp4UQQGY7Jjtt-12" value="FactoriaMontana" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-80" y="710" width="310" height="104" as="geometry" />
+          <mxGeometry x="28" y="710" width="180" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-13" value="+ crearCarrera(bicicletas: ArrayList): CarreraMontana" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-12" vertex="1">
-          <mxGeometry y="26" width="310" height="26" as="geometry" />
+        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-13" value="+ crearCarrera(): Carrera" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-12" vertex="1">
+          <mxGeometry y="26" width="180" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-14" value="+ crearBicicleta(id: int): BicicletaMontana" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-12" vertex="1">
-          <mxGeometry y="52" width="310" height="52" as="geometry" />
+        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-14" value="+ crearBicicleta(): Bicicleta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-12" vertex="1">
+          <mxGeometry y="52" width="180" height="48" as="geometry" />
         </mxCell>
         <mxCell id="eIwMA6RZp4UQQGY7Jjtt-15" value="FactoriaCarretera" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="458" y="700" width="300" height="100" as="geometry" />
+          <mxGeometry x="458" y="700" width="180" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-16" value="+ crearCarrera(bicicletas: ArrayList): CarreraCarretera" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-15" vertex="1">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-16" value="+ crearCarrera(): Carrera" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-15" vertex="1">
+          <mxGeometry y="26" width="180" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-17" value="+ crearBicicleta(): BicicletaCarretera" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-15" vertex="1">
-          <mxGeometry y="52" width="300" height="48" as="geometry" />
+        <mxCell id="eIwMA6RZp4UQQGY7Jjtt-17" value="+ crearBicicleta(): Bicicleta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eIwMA6RZp4UQQGY7Jjtt-15" vertex="1">
+          <mxGeometry y="52" width="180" height="48" as="geometry" />
         </mxCell>
         <mxCell id="eIwMA6RZp4UQQGY7Jjtt-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.016;entryY=0.03;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="eIwMA6RZp4UQQGY7Jjtt-12" target="eIwMA6RZp4UQQGY7Jjtt-2" edge="1">
           <mxGeometry relative="1" as="geometry" />

@@ -1,16 +1,18 @@
+import java.util.ArrayList;
+
 /**
  * FactoriaMontana
  */
 public class FactoriaMontana implements FactoriaCarreraYBicicleta{
     
     @Override
-    public Carrera crearCarrera(){
-        return new CarreraMontana();
+    public Carrera crearCarrera(ArrayList<Bicicleta> bicicletas){
+        return new CarreraMontana(bicicletas);
     }
 
     @Override
-    public Bicicleta crearBicicleta() {
-        return new BicicletaMontana();
+    public Bicicleta crearBicicleta(int id) {
+        return new BicicletaMontana(id);
     }
     
 }
