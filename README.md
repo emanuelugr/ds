@@ -10,8 +10,7 @@
     - [x] FactoriaCarreraYBicicleta
         - [x] FactoriaCarretera
         - [x] FactoriaMontana
-
--[] Revisar 
+- [] Revisar 
 
 # Enunciado
 
