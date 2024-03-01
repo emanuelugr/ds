@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class FactoriaMontana implements FactoriaCarreraYBicicleta{
     
     @Override
-    public Carrera crearCarrera(ArrayList<Bicicleta> bicicletas){
-        return new CarreraMontana(bicicletas);
+    public Carrera crearCarrera(){
+        return new CarreraMontana();
     }
 
     @Override
