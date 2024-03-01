@@ -1,16 +1,9 @@
-import java.util.ArrayList;
 
 public class CarreraCarretera extends Carrera{
+    private final static double DROPOUT_RATE = 0.1;
 
     public CarreraCarretera(){
-        super();
+        super(DROPOUT_RATE);
     }
 
-
-
-    @Override
-    public void run() {
-        super.run();
-
-    }
 }
