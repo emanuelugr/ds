@@ -25,6 +25,10 @@ public abstract class Carrera implements Runnable {
 
     @Override
     public void run() {
+        if(bicicletas==null){
+            System.out.println("No hay bicicletas en la carretera. Abortando...");
+            return;
+        }
         System.out.println("Carretera en la hebra " + Thread.currentThread().getName());
         for (Bicicleta b : bicicletas) {
             System.out.println("Bibicleta: " + b.GetId() + " ha iniciado la carrera en la hebra "+Thread.currentThread().getName());
