@@ -41,8 +41,8 @@ class Main {
     }
 
 
-    static void Final(int n) {
-        System.out.println("Prueba Final con " + n + " bicicletas");
+    static void FinalFactoriaAbtracta(int n) {
+        System.out.println("Prueba Factoria Abstracta con " + n + " bicicletas");
 
         /*Factorias */
         FactoriaCarreraYBicicleta fmCarretera = new FactoriaCarretera();
@@ -69,7 +69,40 @@ class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Prueba Final ha finalizado");
+        System.out.println("Prueba Factoria Abstracta ha finalizado");
+
+    }
+
+
+
+    static void FinalFactoriaMetodo(int n) {
+        System.out.println("Prueba Factoria Metodo con " + n + " bicicletas");
+
+        /*Factoria */
+        FactoriaCarreraYBicicletaMetodo fm = new FactoriaCarreraYBicicletaMetodo();
+        
+        /*Carreras */
+        var carreraCaretera = fm.crearCarrera(TipoCarrera.Carretera);
+        var carreraMontana = fm.crearCarrera(TipoCarrera.Montana);
+        
+        /*Bicicletas */
+        for (int i = 0; i < n; ++i) {
+            carreraCaretera.AddBicicleta(fm.crearBicicleta(TipoCarrera.Carretera,i));
+            carreraMontana.AddBicicleta(fm.crearBicicleta(TipoCarrera.Montana,i));
+        }
+
+        /*Hebras */
+        Thread tMontana = new Thread(carreraMontana);
+        Thread tCarretera = new Thread(carreraCaretera);
+        tMontana.start();
+        tCarretera.start();
+        try {
+            tMontana.join();
+            tCarretera.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Prueba Factoria Metodo ha finalizado");
 
     }
 
@@ -78,6 +111,7 @@ class Main {
         int n = 10;
         //TestCarreraMontana(n);
         //TestCarreraCarretera(n);
-        Final(n);
+        FinalFactoriaAbtracta(n);
+        FinalFactoriaMetodo(n);
     }
 }
