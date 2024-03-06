@@ -33,7 +33,7 @@ public abstract class Carrera implements Runnable {
         for (Bicicleta b : bicicletas) {
             System.out.println("Bibicleta: " + b.GetId() + " ha iniciado la carrera en la hebra "+Thread.currentThread().getName());
         }
-        quitarBicicleta();
+        AplicarDropOut();
 
         try {
             Thread.sleep(DURATION);
@@ -45,17 +45,18 @@ public abstract class Carrera implements Runnable {
 
     }
 
-    public void quitarBicicleta() {
-        System.out.println("AQUI " + DROPOUT_RATE);
+    public void AplicarDropOut() {
         int n = (int) Math.round(bicicletas.size() * DROPOUT_RATE);
 
+        Random r = new Random();
+        int num = 0;
         for (int i = 0; i < n; ++i) {
             // pick random
-            Random r = new Random();
-            int num = r.nextInt(0, bicicletas.size() - 1);
+           
+            num = r.nextInt(0, bicicletas.size() - 1);
             var b = bicicletas.remove(num);
             System.out.println(
-                    "Bicicleta" + b.GetId() + " se ha estrellado en la carrera " + Thread.currentThread().getName());
+                    "Bicicleta " + b.GetId() + " se ha estrellado en la carrera " + Thread.currentThread().getName());
         }
     }
 
