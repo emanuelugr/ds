@@ -1,6 +1,6 @@
 import Bicicletas
 from abc import ABC, abstractclassmethod
-
+import random
 
 class Carrera(ABC):
 	def __init__(self,droupout:float):
@@ -12,8 +12,11 @@ class Carrera(ABC):
 		self.bicicletas.append(bicicleta)
 	
 	def AplicarDropOut(self)->None:
-		#TODO
-		pass
+		n = int(len(self.bicicletas)*self.DROPOUT_RATE)
+		for i in range(0,n):
+			r = random.randint(0,n)
+			b = self.bicicletas.pop(r)
+			print(f"Bicicleta {b.id} ha estrellado")
 	
 	def Run(self)->None:
 		print(f"Carrera con {len(self.bicicletas)} bicicletas ha iniciado")
