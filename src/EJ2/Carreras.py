@@ -16,6 +16,7 @@ class Carrera(ABC):
 		pass
 	
 	def Run(self)->None:
+		print(f"Carrera con {len(self.bicicletas)} bicicletas ha iniciado")
 		self.AplicarDropOut()
 		print("Carrera Terminada")
 		

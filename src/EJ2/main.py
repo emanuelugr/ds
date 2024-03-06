@@ -9,7 +9,7 @@ def TestCarretera(num:int)->None:
 		bicicleta = factoria.crearBicicleta(i)
 		carrera.AddBicicleta(bicicleta)
 	carrera.Run()
-	
+
 #Montaña
 def TestMontana(num:int)->None:
 	factoria = Factorias.FactoriaMontana()
@@ -19,3 +19,8 @@ def TestMontana(num:int)->None:
 		carrera.AddBicicleta(bicicleta)
 	carrera.Run()
 	
+
+if __name__=="__main__":
+	num = 10
+	TestCarretera(num)
+	TestMontana(num)
