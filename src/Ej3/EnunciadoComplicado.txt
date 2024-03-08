@@ -15,7 +15,7 @@ Cada personaje tendra los siguientes atributos:
 	-Sabiduria
 	-Carisma
 
--Secundarios
+-Secundarios	  (Este calculo es el de por defecto. Cambiara segun la RAZA)
 	-Vida		  (Resistencia + fuerza)
 	-Stamina	  (Destreza + Resistencia)
 	-Mana		  (Inteligencia + Sabiduria)
