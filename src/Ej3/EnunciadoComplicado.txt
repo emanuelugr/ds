@@ -1,0 +1,45 @@
+
+//Posible enunciado mas complicado, ahora tambien añadimos razas, que cambiaran atributos
+//Añade mas complejidad al ejercicio y lo eleva a simple problema
+
+La compañia de un prestigioso juego de rol nos ha encargado crear un programa sencillo que permita a los usuarios 
+visualizar las distintas clases que puedan elegir en el juego, con sus atributos y habilidades.
+
+Cada personaje tendra los siguientes atributos:
+
+-Primarios:
+	-Fuerza
+	-Destreza
+	-Resistencia
+	-Inteligencia
+	-Sabiduria
+	-Carisma
+
+-Secundarios
+	-Vida		  (Resistencia + fuerza)
+	-Stamina	  (Destreza + Resistencia)
+	-Mana		  (Inteligencia + Sabiduria)
+	-Persuasion   (Carisma + Sabiduria)
+	-Agilidad	  (Destreza + Inteligencia)
+	-Intimidacion (Fuerza + Carisma)
+
+Cada atributo primario cambiara dependiendo de la clase elegida para el personaje:
+	-Caballero
+	-Mago
+	-Ranger
+	-Ladron
+	-Necromago
+
+Los atributos secundarios se calcularan dependiendo de los atributos Primarios
+
+Aparte de la clase, tambien se podra elegir una raza para el personaje:
+	-Humano
+	-Elfo
+	-Enano
+	-Orco
+	-QuintaRazaQueNoSeMeOcurreAhora
+
+Segun la raza elegida, habra diferentes cambios a la hora de asignar atributos primarios y calcular atributos secundarios:
+	-Explicar aqui calculos complicados para el patron estrategia o el wrapper
+	-Puede que no tengamos que usar patrones para esto, solo programar funciones que trabajen con el patron builder
+		-Esto en caso de que no encontremos un patron adecuado, porque de todas formas el ejercicio necesita de esta complejidad
