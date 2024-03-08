@@ -8,6 +8,12 @@ class Carrera(ABC):
 		self.bicicletas = list()
 		self.duration = 6000
 
+
+	"""No he planteado metodos abstractos porque se trata 
+		del comportamiento común a todas las clases hijas.
+		Aunque si es cierto que quizas va en contra del proposito de abstract
+		En este caso considero que las ventajas > nomenclatura oficial
+	"""
 	def AddBicicleta(self,bicicleta:Bicicletas.Bicicleta):
 		self.bicicletas.append(bicicleta)
 	
@@ -17,10 +23,10 @@ class Carrera(ABC):
 			r = random.randint(0,n)
 			b = self.bicicletas.pop(r)
 			print(f"Bicicleta {b.id} ha estrellado")
-	
+
 	def Run(self)->None:
 		self.AplicarDropOut()
-		print("Carrera Terminada")
+		print(f"Carrera Terminada con {len(self.bicicletas)} bicicletas")
 		
 
 class CarreraCarretera(Carrera):
