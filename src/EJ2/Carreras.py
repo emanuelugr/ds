@@ -19,16 +19,22 @@ class Carrera(ABC):
 			print(f"Bicicleta {b.id} ha estrellado")
 	
 	def Run(self)->None:
-		print(f"Carrera con {len(self.bicicletas)} bicicletas ha iniciado")
 		self.AplicarDropOut()
 		print("Carrera Terminada")
 		
+
 class CarreraCarretera(Carrera):
 	def __init__(self):
 		super().__init__(0.2)
 
-
+	def Run(self)->None:
+		print(f"Carrera de Carretera con {len(self.bicicletas)} bicicletas y dropout {self.DROPOUT_RATE} ha iniciado")
+		super().Run()
 
 class CarreraMontana(Carrera):
 	def __init__(self):
 		super().__init__(0.1)
+	
+	def Run(self)->None:
+		print(f"Carrera de Montana con {len(self.bicicletas)} bicicletas y dropout {self.DROPOUT_RATE} ha iniciado")
+		super().Run()

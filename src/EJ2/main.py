@@ -27,14 +27,26 @@ def TestMontana(num:int)->None:
 #Prototipo
 def TestPrototipo(num:int)->None:
 	print("===========TEST PROTOTIPO===========")
-	carrera = Carreras.CarreraMontana()
-	prototipo = Bicicletas.BicicletaPrototipo()
+	factoriaMontana = Factorias.FactoriaMontana()
+	factoriaCarretera = Factorias.FactoriaCarretera()
 
-	prototipo.register_bicicleta("mountain",Bicicletas.BicicletaMontana(0))
+	carreraMontana = factoriaMontana.crearCarrera()
+	carreraCarretera = factoriaCarretera.crearCarrera()
+
+
+	bicicletaMontana = Bicicletas.BicicletaMontana(0)
+	bicicletaCarretera = Bicicletas.BicicletaCarretera(0)
+
 	for i in range(0,num):
-		bicicleta = prototipo.clone("mountain", id=i)
-		carrera.AddBicicleta(bicicleta)
-	carrera.Run()
+		bm_clonada = bicicletaMontana.clonar()
+		bc_clonada = bicicletaCarretera.clonar()
+
+
+		bm_clonada.id = bc_clonada.id = i
+		carreraMontana.AddBicicleta(bm_clonada)
+		carreraCarretera.AddBicicleta(bc_clonada)
+	carreraMontana.Run()
+	carreraCarretera.Run()
 	print("===========FIN===========")
 
 
