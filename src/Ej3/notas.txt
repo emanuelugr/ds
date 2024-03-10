@@ -1,0 +1,14 @@
+
+
+
+CreaPersonajes se elimina, y se remplaza por dos
+	-CreaRaza
+	-CreaClase
+
+CreaRaza es identico a CreaPersonaje, asignado los valores primarios sin ninguna operacion complicada
+Para simplificar cosas, estos valores seran devueltos en vez de asignados a una variable de la clase
+
+CreaClase es mas complicado, ya que cada metodo necesita usar atributos del personaje
+	-Si hacemos que usen los mismos, pero con diferentes multiplicadores, entonces no pasa nada
+	-SI hacemos que usen otros atributos, hay hablariamos de una clase abstracta
+
