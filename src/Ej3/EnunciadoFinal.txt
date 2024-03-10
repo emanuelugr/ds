@@ -1,0 +1,56 @@
+
+
+//Enunciado basico. Las clases que hay ahora mismo estan basadas en este enunciado
+//El ejercicio se queda bastante simple asi. Mirar EnunciadoComplicado.txt
+
+La compañia de un prestigioso juego de rol nos ha encargado crear un programa sencillo que permita a los usuarios crear y
+visualizar los atributos de los personajes iniciales que pueden crear
+
+Cada personaje tendra los siguientes atributos:
+
+-Primarios:
+	-Fuerza
+	-Destreza
+	-Resistencia
+	-Inteligencia
+	-Sabiduria
+	-Carisma
+	-Percepcion
+
+-Secundarios
+	-Vida		  	(Resistencia + fuerza)
+	-Stamina	  	(Destreza + Resistencia)
+	-Mana		  	(Inteligencia + Sabiduria)
+	-Persuasion   	(Carisma + Sabiduria)
+	-Agilidad	  	(Destreza + Inteligencia)
+	-Intimidacion 	(Fuerza + Carisma)
+	-Critico		(Percepcion + Inteligencia)
+	-Punteria		(Destreza + Percepcion)
+
+-Nombre, raza y clase;
+
+Cada atributo primario es un valor numerico positivo, y su suma sera igual a 56.
+Los valores de cada atributo primario cambiaran dependiendo de la raza elegida para el personaje:
+	-Humano: 
+	-Elfo: 
+	-Enano: 
+	-Orco:
+
+Cada atributo secundario se calculara segun las operaciones anteriores, las cuales vendran modificadas por la clase
+del personaje:
+	-Caballero
+	-Mago
+	-Ranger
+	-Ladron
+
+La aplicacion le preguntara al usuario por el nombre del personaje, y le permitira escoger que raza y clase quiere ser.
+Tras obtener respuesta, el programa debera crear el personaje segun los parametros elegidos, y mostrar por pantalla el valor
+el nombre del personaje, su raza y su clase, al igual que todos sus atributos con su valor.
+
+Se pide que aquellas clases del programa que solo se usen una vez sean unicos y que se evite instanciar de mas.
+Tambien se pide que las funciones para preguntar al usuario y las funciones de creacion de personajes esten separadas.
+
+
+
+	
+	

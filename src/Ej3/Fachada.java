@@ -19,20 +19,49 @@ public class Fachada {
 	
 	public void crearPersonaje(){
 		String nombre = menu.preguntarNombre();
+		int raza = menu.preguntarRaza();
 		int clase = menu.preguntarClase();
 
-		creaPersonajes constructor;
+		creaRaza constructorRaza;
+		creaClase constructorClase;
 
-		switch (clase){
+		switch (raza){
 			case (1):
-				constructor = new creaCaballero();
+				constructorRaza = new creaHumano();
+				break;
+			case (2):
+				constructorRaza = new creaElfo();
+				break;
+			case (3):
+				constructorRaza = new creaEnano();
+				break;
+			case (4):
+				constructorRaza = new creaOrco();
 				break;
 			default:
-				constructor = new creaCaballero();
+				constructorRaza = new creaHumano();
 				break;				
 		}
 
-		director = new Director(constructor);
+		switch (clase){
+			case (1):
+				constructorClase = new creaCaballero();
+				break;
+			case (2):
+				constructorClase = new creaRanger();
+				break;
+			case (3):
+				constructorClase = new creaMago();
+				break;
+			case (4):
+				constructorClase = new creaLadron();
+				break;
+			default:
+				constructorClase = new creaCaballero();
+				break;				
+		}
+
+		director = new Director(constructorRaza,constructorClase);
 		director.crearPersonaje(nombre);
 
 		director.mostrarPersonaje();

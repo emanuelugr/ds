@@ -1,33 +1,31 @@
-
-
-public class creaCaballero implements creaClase{
+public class creaLadron implements creaClase{
 
 	public String asignarClase(){
-		return "Caballero";
+		return "Ladron";
 	}
 
 	public int asignarVida(int F, int R) {
-		return (int) ((F+R)*1.25);
+		return F+R;
 	}
 
 	public int asignarEstamina(int R, int D) {
-		return (int) ((R+D)*1.5);
+		return (int) ((R+D)*0.75);
 	}
 
 	public int asignarMana(int I, int S) {
-		return (int) ((I+S)*0.5);
+		return I+S;
 	}
 
 	public int asignarPersuasion(int C, int S) {
-		return C+S;
+		return (int) ((C+S)*1.5);
 	}
 
 	public int asignarAgilidad(int D, int I) {
-		return (int) ((D+I)*0.75);
+		return (int) ((D+I)*1.25);
 	}
 
 	public int asignarIntimidacion(int C, int F) {
-		return C+F;
+		return (int) ((C+F)*0.5);
 	}
 
 	public int asignarCritico(int P, int I) {

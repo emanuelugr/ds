@@ -1,10 +1,10 @@
 
-
+/*
 public interface creaPersonajes{
 	public Personaje pers = new Personaje();
 
 	public void asignarTitulo(String nombre);
-	
+
 	public void asignarVida();
 	public void asignarEstamina();
 	public void asignarMana();
@@ -21,3 +21,4 @@ public interface creaPersonajes{
 	public void asignarIntimidacion();
 
 }
+*/

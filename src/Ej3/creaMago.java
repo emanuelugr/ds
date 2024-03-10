@@ -1,21 +1,19 @@
-
-
-public class creaCaballero implements creaClase{
+public class creaMago implements creaClase{
 
 	public String asignarClase(){
-		return "Caballero";
+		return "Mago";
 	}
 
 	public int asignarVida(int F, int R) {
-		return (int) ((F+R)*1.25);
+		return (int) ((F+R)*0.5);
 	}
 
 	public int asignarEstamina(int R, int D) {
-		return (int) ((R+D)*1.5);
+		return (int) ((R+D)*0.75);
 	}
 
 	public int asignarMana(int I, int S) {
-		return (int) ((I+S)*0.5);
+		return (int) ((I+S)*1.5);
 	}
 
 	public int asignarPersuasion(int C, int S) {
@@ -23,7 +21,7 @@ public class creaCaballero implements creaClase{
 	}
 
 	public int asignarAgilidad(int D, int I) {
-		return (int) ((D+I)*0.75);
+		return D+I;
 	}
 
 	public int asignarIntimidacion(int C, int F) {
@@ -31,7 +29,7 @@ public class creaCaballero implements creaClase{
 	}
 
 	public int asignarCritico(int P, int I) {
-		return P+I;
+		return (int) ((P+I)*1.25);
 	}
 
 	public int asignarPunteria(int D, int P) {
