@@ -2,20 +2,8 @@
 
 public class creaCaballero implements creaPersonajes{
 
-	public void asignarClase(){
-		creaPersonajes.pers.clase = "Caballero";
-	}
-
-	public void asignarVida(){
-		creaPersonajes.pers.vida = 100;
-	}
-
-	public void asignarEstamina(){
-		creaPersonajes.pers.estamina = 200;
-	}
-
-	public void asignarMana(){
-		creaPersonajes.pers.mana = 20;
+	public void asignarTitulo(String nombre){
+		creaPersonajes.pers.clase = (nombre + ", el Caballero");
 	}
 
 	public void asignarFuerza(){
@@ -42,28 +30,28 @@ public class creaCaballero implements creaPersonajes{
 		creaPersonajes.pers.carisma = 8;
 	}
 
-	public void asignarArmadura(){
-		creaPersonajes.pers.armadura = "Armadura de caballero.";
+	public void asignarVida(){
+		creaPersonajes.pers.vida = 100;
 	}
 
-	public void asignarEquipamiento(){
-		creaPersonajes.pers.equipamiento = "Mandoble, espada corta, hacha arrojazida.";
+	public void asignarEstamina(){
+		creaPersonajes.pers.estamina = 200;
 	}
 
-	public void aisgnarHechizos(){
-		creaPersonajes.pers.hechizos = "Ninguno.";
+	public void asignarMana(){
+		creaPersonajes.pers.mana = 20;
 	}
 
-	public void asignarHabilidades(){
-		creaPersonajes.pers.habilidades = "Furia, Ataque de poder.";
+	public void asignarPersuasion(){
+		creaPersonajes.pers.persuasion = 10;
 	}
 
-	public void asignarOro(){
-		creaPersonajes.pers.oro = 50;
-	}	
-
-	public void asignarKarma(){
-		creaPersonajes.pers.karma = 20;
-
+	public void asignarAgilidad(){
+		creaPersonajes.pers.agilidad = 4;
 	}
+
+	public void asignarIntimidacion(){
+		creaPersonajes.pers.intimidacion = 15;
+	}
+
 }

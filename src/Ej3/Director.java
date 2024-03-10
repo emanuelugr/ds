@@ -7,8 +7,8 @@ public class Director{
 		this.CP = cp;
 	}
 
-	public void crearPersonaje(){
-		CP.asignarClase();
+	public void crearPersonaje(String nombre){
+		CP.asignarTitulo(nombre);
 
 		CP.asignarVida();
 		CP.asignarEstamina();
@@ -21,13 +21,9 @@ public class Director{
 		CP.asignarSabiduria();
 		CP.asignarCarisma();
 		
-		CP.asignarArmadura();
-		CP.asignarEquipamiento();
-		CP.aisgnarHechizos();
-		CP.asignarHabilidades();
-
-		CP.asignarOro();
-		CP.asignarKarma();
+		CP.asignarPersuasion();
+		CP.asignarAgilidad();
+		CP.asignarIntimidacion();
 	}
 
 	public void mostrarPersonaje(){

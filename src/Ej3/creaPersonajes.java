@@ -3,7 +3,8 @@
 public interface creaPersonajes{
 	public Personaje pers = new Personaje();
 
-	public void asignarClase();
+	public void asignarTitulo(String nombre);
+	
 	public void asignarVida();
 	public void asignarEstamina();
 	public void asignarMana();
@@ -15,11 +16,8 @@ public interface creaPersonajes{
 	public void asignarSabiduria();
 	public void asignarCarisma();
 
-	public void asignarArmadura();
-	public void asignarEquipamiento();
-	public void aisgnarHechizos();
-	public void asignarHabilidades();
-	public void asignarOro();
-	public void asignarKarma();
+	public void asignarPersuasion();
+	public void asignarAgilidad();
+	public void asignarIntimidacion();
 
 }

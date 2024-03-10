@@ -1,10 +1,8 @@
 
 public class Personaje{
-	protected String clase;
-	protected int vida, estamina, mana;
+	protected String nombre, raza, clase;
 	protected int fuerza, destreza, resistencia, inteligencia, sabiduria, carisma;
-	protected String armadura, equipamiento, hechizos, habilidades;
-	protected int oro, karma;
+	protected int vida, estamina, mana, persuasion, agilidad, intimidacion;
 
 	public Personaje(){
 		this.vida = 0;
@@ -18,17 +16,13 @@ public class Personaje{
 		this.sabiduria = 0;
 		this.carisma = 0;
 
-		this.armadura = "";
-		this.equipamiento = "";
-		this.hechizos = "";
-		this.habilidades = "";
-
-		this.oro = 0;
-		this.karma = 0;
+		this.persuasion = 0;
+		this.agilidad = 0;
+		this.intimidacion = 0;
 	}
 
 	public void mostrarPersonaje(){
-		System.out.printf("Personaje de clase: " + this.clase + ": \n"
+		System.out.printf("Personaje: " + this.clase + " \n"
 			+ "Vida: " + this.vida + "\n"
 			+ "Estamina: " + this.estamina + "\n"
 			+ "Mana: " + this.mana + "\n"
@@ -38,12 +32,9 @@ public class Personaje{
 			+ "Inteligencia: " + this.inteligencia + "\n"
 			+ "Sabiduria: " + this.sabiduria + "\n"
 			+ "Carisma: " + this.carisma + "\n"
-			+ "Armadura: " + this.armadura + "\n"
-			+ "Equipamiento: " + this.equipamiento + "\n"
-			+ "Hechizos: " + this.hechizos + "\n"
-			+ "Habilidades: " + this.habilidades + "\n"
-			+ "Oro: " + this.oro + "\n"
-			+ "Karma: " + this.karma + "\n"
+			+ "Persuasion: " + this.persuasion + "\n"
+			+ "Agilidad: " + this.agilidad + "\n"
+			+ "Intimidacion: " + this.intimidacion + "\n"
 			);
 	}
 
