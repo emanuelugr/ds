@@ -15,9 +15,9 @@
 
 ## Ejercicio 3
 
-- [ ] Enunciado
+- [x] Enunciado
 - [ ] Diagrama
-- [ ] Hacer
+- [x] Hacer
 - [ ] Revisar 
 
 ## Ejercicio 4
