@@ -1,4 +1,10 @@
 \documentclass{article}
+%Para imagenes
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry} % Ajusta todos los márgenes a 2 centímetros
+
+
+
 \begin{document}
 	\begin{titlepage}
 		\centering
@@ -12,44 +18,120 @@
 		\vfill
 		{\Large Autores : \par}
 			{\Large  Emanuel Giraldo Herrera\par}
-	{\Large  Thomas Lang \par}
-	{\Large  Timur Sorokin \par}
-	{\Large  Alejando Iborra Morán \par}
+			{\Large  Thomas Lang \par}
+			{\Large  Timur Sorokin \par}
+			{\Large  Alejando Iborra Morán \par}
 		\vfill
-	{\Large (2023-2024) \par}
+		{\Large (2023-2024) \par}
 	\end{titlepage}
 	
 	\section{Ejercicio 1 (Java)}
-	\subsection{Factoria Abstracta}
+	\subsection{Análisis}
+	Se trata de realizar una simulación de carreras de bicicletas con las siguientes características:
+	\begin{itemize}
+		\item \textbf{Bicicleta}\\
+		Cada bicicleta tiene un identificador. Existen dos tipos de bicicletas:
+		\begin{itemize}
+			\item Carretera
+			\item Montaña
+		\end{itemize}
+		
+
+			\item \textbf{Carrera}\\
+			No se conoce el número de bicicletas antes de que empiece la carrera. Además, para cada tipo de bicicleta existe su tipo de carrera con las siguientes peculiaridades:
+			\begin{itemize}
+				\item Carretera\\
+				Antes de finalizar 10\% bicicletas abandonan la carrera
+				\item Montaña\\
+				Antes de finalizar 20\% bicicletas abandonan la carrera.
+				\item Hebras\\
+				Se utilizarán las hebras para la simulación simultanea de varias carreras
+		\end{itemize}
+
+Finalmente, los objetivos que se buscan son aplicar dos patrones de diseño: Factoría Abstracta y Factoría método.
+
+	\end{itemize}
+
+\subsection{UML}
+Antes de realizar la implementación primero hemos de plantear el diagrama UML que relacione las entidades del problema y refleje sus interacciones.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{DS_ej1.drawio.png}
+	\caption{Factoría Abstracta}
+	\label{fig:factoria_abstracta}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+	\includegraphics[width=1\textwidth]{factoria_metodo.png}
+	\caption{Factoría Método}
+	\label{fig:factoria_metodo}
+\end{figure}
+
+\subsection{Factoría Abstracta}
+Se trata de un patrón creacional que define una interfaz para crear objetos relacionados sin especificar las clases concretas de esos objetos. Así conseguimos que el código cliente pueda instanciar los objetos sin conocer sus tipos concretos. Esto nos permite desacoplar las implementaciones concretas del código cliente. \\
+
+En nuestro problema tenemos dos entidades básicas que son \textit{Bicicleta} y \textit{Carrera}. Hemos visto durante el análisis que existe una relación entre estas  dos clases, es decir, en una \textit{Carrera} compiten las \textit{Bicicletas}. También vimos que ambas entidades pueden ser de dos tipos: \textit{carretera} y \textit{montaña}. Cada uno de ellos con sus características \textit{concretas}. 
+Entonces, tenemos que en una \textit{Carrera de montaña} participan \textit{Bicicletas de montaña}. Y en una \textit{Carrera de carretera} participan \textit{bicicletas de carretera}.  Por tanto distinguimos los siguientes elementos:
+\begin{itemize}
 	
+	\item  \textbf{\textit{Bicicleta}}\\ Es una entidad que representa una bicicleta abstracta y actúa como una base para los distintos tipos de bicicletas que pueden existir.
+	\begin{itemize}
+		\item \textbf{BicicletaCarretera}\\\textit{Es una} bicicleta concreta con características añadidas que son propias de carretera.
+		\item \textbf{BicicletaMontana}\\\textit{Es una} bicicleta concreta con características añadidas que son propias de montaña.
+	\end{itemize}
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel feugiat eros. Nunc ullamcorper rhoncus nulla, ut rutrum augue ultricies in. Praesent pulvinar velit purus, eu posuere turpis tempor vel. Praesent vulputate justo nibh, aliquam tristique ex rhoncus eget. Nunc ut ipsum sapien. Nunc quis nisi libero. Proin in massa condimentum, aliquam justo ac, efficitur eros.
-	
-	Pellentesque tincidunt ut sem blandit tempor. Sed tristique malesuada quam eu eleifend. Aenean porta vulputate eros, quis volutpat nisi fermentum id. Vivamus lacinia ipsum enim, a sollicitudin ante ullamcorper sit amet. Sed efficitur massa nec orci pharetra, id venenatis ante convallis. Donec sapien leo, accumsan nec maximus in, rhoncus eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec fringilla malesuada quam. Maecenas pellentesque efficitur feugiat. Nullam ut condimentum mi. Donec id felis ultrices, consequat urna eget, rutrum est. Duis placerat consectetur urna et porta. Duis sodales pretium. 
-	\subsection{Factoria Metodo}
-	
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel feugiat eros. Nunc ullamcorper rhoncus nulla, ut rutrum augue ultricies in. Praesent pulvinar velit purus, eu posuere turpis tempor vel. Praesent vulputate justo nibh, aliquam tristique ex rhoncus eget. Nunc ut ipsum sapien. Nunc quis nisi libero. Proin in massa condimentum, aliquam justo ac, efficitur eros.
-	
-	Pellentesque tincidunt ut sem blandit tempor. Sed tristique malesuada quam eu eleifend. Aenean porta vulputate eros, quis volutpat nisi fermentum id. Vivamus lacinia ipsum enim, a sollicitudin ante ullamcorper sit amet. Sed efficitur massa nec orci pharetra, id venenatis ante convallis. Donec sapien leo, accumsan nec maximus in, rhoncus eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec fringilla malesuada quam. Maecenas pellentesque efficitur feugiat. Nullam ut condimentum mi. Donec id felis ultrices, consequat urna eget, rutrum est. Duis placerat consectetur urna et porta. Duis sodales pretium. 
-	\section{Ejercicio 2 (Python)}
-	\subsection{Factoria Abstracta}
-	
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel feugiat eros. Nunc ullamcorper rhoncus nulla, ut rutrum augue ultricies in. Praesent pulvinar velit purus, eu posuere turpis tempor vel. Praesent vulputate justo nibh, aliquam tristique ex rhoncus eget. Nunc ut ipsum sapien. Nunc quis nisi libero. Proin in massa condimentum, aliquam justo ac, efficitur eros.
-	
-	Pellentesque tincidunt ut sem blandit tempor. Sed tristique malesuada quam eu eleifend. Aenean porta vulputate eros, quis volutpat nisi fermentum id. Vivamus lacinia ipsum enim, a sollicitudin ante ullamcorper sit amet. Sed efficitur massa nec orci pharetra, id venenatis ante convallis. Donec sapien leo, accumsan nec maximus in, rhoncus eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec fringilla malesuada quam. Maecenas pellentesque efficitur feugiat. Nullam ut condimentum mi. Donec id felis ultrices, consequat urna eget, rutrum est. Duis placerat consectetur urna et porta. Duis sodales pretium. 
-	\subsection{Prototipo}
-	
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel feugiat eros. Nunc ullamcorper rhoncus nulla, ut rutrum augue ultricies in. Praesent pulvinar velit purus, eu posuere turpis tempor vel. Praesent vulputate justo nibh, aliquam tristique ex rhoncus eget. Nunc ut ipsum sapien. Nunc quis nisi libero. Proin in massa condimentum, aliquam justo ac, efficitur eros.
-	
-	Pellentesque tincidunt ut sem blandit tempor. Sed tristique malesuada quam eu eleifend. Aenean porta vulputate eros, quis volutpat nisi fermentum id. Vivamus lacinia ipsum enim, a sollicitudin ante ullamcorper sit amet. Sed efficitur massa nec orci pharetra, id venenatis ante convallis. Donec sapien leo, accumsan nec maximus in, rhoncus eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec fringilla malesuada quam. Maecenas pellentesque efficitur feugiat. Nullam ut condimentum mi. Donec id felis ultrices, consequat urna eget, rutrum est. Duis placerat consectetur urna et porta. Duis sodales pretium. 
-	\section{Ejercicio 3}
-	\subsection{Diseño e implementación de una aplicación que utilice un patrón de diseño libre}
+	\item \textbf{\textit{Carrera}}\\Al igual que en el caso de \textit{Bicicleta} se trata de una clase abstracta pues engloba ciertas características comunes a todos los tipos de carreras que pueden existir. 
+	\begin{itemize}
+		\item \textbf{CarreraCarretera}\\\textit{Es una} carrera concreta en la que participan bicicletas de carretera.
+		\item \textbf{CarreraMontana}\\\textit{Es una} carrera concreta  en la que participan bicicletas de montaña.
+	\end{itemize}
+	 
+	\newpage
+	\item \textbf{\textit{FactoriaCarreraYBicicleta}}\\
+	Es una interfaz que define dos operaciones: crear bicicleta y crear carrera. No obstante, no especifica el tipo concreto del objeto que se va a crear. 
+	\begin{itemize}
+		\item \textbf{FactoriaCarretera}\\Es  una factoría especializada en crear las carreras y bicicletas de carretera
+			\item \textbf{FactoriaMontana}\\Es  una factoría especializada en crear las carreras y bicicletas de montaña
+	\end{itemize}
+		
+	\end{itemize}
+	\subsection{Consideraciones sobre Factoría Abstracta}
+	\begin{itemize}
+		\item La clase \textit{Carrera} implementa interfaz Runnable para representar código que puede ser ejecutado por un hilo independiente para conseguir la concurrencia de las carreras.
+		\item La clase \textit{Carrera} es abstracta pero no tiene ningún método abstracto puesto que, según el enunciado dado, todas las carreras tienen el mismo comportamiento que se resumen en añadir bicicleta, aplicar dropout y simular la competición. Entonces parece más coherente definir un comportamiento predeterminado en la clase base/abstracta que repetir el mismo código en diferentes archivos. Además, se mantiene como abstracta puesto que preferimos restringir la instanciación de esta clase. 
+		\item Se ha aplicado el mismo razonamiento para la \textit{Bicicleta}. Aunque los dos tipos de bicicletas que hay podrían ser suprimidos debido a que no aportan nada al problema pues solo se diferencian en el dato miembro \textit{id}. Quizá en una simulación más compleja en la que, por ejemplo, la velocidad máxima este definida por el tipo de bicicleta tendría más significado la separación de los tipos.
+	\end{itemize}
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel feugiat eros. Nunc ullamcorper rhoncus nulla, ut rutrum augue ultricies in. Praesent pulvinar velit purus, eu posuere turpis tempor vel. Praesent vulputate justo nibh, aliquam tristique ex rhoncus eget. Nunc ut ipsum sapien. Nunc quis nisi libero. Proin in massa condimentum, aliquam justo ac, efficitur eros.
+\subsection{Factoría Método}
+  Es un patrón creacional que permite crear objetos sin especificar la clase. En vez de crear los objetos de forma directa lo que haremos es usar un método para crear y devolverlos. 
+	
+	Para ello se ha optado por definir una nueva entidad \textit{FactoriaCarreraYBicicletaMetodo} en la que se definen dos operaciones: \textit{crearBicicleta(TipoCarrera)} y \textit{crearCarretera(TipoCarrera)}. En ambas mediante un switch basado en \textit{TipoCarrera} se decide el tipo de objeto se debe crear siendo \textit{TipoCarrera} un enum trivial.  
+	
+\subsection{Solución}
+En la carpeta src/EJ1  ofrecemos una solución al problema planteado. En esta carpeta se puede consultar los archivos correspondientes a cada entidad del digrama UML. \\
 
-Pellentesque tincidunt ut sem blandit tempor. Sed tristique malesuada quam eu eleifend. Aenean porta vulputate eros, quis volutpat nisi fermentum id. Vivamus lacinia ipsum enim, a sollicitudin ante ullamcorper sit amet. Sed efficitur massa nec orci pharetra, id venenatis ante convallis. Donec sapien leo, accumsan nec maximus in, rhoncus eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec fringilla malesuada quam. Maecenas pellentesque efficitur feugiat. Nullam ut condimentum mi. Donec id felis ultrices, consequat urna eget, rutrum est. Duis placerat consectetur urna et porta. Duis sodales pretium. 
+En el archivo \textit{main.java} se han definido dos funciones \textit{FinalFactoriaAbtracta} y \textit{FinalFactoriaMetodo}
+en las que se muestra el uso de los dos patrones implementados. 	
+
+
+\section{Ejercicio 2}
+\subsection{Análisis}
+En este problema se pide realizar la implementación de Factoria Abstracta del ejercicio 1 en el lenguaje Python sin utilizar las hebras y además realizar la implementación del patron \textit{Prototipo}. 
+
+\subsection{Factoria Abstracta}
+Utilizamos el modulo \textit{abc} para poder definir clases abstractas. Las clases abstractas son clases que no pueden ser instanciadas directamente, sino que se utilizan como base para otras clases que las heredan. 
+El planteamiento no cambia en absolutamente nada en comparación con el ejercicio 1 siendo la única diferencia el lenguaje de programación y su sintaxis subyacente.
+
+\subsection{Prototipo}
+Este patrón consiste en crear nuevos objetos clonando otro existente. En nuestro caso vamos a definir un método para la entidad \textit{Bicicleta} que nos permita realizar una copia del objeto existente. Puesto que hablamos de copiar los objetos es necesario recordar los conceptos \textit{shallow copy y deep copy}. 
+
+\begin{itemize}
+	\item \textit{Shadow Copy}  copia solo la estructura  del objeto pero comparte los datos miembros entre el original y la copia, lo que hace que los cambios afecten a ambos. Es más rápida y consume menos memoria.
+	
+	\item \textit{Deep Copy }crea copias independientes evitando la compartición de memoria por tanto los cambios en una copia no afectan al objeto original ni viceversa. Es más lenta y consume más memoria.
+\end{itemize}
+
+Para implementar metodo \textit{clone()} podemos recurir al \textit{constructor de copia} en el que realizaremos una copia profunda del objeto recibido como argumento. O alternativamente podemos usar modulo \textit{copy} que nos dá interfaces para duplicar los objetos. Nosotros hemos optado por este último.
 \end{document} 
