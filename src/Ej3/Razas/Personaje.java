@@ -1,12 +1,10 @@
 package Razas;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Personaje {
 	protected String nombre, raza, clase;
 
-	/* */
 	private HashMap<String, Integer> primaryAttr;
 	private HashMap<String, Integer> secondaryAttr;
 

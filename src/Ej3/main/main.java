@@ -1,7 +1,5 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import Clases.CaballeroBuilder;
 import Clases.ClaseBuilder;
@@ -9,7 +7,6 @@ import Clases.LadronBuilder;
 import Clases.MagoBuilder;
 import Clases.RangerBuilder;
 import Razas.Director;
-import Razas.HumanoBuilder;
 import Razas.OrcoBuilder;
 import Razas.PersonajeBuilder;
 
