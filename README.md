@@ -28,6 +28,6 @@
 
 ## Ejercicio 5
 
-- [ ] Diagrama
+- [x] Diagrama
 - [x] Hacer
-- [ ] Revisar 
+- [x] Revisar 

@@ -1,6 +1,7 @@
 \documentclass{article}
 %Para imagenes
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[margin=2cm]{geometry} % Ajusta todos los márgenes a 2 centímetros
 
 
@@ -135,7 +136,25 @@ Este patrón consiste en crear nuevos objetos clonando otro existente. En nuestr
 
 Para implementar metodo \textit{clone()} podemos recurir al \textit{constructor de copia} en el que realizaremos una copia profunda del objeto recibido como argumento. O alternativamente podemos usar modulo \textit{copy} que nos dá interfaces para duplicar los objetos. Nosotros hemos optado por este último.
 
-bñlñabladfgadfgkjkadrogjadfghs
+
+\section{Ejercicio 5}
+\subsection{Análisis}
+En este problema se pide diseñar y realizar una aplicación de WebScraping en Python donde se utilice el Patrón \textit{Strategy} para scrapear información en vivo de acciones.  Para ello se seguirán dos estrategias cada una usando una biblioteca distinta de Python: BeautifulSoup y Selenium.
+
+\subsection{Strategy}
+El patrón \textit{Strategy} o \textit{Estrategia} define una familia de algoritmos, encapsula cada uno y los hace intercambiables en tiempo de ejecución. Para ello definimos una clase abstracta llamada \textit{ScraperStrategy} y las estategias de scrapping correspondientes \textit{BeautifulSoupScraper} y \textit{SeleniumScraper}. Además, es necesario crear un clase que sirva para intercambiar las estrategias definidas en cada ejecución, sirviendo para esto la clase \textit{Context}.
+
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.6\textwidth]{DS_ej5.drawio.png}
+	\caption{Strategy}
+	\label{fig:strategy}
+\end{figure}
+
+
+\subsection{Selenium}
+Horadando en el código de cada estrategia de scrapping, \textit{SeleniumScraper} ha supuesto un ejercicio de mayor complejidad. Al intentar llevar a cabo este algoritmo, en primera instancia, obteníamos errores debido a la ventana emergente que informa de las cookies nada más entrar en la web. Para sortearla, es necesario pulsar sobre cualquiera de los botones de \textit{Aceptar} o \textit{Rechazar}, sin embargo, estos botones son visibles únicamente si la pantalla cumple unas propiedades específicas de tamaño, si no, es necesario realizar un scroll vertical para alcanzar dichos botones. La solución planteada a esta tesitura ha sido primero maximizar la ventana, garantizando así la visibilidad de los botones, para luego pulsar sobre el botón de \textit{Rechazar} y finalmente acceder a los datos que queremos obtener.
 
 
 
