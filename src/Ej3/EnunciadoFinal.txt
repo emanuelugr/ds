@@ -40,6 +40,10 @@ Cada atributo secundario se calculara segun las operaciones anteriores, las cual
 del personaje:
 	-Caballero
 	-Mago
+		- Vida: (F+R)*0.5
+		- Estamina: (R+D)*0.75
+		- Mana: (I+S)*1.5
+		- Critico: (P+I)*1.25
 	-Ranger
 	-Ladron
 
