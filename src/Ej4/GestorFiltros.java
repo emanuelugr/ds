@@ -10,8 +10,10 @@ public class GestorFiltros {
 		cadenaFiltros.añadirFiltro(filtro) ;
 	}
 
-	public void ejecutar(double revoluciones, EstadoMotor estadoMotor) {
-		cadenaFiltros.ejecutar(revoluciones, estadoMotor);
+	public double peticionFiltros(double revoluciones, EstadoMotor estadoMotor) {
+        double revs = cadenaFiltros.ejecutar(revoluciones, estadoMotor);
+
+        return revs;
 	}
 
 }

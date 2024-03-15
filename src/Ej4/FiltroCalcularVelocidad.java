@@ -1,9 +1,9 @@
 public class FiltroCalcularVelocidad implements Filtro {
-	private double incrementoVelocidad;
 	private final double DEFINCVEL = 100, DEFDECVEL = -100, DEFMAXVEL = 5000;
 
 	public double ejecutar(double revoluciones, EstadoMotor estadoMotor){
 		double nuRevs = revoluciones;
+        double incrementoVelocidad;
 
 		switch (estadoMotor){
 			case ACELERANDO:
@@ -21,7 +21,9 @@ public class FiltroCalcularVelocidad implements Filtro {
 
 		if (nuRevs > DEFMAXVEL){
 			nuRevs = DEFMAXVEL;
-		}
+		} else if(nuRevs < 0){
+            nuRevs = 0;
+        }
 
 		return nuRevs;
 	}

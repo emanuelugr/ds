@@ -1,17 +1,15 @@
 public class FiltroRepercutirRozamiento implements Filtro {
-	private final double FACTROZE = -50;
+    private final double FACTROZE = -50;
 
-	public double ejecutar(double revoluciones, EstadoMotor estadoMotor){
-		double nuRevs = revoluciones;
+    public double ejecutar(double revoluciones, EstadoMotor estadoMotor){
+        double nuRevs = revoluciones;
 
-		switch (estadoMotor){
-			case ACELERANDO, FRENANDO:
-				nuRevs = FACTROZE;
-				break;
-			default:
-				break;
-		}
-		return nuRevs;
-	}
+        nuRevs += FACTROZE;
+        
+        if(nuRevs < 0){
+            nuRevs = 0;
+        }
 
+        return nuRevs;
+    }
 }

@@ -14,7 +14,7 @@ public class CadenaFiltros {
 		this.objetivo = objetivo ;
 	}
 
-	public void ejecutar ( double revoluciones, EstadoMotor estadoMotor ) {
+	public double ejecutar ( double revoluciones, EstadoMotor estadoMotor ) {
 		double revs = revoluciones;
 		for ( Filtro filtro : filtros ) {
 			revs = filtro.ejecutar(revs,  estadoMotor) ;
@@ -23,6 +23,8 @@ public class CadenaFiltros {
 		if ( objetivo != null ) {
 			revs = objetivo.ejecutar( revs,  estadoMotor ) ;
 		}
+
+        return revs;
 	}
 	
 }
