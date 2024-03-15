@@ -3,15 +3,15 @@
 - [x] Digrama
 - [x] Factoria Abstracta
 - [x] Factoria Metodo
-- [ ] Revisar 
+- [x] Revisar 
 
 
 ## Ejercicio 2
 
-- [ ] Digrama
+- [x] Digrama
 - [x] Factoria abstracta
 - [x] Prototipo
-- [ ] Revisar 
+- [x] Revisar 
 
 ## Ejercicio 3
 
