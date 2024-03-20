@@ -1,6 +1,12 @@
+[actualizado]
+Se han aplicado:
+- builder
+- fachada
+- singleton
 
 
 
+[antiguo]
 No se como de complejo me ha quedado el ejercicio. Si se te ocurre alguna forma de hacerlo mas complejo adelante.
 Puede que interese hacer que el programa pregunte al usuario tras crear un personaje si quiere crear otro o salir.
 
