@@ -1,0 +1,3 @@
+Vida:1.25
+Mana:0.5
+Agilidad:0.75

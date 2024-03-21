@@ -1,0 +1,3 @@
+Estamina:0.75
+Persuasion:1.5
+Intimidacion:0.5

@@ -1,0 +1,7 @@
+Fuerza:9
+Destreza:8
+Resistencia:7
+Inteligencia:7
+Sabiduria:8
+Carisma:9
+Percepcion:8
