@@ -22,8 +22,8 @@
 
 ## Ejercicio 4
 
-- [ ] Diagrama
-- [ ] Hacer
+- [X] Diagrama
+- [X] Hacer
 - [ ] Revisar 
 
 ## Ejercicio 5
