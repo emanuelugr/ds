@@ -1,3 +1,10 @@
+# Memoria
+- [x] Ej1
+- [x] Ej2
+- [x] Ej3
+- [ ] Ej4
+- [x] Ej5
+
 # Practica 1
 ## Ejercicio 1
 - [x] Digrama
