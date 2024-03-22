@@ -1,0 +1,20 @@
+[actualizado]
+Se han aplicado:
+- builder
+- fachada
+- singleton
+
+
+
+[antiguo]
+No se como de complejo me ha quedado el ejercicio. Si se te ocurre alguna forma de hacerlo mas complejo adelante.
+Puede que interese hacer que el programa pregunte al usuario tras crear un personaje si quiere crear otro o salir.
+
+Aunque he intentado seguir el patron builder, a lo mejor el hecho de que no haya una clase/objeto Raza y Clase invalide
+la implementacion. creaClase y creaRaza actuan directametne sobre Personaje en vez de crear clases en si.
+
+Si hay que crear las clases Raza y Clase, seria tan facil como crear las clases Raza y clase, que tienen como variables
+los atributos primarios y secundarios respectivamente.
+Luego seria hacer que creaRaza y creaClase tengan como variable Raza y Clase respectivamente.
+Personaje pasaria de tener todos los atributos, a tener solo su nombre, variable Clase clase y variable Raza raza, y 
+asignaria los atributos de su Clase y su Raza segun los creados por creaClase y creaRaza, en la clase Director.
