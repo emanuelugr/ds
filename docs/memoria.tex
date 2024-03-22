@@ -137,6 +137,98 @@ Este patrón consiste en crear nuevos objetos clonando otro existente. En nuestr
 Para implementar metodo \textit{clone()} podemos recurir al \textit{constructor de copia} en el que realizaremos una copia profunda del objeto recibido como argumento. O alternativamente podemos usar modulo \textit{copy} que nos dá interfaces para duplicar los objetos. Nosotros hemos optado por este último.
 
 
+\section{Ejercicio 3}
+\subsection{Análisis}
+En este ejercicio se propone realizar diseño e implementación de una aplicación que utilice un patrón de diseño libre.
+Para realización de este ejercicios proponemos el siguiente enunciado:
+
+
+La compañia de un prestigioso juego de rol nos ha encargado crear un programa sencillo que permita a los usuarios crear y
+visualizar los atributos de los personajes iniciales que pueden crear
+
+Cada personaje tendra los siguientes atributos:
+\begin{itemize}
+\item Primarios
+Cada atributo primario es un valor numerico positivo, y su suma sera igual a 56.
+Los valores de cada atributo primario cambiaran dependiendo de la raza elegida para el personaje
+	\begin{itemize}
+		\item Fuerza
+		\item Destreza
+		\item Resistencia
+		\item Inteligencia
+		\item Sabiduria
+		\item Carisma
+		\item Percepcion
+	\end{itemize}
+
+\item Secundarios
+Cada atributo secundario se calculara segun las operaciones anteriores, las cuales vendran modificadas por la clase
+del personaje
+	\begin{itemize}
+		\item Vida		  	(Resistencia + fuerza)
+		\item Stamina	  	(Destreza + Resistencia)
+		\item Mana		  	(Inteligencia + Sabiduria)
+		\item Persuasion   	(Carisma + Sabiduria)
+		\item Agilidad	  	(Destreza + Inteligencia)
+		\item Intimidacion 	(Fuerza + Carisma)
+		\item Critico		(Percepcion + Inteligencia)
+		\item Punteria		(Destreza + Percepcion)
+	\end{itemize}
+
+\item Nombre
+\item Raza
+	\begin{itemize}
+		\item Humano
+		\item Orco
+		\item Elfo
+		\item Enano
+	\end{itemize}
+\item Clase
+	\begin{itemize}
+		\item Caballero
+		\item Ladron
+		\item Mago
+		\item Ranger
+	\end{itemize}
+
+
+\item Funcionalidad Deseada
+La aplicacion le preguntará al usuario por el nombre del personaje, y le permitirá escoger qué raza y clase quiere ser.
+Tras obtener respuesta, el programa debera crear el personaje según los parametros elegidos, y mostrar por pantalla el valor
+el nombre del personaje, su raza y su clase, al igual que todos sus atributos con su valor.
+
+Se pide que aquellas clases del programa que solo se usen una vez sean unicos y que se evite instanciar de mas.
+Tambien se pide que las funciones para preguntar al usuario y las funciones de creacion de personajes esten separadas.
+
+\subsection{UML}
+
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.6\textwidth]{DS_ej3.jpg}
+	\caption{ejercicio 3}
+	\label{fig:ej3}
+\end{figure}
+
+
+\subsection{Consideraciones}
+Clase ClaseBuilder es una clase abstracta que actua como base para las clases hijas. De modo que hemos optado por dar una funcionalidad 
+predeterminada a los métodos para encapsular un comportamiento común y evitar repetir el mismo código en diferentes archivos. De ser necesario una modificación consideramos
+que es adecuado que cada clase hija mediante override especialice su comportamiento.
+
+Mismo razonamiento se ha aplicado a PersonajeBuilder
+
+Utilizamos clase Director para abstraer el proceso de creación del personaje, es decir, esta clase se encarga de orquestar los pasos necesarior para construir el objeto de tipo Personaje 
+
+Utilizamos Menu para recoger el input del usuario. Se trata de un Singleton pues pensamos que al interactuar a traves de la terminal no tiene sentido que existan muchos objetos de Menu instaciados  
+
+
+Por últmo, utilizamos clase Fachada ofrecemos una interfaz unificada para la interacción con el sistema. De esta forma simplificamos el uso de las clases por el código cliente.
+
+Como conslución, hemos obtenido un sistema con bajo nivel de acoplamiento. Cada modulo es responsable de una tarea especifica con su lógica adecuada
+
+
+
 \section{Ejercicio 5}
 \subsection{Análisis}
 En este problema se pide diseñar y realizar una aplicación de WebScraping en Python donde se utilice el Patrón \textit{Strategy} para scrapear información en vivo de acciones.  Para ello se seguirán dos estrategias cada una usando una biblioteca distinta de Python: BeautifulSoup y Selenium.
