@@ -2,7 +2,11 @@
 %Para imagenes
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{enumitem} % Paquete para personalizar listas
 \usepackage[margin=2cm]{geometry} % Ajusta todos los márgenes a 2 centímetros
+\usepackage{indentfirst} % Este paquete fuerza la sangría del párrafo en la primera línea
+\setlength{\parindent}{1cm} % Ajusta la sangría de los párrafos a 1 cm
+
 
 
 
@@ -12,12 +16,15 @@
 		{\bfseries\LARGE Universidad de Granada\par}
 		\vspace{1cm}
 		{\scshape\Large Facultad de Ingeniería Informática \par}
-		\vspace{3cm}
+		\vspace{2cm}
 		{\scshape\Huge Practica 1: Patrones de diseño \par}
-		\vspace{3cm}
+		\begin{figure}[h]
+            	\centering
+            	\includegraphics[width=0.75\textwidth]{logo_UGR.jpg}
+            	\label{fig:portada}
+            \end{figure}
 		{\itshape\Large DS: Grupo 1.7\par}
 		\vfill
-		{\Large Autores : \par}
 			{\Large  Emanuel Giraldo Herrera\par}
 			{\Large  Thomas Lang \par}
 			{\Large  Timur Sorokin \par}
@@ -28,7 +35,7 @@
 	
 	\section{Ejercicio 1 (Java)}
 	\subsection{Análisis}
-	Se trata de realizar una simulación de carreras de bicicletas con las siguientes características:
+	\noindent Se trata de realizar una simulación de carreras de bicicletas con las siguientes características:
 	\begin{itemize}
 		\item \textbf{Bicicleta}\\
 		Cada bicicleta tiene un identificador. Existen dos tipos de bicicletas:
@@ -48,10 +55,10 @@
 				\item Hebras\\
 				Se utilizarán las hebras para la simulación simultanea de varias carreras
 		\end{itemize}
+\end{itemize}
 
-Finalmente, los objetivos que se buscan son aplicar dos patrones de diseño: Factoría Abstracta y Factoría método.
+\noindent Finalmente, los objetivos que se buscan son aplicar dos patrones de diseño: Factoría Abstracta y Factoría método.
 
-	\end{itemize}
 
 \subsection{UML}
 Antes de realizar la implementación primero hemos de plantear el diagrama UML que relacione las entidades del problema y refleje sus interacciones.
@@ -106,17 +113,35 @@ Entonces, tenemos que en una \textit{Carrera de montaña} participan \textit{Bic
 
 
 \subsection{Factoría Método}
-  Es un patrón creacional que permite crear objetos sin especificar la clase. En vez de crear los objetos de forma directa lo que haremos es usar un método para crear y devolverlos. 
-	
+  Es un patrón creacional que permite crear objetos sin especificar la clase. En vez de crear los objetos de forma directa lo que haremos es usar un método para crear y devolverlos. \\
+
 	Para ello se ha optado por definir una nueva entidad \textit{FactoriaCarreraYBicicletaMetodo} en la que se definen dos operaciones: \textit{crearBicicleta(TipoCarrera)} y \textit{crearCarretera(TipoCarrera)}. En ambas mediante un switch basado en \textit{TipoCarrera} se decide el tipo de objeto se debe crear siendo \textit{TipoCarrera} un enum trivial.  
 	
 \subsection{Solución}
 En la carpeta src/EJ1  ofrecemos una solución al problema planteado. En esta carpeta se puede consultar los archivos correspondientes a cada entidad del digrama UML. \\
 
 En el archivo \textit{main.java} se han definido dos funciones \textit{FinalFactoriaAbtracta} y \textit{FinalFactoriaMetodo}
-en las que se muestra el uso de los dos patrones implementados. 	
+en las que se muestra el uso de los dos patrones implementados. 
 
 
+\newpage
+\vspace{15pt}
+\subsection{Ejecución}
+
+En la ejecución del programa podemos ver como se simulan las carreras simultáneamente utilizando hebras, primero con el patrón \textit{Factoría Abstracta}, y posteriormente, haciendo uso del patrón \textit{Factoría de Método}, tal y como hemos comentado.
+
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.8\textwidth]{DS_ejecucion_ej1-1.png}
+        \includegraphics[width=0.8\textwidth]{DS_ejecucion_ej1-2.png}
+	\caption{Ejecucion del ejercicio 1}
+	\label{fig:ej1}
+\end{figure}
+
+
+
+\newpage
 \section{Ejercicio 2}
 \subsection{Análisis}
 En este problema se pide realizar la implementación de Factoria Abstracta del ejercicio 1 en el lenguaje Python sin utilizar las hebras y además realizar la implementación del patron \textit{Prototipo}. 
@@ -137,18 +162,33 @@ Este patrón consiste en crear nuevos objetos clonando otro existente. En nuestr
 Para implementar metodo \textit{clone()} podemos recurir al \textit{constructor de copia} en el que realizaremos una copia profunda del objeto recibido como argumento. O alternativamente podemos usar modulo \textit{copy} que nos dá interfaces para duplicar los objetos. Nosotros hemos optado por este último.
 
 
+\subsection{Ejecución}
+\begin{figure}[h]
+	\centering
+        \vspace{5pt}
+	\includegraphics[width=0.8\textwidth]{DS_ejecucion_ej2.png}
+	\caption{Ejecucion del ejercicio 2}
+	\label{fig:ej2}
+\end{figure}
+
+
+
+\newpage
 \section{Ejercicio 3}
 \subsection{Análisis}
-En este ejercicio se propone realizar diseño e implementación de una aplicación que utilice un patrón de diseño libre.
-Para realización de este ejercicios proponemos el siguiente enunciado:
+En este ejercicio se propone realizar diseño e implementación de una aplicación que utilice un patrón de diseño libre. Para realización de este ejercicios proponemos el siguiente enunciado: 
 
+\vspace{\baselineskip}
 
-La compañia de un prestigioso juego de rol nos ha encargado crear un programa sencillo que permita a los usuarios crear y
-visualizar los atributos de los personajes iniciales que pueden crear
+\emph{La compañía de un prestigioso juego de rol nos ha encargado crear un programa sencillo que permita a los usuarios crear y
+visualizar los atributos de los personajes iniciales que pueden crear.}
 
-Cada personaje tendra los siguientes atributos:
-\begin{itemize}
-\item Primarios
+\vspace{\baselineskip}
+
+Cada personaje tendrá los siguientes atributos:
+
+\begin{itemize}[leftmargin=1cm]
+\item \textbf{Primarios:}
 Cada atributo primario es un valor numerico positivo, y su suma sera igual a 56.
 Los valores de cada atributo primario cambiaran dependiendo de la raza elegida para el personaje
 	\begin{itemize}
@@ -161,7 +201,7 @@ Los valores de cada atributo primario cambiaran dependiendo de la raza elegida p
 		\item Percepcion
 	\end{itemize}
 
-\item Secundarios
+\item \textbf{Secundarios:}
 Cada atributo secundario se calculara segun las operaciones anteriores, las cuales vendran modificadas por la clase
 del personaje
 	\begin{itemize}
@@ -175,66 +215,84 @@ del personaje
 		\item Punteria		(Destreza + Percepcion)
 	\end{itemize}
 
-\item Nombre
-\item Raza
+\item \textbf{Nombre}
+\item \textbf{Raza}
 	\begin{itemize}
 		\item Humano
 		\item Orco
 		\item Elfo
 		\item Enano
 	\end{itemize}
-\item Clase
+\item \textbf{Clase}
 	\begin{itemize}
 		\item Caballero
 		\item Ladron
 		\item Mago
 		\item Ranger
 	\end{itemize}
+\end{itemize}
 
 
-\item Funcionalidad Deseada
-La aplicacion le preguntará al usuario por el nombre del personaje, y le permitirá escoger qué raza y clase quiere ser.
-Tras obtener respuesta, el programa debera crear el personaje según los parametros elegidos, y mostrar por pantalla el valor
-el nombre del personaje, su raza y su clase, al igual que todos sus atributos con su valor.
-
-Se pide que aquellas clases del programa que solo se usen una vez sean unicos y que se evite instanciar de mas.
-Tambien se pide que las funciones para preguntar al usuario y las funciones de creacion de personajes esten separadas.
+Se pide que aquellas clases del programa que solo se usen una vez sean únicas y que se evite instanciar de mas.
+También se pide que las funciones para preguntar al usuario y las funciones de creación de personajes estén separadas.
 
 \subsection{UML}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
         \vspace{15pt}
-	\includegraphics[width=0.6\textwidth]{DS_ej3.jpg}
+	\includegraphics[width=0.9\textwidth]{DS_ej3.jpg}
 	\caption{ejercicio 3}
 	\label{fig:ej3}
 \end{figure}
 
 
 \subsection{Consideraciones}
-Clase ClaseBuilder es una clase abstracta que actua como base para las clases hijas. De modo que hemos optado por dar una funcionalidad 
-predeterminada a los métodos para encapsular un comportamiento común y evitar repetir el mismo código en diferentes archivos. De ser necesario una modificación consideramos
-que es adecuado que cada clase hija mediante override especialice su comportamiento.
+\begin{enumerate}[label=-] % Configura la etiqueta de la enumeración como guiones
+    \item La clase \textit{ClaseBuilder} es una clase abstracta que actúa como base para las clases hijas. De modo que hemos optado por dar una 
+    funcionalidad predeterminada a los métodos para encapsular un comportamiento común y evitar repetir el mismo código en diferentes 
+    archivos. De ser necesario una modificación consideramos que es adecuado que cada clase hija mediante override especialice su 
+    comportamiento.
 
-Mismo razonamiento se ha aplicado a PersonajeBuilder
+    \item Mismo razonamiento se ha aplicado a \textit{PersonajeBuilder}
+    
+    \item Utilizamos clase \textit{Director} para abstraer el proceso de creación del personaje, es decir, esta clase se encarga de orquestar los pasos necesarior para construir el objeto de tipo \textit{Personaje}.
 
-Utilizamos clase Director para abstraer el proceso de creación del personaje, es decir, esta clase se encarga de orquestar los pasos necesarior para construir el objeto de tipo Personaje 
+    \item Utilizamos \textit{Menu} para recoger el input del usuario. Se trata de un \textit{Singleton} pues pensamos que al interactuar a traves de la terminal no tiene sentido que existan muchos objetos de \textit{Menu} instaciados.
 
-Utilizamos Menu para recoger el input del usuario. Se trata de un Singleton pues pensamos que al interactuar a traves de la terminal no tiene sentido que existan muchos objetos de Menu instaciados  
+    \item Por último, utilizamos clase \textit{Fachada} ofrecemos una interfaz unificada para la interacción con el sistema. De esta forma simplificamos el uso de las clases por el código cliente.
 
-
-Por últmo, utilizamos clase Fachada ofrecemos una interfaz unificada para la interacción con el sistema. De esta forma simplificamos el uso de las clases por el código cliente.
-
-Como conslución, hemos obtenido un sistema con bajo nivel de acoplamiento. Cada modulo es responsable de una tarea especifica con su lógica adecuada
+    \item  Como conslución, hemos obtenido un sistema con bajo nivel de acoplamiento. Cada módulo es responsable de una tarea especifica con su lógica adecuada
+\end{enumerate}
 
 
+\newpage
+\subsection{Ejecución}
+La aplicación le preguntará al usuario por el nombre del personaje, y le permitirá escoger qué raza y clase quiere ser.
+Tras obtener respuesta, el programa deberá crear el personaje según los parametros elegidos, y mostrar por pantalla el valor
+el nombre del personaje, su raza y su clase, al igual que todos sus atributos con su valor.
 
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.75\textwidth]{DS_ejecucion_ej3.png}
+	\caption{Ejecucion del ejercicio 3}
+	\label{fig:ejecucion_ej3}
+\end{figure}
+
+
+
+\newpage
 \section{Ejercicio 5}
 \subsection{Análisis}
-En este problema se pide diseñar y realizar una aplicación de WebScraping en Python donde se utilice el Patrón \textit{Strategy} para scrapear información en vivo de acciones.  Para ello se seguirán dos estrategias cada una usando una biblioteca distinta de Python: BeautifulSoup y Selenium.
+En este problema se pide diseñar y realizar una aplicación de WebScraping en Python donde se utilice el Patrón \textit{Strategy} para scrapear
+información en vivo de acciones.  Para ello se seguirán dos estrategias cada una usando una biblioteca distinta de Python: BeautifulSoup y Selenium.
 
 \subsection{Strategy}
-El patrón \textit{Strategy} o \textit{Estrategia} define una familia de algoritmos, encapsula cada uno y los hace intercambiables en tiempo de ejecución. Para ello definimos una clase abstracta llamada \textit{ScraperStrategy} y las estategias de scrapping correspondientes \textit{BeautifulSoupScraper} y \textit{SeleniumScraper}. Además, es necesario crear un clase que sirva para intercambiar las estrategias definidas en cada ejecución, sirviendo para esto la clase \textit{Context}.
+El patrón \textit{Strategy} o \textit{Estrategia} define una familia de algoritmos, encapsula cada uno y los hace intercambiables en tiempo de
+ejecución. Para ello definimos una clase abstracta llamada \textit{ScraperStrategy} y las estategias de scrapping correspondientes
+\textit{BeautifulSoupScraper} y \textit{SeleniumScraper}. Además, es necesario crear un clase que sirva para intercambiar las estrategias
+definidas en cada ejecución, sirviendo para esto la clase \textit{Context}.
 
 \begin{figure}[h]
 	\centering
@@ -245,8 +303,35 @@ El patrón \textit{Strategy} o \textit{Estrategia} define una familia de algorit
 \end{figure}
 
 
-\subsection{Selenium}
-Horadando en el código de cada estrategia de scrapping, \textit{SeleniumScraper} ha supuesto un ejercicio de mayor complejidad. Al intentar llevar a cabo este algoritmo, en primera instancia, obteníamos errores debido a la ventana emergente que informa de las cookies nada más entrar en la web. Para sortearla, es necesario pulsar sobre cualquiera de los botones de \textit{Aceptar} o \textit{Rechazar}, sin embargo, estos botones son visibles únicamente si la pantalla cumple unas propiedades específicas de tamaño, si no, es necesario realizar un scroll vertical para alcanzar dichos botones. La solución planteada a esta tesitura ha sido primero maximizar la ventana, garantizando así la visibilidad de los botones, para luego pulsar sobre el botón de \textit{Rechazar} y finalmente acceder a los datos que queremos obtener.
+\subsection{Solución}
+Horadando en el código de cada estrategia de scrapping, \textit{SeleniumScraper} ha supuesto un ejercicio de mayor complejidad. Al intentar llevar a cabo este algoritmo, en primera instancia, obteníamos
+errores debido a la ventana emergente que informa de las cookies nada más entrar en la web. Para sortearla, es necesario pulsar sobre cualquiera de
+los botones de \textit{Aceptar} o \textit{Rechazar}, sin embargo, estos botones son visibles únicamente si la pantalla cumple unas propiedades 
+específicas de tamaño, si no, es necesario realizar un scroll vertical para alcanzar dichos botones. La solución planteada a esta tesitura ha sido 
+primero maximizar la ventana, garantizando así la visibilidad de los botones, para luego pulsar sobre el botón de \textit{Rechazar} y finalmente 
+acceder a los datos que queremos obtener. Utilizando \textit{BeautifulSoup} ha sido necesario hacer únicamente esta útlima parte.
+
+
+\subsection{Ejecución}
+Durante la ejecución debemos ingresar el símbolo de la acción, y luego seleccionar un método de scrapping: 1 para \textit{BeautifulSoup} y 
+2 para \textit{Selenium}. Finalemente, esto nos permitirá guardar los datos que queríamos alamcenar en el documento url\textunderscore{}info.json.
+
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.8\textwidth]{DS_ejecucion_ej5-1.png}
+	\caption{Ejecucion del ejercicio 5}
+	\label{fig:ej5}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+        \includegraphics[width=0.6\textwidth]{DS_ejecucion_ej5-2.png}
+	\caption{Archivo resultante de la ejecución del ejercicio 5}
+	\label{fig:archivo_ej5}
+\end{figure}
 
 
 
