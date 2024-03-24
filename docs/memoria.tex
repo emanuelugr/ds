@@ -280,6 +280,71 @@ el nombre del personaje, su raza y su clase, al igual que todos sus atributos co
 	\label{fig:ejecucion_ej3}
 \end{figure}
 
+\newpage
+\section{Ejercicio 4}
+\subsection{Analyse}
+In this exercise we had to program a simulator of an engine based on the revolutions per minute (RPM). The imposed model to use for this execise is the Intercepting filter model (filtros de intercepción) which will be further explained in the UML & Flowchart chapter. 
+\vspace{15pt}
+\item \textbf{The program should have an Graphical interface (GUI):} 
+\item One interactive window with the possibility to
+\begin{itemize}
+   
+\item start/stop the engine 
+\item start/stop accelerating 
+\item start/stop braking;
+\end{itemize}
+ \item One window which updates in real time 
+ \begin{itemize}
+     \item RPM 
+     \item total kilometres driven 
+     \item kilometers driven since the last engine start 
+     \item current speed in km/h
+ \end{itemize}
+ 
+\subsection{UML and Flowchart}
+\begin{figure}[H]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.9\textwidth]{Ej4.png}
+	\caption{ejercicio 4}
+	\label{fig:ej4}
+\end{figure}
+
+\item The intercepting filter model is best explained using the flowchart (Figure 8). The heart & brain of the program is the "Gestor Filtros". It gets called by the client which in our case is the GUI with the buttons Start/stop, accelerate and break. The GestorFiltro in our case simulates the engine but also creates the object of the class CadenaFiltros and adds the needed Filters to the array in the CadenaFiltros object. The filters are xused to give constraints to the command we want to execute. In our case we have two filters one adding/decreasing rpm and one that calculates the friction. The filters return their values to the object CadenaFiltro and after all filters are applied the values go back to GestorFiltro which sends it to the Objetivo which is in our case the Salpicadero where our computed value can be printed on the window.
+
+\begin{figure}[H]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.9\textwidth]{Flow_EJ4.png}
+	\caption{ejercicio 4 Flowchart}
+	\label{fig:ej4}
+\end{figure}
+
+\subsection{Considerations}
+There were 3 main considerations made during the conception of the program
+\begin{itemize}
+   
+\item 1. The engine\\
+The question was where to put the code for the engine. We decided putting it in the GestorFiltros and it get's logically called when the Encender button is activated
+\item 2. Update frequency\\
+We decided updating the rpms (Increasing or decreasing the rpm) every second. 
+\item 3. Problem running engine and user interface simultaneously\\
+We encountered the problem in the devolopement that if we run the GUI and the engine on the same process they block each other so the engine isn't operable (buttons can't be pushed) when the engine is running
+\end{itemize}
+
+\subsection{Execution}
+When the program is started two windows open:
+\begin{itemize}
+    \item An interactive window where you choose your action
+    \item A non interactive window where the actual informations are shown
+\end{itemize}
+\begin{figure}[h]
+	\centering
+        \vspace{15pt}
+	\includegraphics[width=0.8\textwidth]{exec_ej4.png}
+	\caption{Ejecucion del ejercicio 4}
+	\label{fig:ej4}
+\end{figure}
 
 
 \newpage
