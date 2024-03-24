@@ -296,9 +296,9 @@ In this exercise we had to program a simulator of an engine based on the revolut
  \item One window which updates in real time 
  \begin{itemize}
      \item RPM 
-     \item total kilometres driven 
-     \item kilometers driven since the last engine start 
-     \item current speed in km/h
+     \item Total kilometres driven 
+     \item Kilometers driven since the last engine start 
+     \item Current speed in km/h
  \end{itemize}
  
 \subsection{UML and Flowchart}
@@ -310,12 +310,12 @@ In this exercise we had to program a simulator of an engine based on the revolut
 	\label{fig:ej4}
 \end{figure}
 
-\item The intercepting filter model is best explained using the flowchart (Figure 8). The heart & brain of the program is the "Gestor Filtros". It gets called by the client which in our case is the GUI with the buttons Start/stop, accelerate and break. The GestorFiltro in our case simulates the engine but also creates the object of the class CadenaFiltros and adds the needed Filters to the array in the CadenaFiltros object. The filters are xused to give constraints to the command we want to execute. In our case we have two filters one adding/decreasing rpm and one that calculates the friction. The filters return their values to the object CadenaFiltro and after all filters are applied the values go back to GestorFiltro which sends it to the Objetivo which is in our case the Salpicadero where our computed value can be printed on the window.
+\item The intercepting filter model is best explained using the flowchart (Figure 8). The heart & brain of the program is the "Gestor Filtros". It gets called by the client which in our case is the GUI with the buttons Start/stop, accelerate and break. The GestorFiltro creates the object of the class CadenaFiltros and adds the needed Filters to the array in the CadenaFiltros object. The filters are used to give constraints to the command we want to execute, depending on the status of the engine (Given by the variable EstadoMotor from the class Cliente). In our case we have two filters: one adding/decreasing rpm and one that calculates the friction. The filters return their values to the object CadenaFiltro and after all filters are applied the values go back to GestorFiltro which sends it to the Objetivo, which is in our case the Salpicadero, where our computed value can be printed on the window. Said value is then returned to the client, repeating the whole process again with the new RPM.
 
 \begin{figure}[H]
 	\centering
         \vspace{15pt}
-	\includegraphics[width=0.9\textwidth]{Flow_EJ4.png}
+	\includegraphics[width=0.9\textwidth]{Flow_Ej4.png}
 	\caption{ejercicio 4 Flowchart}
 	\label{fig:ej4}
 \end{figure}
@@ -325,7 +325,7 @@ There were 3 main considerations made during the conception of the program
 \begin{itemize}
    
 \item 1. The engine\\
-The question was where to put the code for the engine. We decided putting it in the GestorFiltros and it get's logically called when the Encender button is activated
+We decided that the client would take care of simulating the engine, using a EstadoMotor variable and the GUI to switch its state.
 \item 2. Update frequency\\
 We decided updating the rpms (Increasing or decreasing the rpm) every second. 
 \item 3. Problem running engine and user interface simultaneously\\
