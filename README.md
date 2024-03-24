@@ -2,7 +2,7 @@
 - [x] Ej1
 - [x] Ej2
 - [x] Ej3
-- [ ] Ej4
+- [X] Ej4
 - [x] Ej5
 
 # Practica 1
@@ -31,7 +31,7 @@
 
 - [X] Diagrama
 - [X] Hacer
-- [ ] Revisar 
+- [X] Revisar 
 
 ## Ejercicio 5
 
