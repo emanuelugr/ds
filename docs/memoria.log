@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.27)  11 MAR 2024 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.20)  24 MAR 2024 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **memoria.tex
 (./memoria.tex
-LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-22>
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -19,19 +19,19 @@ File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
@@ -42,10 +42,27 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen141
-\Gin@req@width=\dimen142
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count193
+\float@exts=\toks17
+\float@box=\box50
+\@float@everytoks=\toks18
+\@floatcapt=\box51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip49
+\enit@outerparindent=\dimen141
+\enit@toks=\toks19
+\enit@inbox=\box52
+\enit@count@id=\count194
+\enitdp@description=\count195
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -54,57 +71,60 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count193
-\Gm@cntv=\count194
-\c@Gm@tempcnt=\count195
-\Gm@bindingoffset=\dimen143
-\Gm@wd@mp=\dimen144
-\Gm@odd@mp=\dimen145
-\Gm@even@mp=\dimen146
-\Gm@layoutwidth=\dimen147
-\Gm@layoutheight=\dimen148
-\Gm@layouthoffset=\dimen149
-\Gm@layoutvoffset=\dimen150
-\Gm@dimlist=\toks17
+\Gm@cnth=\count196
+\Gm@cntv=\count197
+\c@Gm@tempcnt=\count198
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
+\Gm@dimlist=\toks20
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count196
-\l__pdf_internal_box=\box51
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count199
+\l__pdf_internal_box=\box53
 )
 (./memoria.aux)
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
-\scratchdimen=\dimen151
-\scratchbox=\box52
-\nofMPsegments=\count198
-\nofMParguments=\count199
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count266
-\MPscratchDim=\dimen152
-\MPnumerator=\count267
-\makeMPintoPDFobject=\count268
-\everyMPtoPDFconversion=\toks19
+\scratchcounter=\count266
+\scratchdimen=\dimen150
+\scratchbox=\box54
+\nofMPsegments=\count267
+\nofMParguments=\count268
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count269
+\MPscratchDim=\dimen151
+\MPnumerator=\count270
+\makeMPintoPDFobject=\count271
+\everyMPtoPDFconversion=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -148,53 +168,190 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<logo_UGR.jpg, id=1, 329.73187pt x 329.73187pt>
+File: logo_UGR.jpg Graphic file (type jpg)
+<use logo_UGR.jpg>
+Package pdftex.def Info: logo_UGR.jpg  used on input line 23.
+(pdftex.def)             Requested size: 375.36299pt x 375.37497pt.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<DS_ej1.drawio.png, id=10, 1446.40375pt x 832.10875pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_UGR.jpg>]
+<DS_ej1.drawio.png, id=11, 1446.40375pt x 832.10875pt>
 File: DS_ej1.drawio.png Graphic file (type png)
 <use DS_ej1.drawio.png>
-Package pdftex.def Info: DS_ej1.drawio.png  used on input line 59.
+Package pdftex.def Info: DS_ej1.drawio.png  used on input line 67.
 (pdftex.def)             Requested size: 500.484pt x 287.92853pt.
- [1{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <.
-/DS_ej1.drawio.png>]
-<factoria_metodo.png, id=19, 1655.18375pt x 831.105pt>
+
+[1 <./DS_ej1.drawio.png>]
+<factoria_metodo.png, id=20, 1655.18375pt x 831.105pt>
 File: factoria_metodo.png Graphic file (type png)
 <use factoria_metodo.png>
-Package pdftex.def Info: factoria_metodo.png  used on input line 66.
+Package pdftex.def Info: factoria_metodo.png  used on input line 74.
 (pdftex.def)             Requested size: 500.484pt x 251.29907pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 [2 <./factoria_metodo.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
-[3] [4] (./memoria.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+ []
+
+[3]
+<DS_ejecucion_ej1-1.png, id=30, 446.8695pt x 395.076pt>
+File: DS_ejecucion_ej1-1.png Graphic file (type png)
+<use DS_ejecucion_ej1-1.png>
+Package pdftex.def Info: DS_ejecucion_ej1-1.png  used on input line 136.
+(pdftex.def)             Requested size: 400.38872pt x 353.99773pt.
+<DS_ejecucion_ej1-2.png, id=31, 446.26724pt x 137.91525pt>
+File: DS_ejecucion_ej1-2.png Graphic file (type png)
+<use DS_ejecucion_ej1-2.png>
+Package pdftex.def Info: DS_ejecucion_ej1-2.png  used on input line 137.
+(pdftex.def)             Requested size: 400.38872pt x 123.73956pt.
+ [4 <./DS_ejecucion_ej1-1.png> <./DS_ejecucion_ej1-2.png>]
+<DS_ejecucion_ej2.png, id=37, 399.894pt x 184.89075pt>
+File: DS_ejecucion_ej2.png Graphic file (type png)
+<use DS_ejecucion_ej2.png>
+Package pdftex.def Info: DS_ejecucion_ej2.png  used on input line 169.
+(pdftex.def)             Requested size: 400.38872pt x 185.12724pt.
+ [5 <./DS_ejecucion_ej2.png>]
+<DS_ej3.jpg, id=42, 1310.8975pt x 994.71625pt>
+File: DS_ej3.jpg Graphic file (type jpg)
+<use DS_ej3.jpg>
+Package pdftex.def Info: DS_ej3.jpg  used on input line 244.
+(pdftex.def)             Requested size: 450.43253pt x 341.78108pt.
+ [6] [7 <./DS_ej3.jpg>]
+<DS_ejecucion_ej3.png, id=50, 357.13425pt x 367.97475pt>
+File: DS_ejecucion_ej3.png Graphic file (type png)
+<use DS_ejecucion_ej3.png>
+Package pdftex.def Info: DS_ejecucion_ej3.png  used on input line 278.
+(pdftex.def)             Requested size: 375.36299pt x 386.76108pt.
+ [8 <./DS_ejecucion_ej3.png>]
+! Misplaced alignment tab character &.
+l.286 ...ch will be further explained in the UML &
+                                                   Flowchart chapter.
+? 
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.288 \item \textbf
+                   {The program should have an Graphical interface (GUI):}
+? 
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.289 \item O
+             ne interactive window with the possibility to
+? 
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296  \item O
+              ne window which updates in real time
+? 
+<Ej4.png, id=55, 1115.16624pt x 623.32875pt>
+File: Ej4.png Graphic file (type png)
+<use Ej4.png>
+Package pdftex.def Info: Ej4.png  used on input line 308.
+(pdftex.def)             Requested size: 450.43253pt x 251.77145pt.
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.313 \item T
+             he intercepting filter model is best explained using the flowch...
+
+? 
+! Misplaced alignment tab character &.
+l.313 ...ing the flowchart (Figure 8). The heart &
+                                                   brain of the program is t...
+
+? 
+[9 <./Ej4.png>]
+<Flow_Ej4.png, id=60, 904.37875pt x 363.3575pt>
+File: Flow_Ej4.png Graphic file (type png)
+<use Flow_Ej4.png>
+Package pdftex.def Info: Flow_Ej4.png  used on input line 318.
+(pdftex.def)             Requested size: 450.43253pt x 180.96861pt.
+<exec_ej4.png, id=61, 677.53125pt x 488.82625pt>
+File: exec_ej4.png Graphic file (type png)
+<use exec_ej4.png>
+Package pdftex.def Info: exec_ej4.png  used on input line 344.
+(pdftex.def)             Requested size: 400.38872pt x 288.88234pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10 <./Flow_Ej4.png>]
+<DS_ej5.drawio.png, id=66, 553.06625pt x 256.96pt>
+File: DS_ej5.drawio.png Graphic file (type png)
+<use DS_ej5.drawio.png>
+Package pdftex.def Info: DS_ej5.drawio.png  used on input line 365.
+(pdftex.def)             Requested size: 300.29344pt x 139.51698pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./exec_ej4.png>]
+<DS_ejecucion_ej5-1.png, id=71, 436.029pt x 38.544pt>
+File: DS_ejecucion_ej5-1.png Graphic file (type png)
+<use DS_ejecucion_ej5-1.png>
+Package pdftex.def Info: DS_ejecucion_ej5-1.png  used on input line 387.
+(pdftex.def)             Requested size: 400.38872pt x 35.39561pt.
+ [12 <./DS_ej5.drawio.png> <./DS_ejecucion_ej5-1.png>]
+<DS_ejecucion_ej5-2.png, id=78, 305.943pt x 90.3375pt>
+File: DS_ejecucion_ej5-2.png Graphic file (type png)
+<use DS_ejecucion_ej5-2.png>
+Package pdftex.def Info: DS_ejecucion_ej5-2.png  used on input line 396.
+(pdftex.def)             Requested size: 300.29344pt x 88.66934pt.
+
+[13 <./DS_ejecucion_ej5-2.png>] (./memoria.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1881 strings out of 477985
- 30591 string characters out of 5839380
- 1859388 words of memory out of 6000000
- 22106 multiletter control sequences out of 15000+600000
- 516402 words of font info for 45 fonts, out of 8000000 for 9000
+ 2375 strings out of 480247
+ 39492 string characters out of 5896151
+ 339275 words of memory out of 5000000
+ 20320 multiletter control sequences out of 15000+600000
+ 473374 words of font info for 41 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,7n,62p,541b,232s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on memoria.pdf (5 pages, 254403 bytes).
+ 55i,7n,62p,1037b,256s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/duckduck/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.
+600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on memoria.pdf (14 pages, 1112877 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 122 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
