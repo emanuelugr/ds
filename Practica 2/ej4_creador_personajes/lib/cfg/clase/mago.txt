@@ -1,0 +1,4 @@
+Vida:0.5
+Estamina:0.75
+Mana:1.5
+Critico:1.25
