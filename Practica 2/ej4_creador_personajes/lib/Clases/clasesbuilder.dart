@@ -36,7 +36,7 @@ abstract class ClaseBuilder{
 
   void crearClase(HashMap<String, int> primaryAttr){
 
-    var info = LoadCFG();
+   /* var info = LoadCFG();
     secundarios.update("Vida", (valor) => (primaryAttr["Resistencia"]! + primaryAttr["Fuerza"]!));
     secundarios.update("Estamina", (valor) => (primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!));
     secundarios.update("Mana", (valor) => (primaryAttr["Inteligencia"]! + primaryAttr["Sabiduria"]!));
@@ -50,7 +50,7 @@ abstract class ClaseBuilder{
       var oldvalue = secundarios[key];
       var mult = value;
       secundarios.update(key, (valor) => ((oldvalue! * mult).toInt()));
-    });
+    });*/
   }
 
   HashMap<String, int> getClase(){

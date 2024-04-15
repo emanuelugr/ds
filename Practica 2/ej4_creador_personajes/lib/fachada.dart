@@ -1,4 +1,5 @@
 
+import 'package:ej4_creador_personajes/Razas/Personaje.dart';
 import 'package:ej4_creador_personajes/Razas/PersonajeBuilder.dart';
 import 'package:ej4_creador_personajes/Razas/director.dart';
 
@@ -19,6 +20,9 @@ class Fachada{
     director.crearPersonaje(nombre);
   }
 
+  Personaje getProducto(){
+    return director.personaje;
+  }
   //Para obtener los valores, o bien hacemos un textfield y metemos ahi todos los valores
   //O tenemos un textfield por atributo, y hacemos una funcion para ir sacandolos uno a uno
 
