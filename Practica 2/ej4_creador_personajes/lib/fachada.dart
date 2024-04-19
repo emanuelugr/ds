@@ -15,7 +15,7 @@ class Fachada{
   Fachada._();
 
   // Método estático para obtener la instancia única de la clase Fachada
-  static Fachada getinstancia() {
+  static Fachada getInstancia() {
     // Si la instancia aún no ha sido inicializada, la creamos
     instancia ??= Fachada._();
     return instancia!;

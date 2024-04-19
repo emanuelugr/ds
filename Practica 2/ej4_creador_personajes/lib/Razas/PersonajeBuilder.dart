@@ -9,7 +9,7 @@ import 'package:ej4_creador_personajes/Clases/clasesbuilder.dart';
 abstract class PersonajeBuilder{
   late Personaje personaje;
   late ClaseBuilder claseBuilder;
-  static String CFG_PATH = '../../cfg';
+  static String CFG_PATH = 'C:/Users/HP/Desktop/DS/DSpracticas/ds/Practica\ 2/ej4_creador_personajes/lib/cfg';
   late String raza;  
 
   PersonajeBuilder(ClaseBuilder claseBuilder){

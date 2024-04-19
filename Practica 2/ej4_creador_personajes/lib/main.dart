@@ -29,7 +29,7 @@ class CreadorDePersonajes extends StatefulWidget {
 }
 
 class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
-  Fachada f = Fachada.getinstancia();
+  Fachada f = Fachada.getInstancia();
   String selectedRace = '';
   String selectedClass = '';
   String characterName = '';
@@ -277,7 +277,7 @@ class CharacterDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Obtener el personaje creado utilizando la fachada
-    final personaje = Fachada.getinstancia().getProducto();
+    final personaje = Fachada.getInstancia().getProducto();
 
     return Scaffold(
       appBar: AppBar(
