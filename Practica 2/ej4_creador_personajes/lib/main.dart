@@ -29,7 +29,7 @@ class CreadorDePersonajes extends StatefulWidget {
 }
 
 class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
-  Fachada f = Fachada();
+  Fachada f = Fachada.getinstancia();
   String selectedRace = '';
   String selectedClass = '';
   String characterName = '';
@@ -276,18 +276,77 @@ class ClassButton extends StatelessWidget {
 class CharacterDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Obtener los datos del personaje utilizando Fachada.getProducto()
-    // Ejemplo:
-    // final personaje = Fachada.getProducto();
-    // Luego, utiliza los datos del personaje para construir la interfaz de usuario de esta pantalla.
+    // Obtener el personaje creado utilizando la fachada
+    final personaje = Fachada.getinstancia().getProducto();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalles del Personaje'),
+        title: Text('Detalles del Personaje'),
       ),
-      body: Center(
-        child: const Text('Aquí se mostrarán los detalles del personaje'),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Detalles de ${personaje.nombre}',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            _buildDetailRow('Raza', personaje.raza),
+            _buildDetailRow('Clase', personaje.clase),
+            Divider(),
+            Text(
+              'Atributos Primarios',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            _buildAttributeRow('Fuerza', personaje.primaryAttr['Fuerza']!),
+            _buildAttributeRow('Destreza', personaje.primaryAttr['Destreza']!),
+            _buildAttributeRow('Resistencia', personaje.primaryAttr['Resistencia']!),
+            _buildAttributeRow('Inteligencia', personaje.primaryAttr['Inteligencia']!),
+            _buildAttributeRow('Sabiduría', personaje.primaryAttr['Sabiduria']!),
+            _buildAttributeRow('Carisma', personaje.primaryAttr['Carisma']!),
+            _buildAttributeRow('Percepción', personaje.primaryAttr['Percepcion']!),
+            Divider(),
+            Text(
+              'Atributos Secundarios',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            _buildAttributeRow('Vida', personaje.secondaryAttr['Vida']!),
+            _buildAttributeRow('Estamina', personaje.secondaryAttr['Estamina']!),
+            _buildAttributeRow('Mana', personaje.secondaryAttr['Mana']!),
+            _buildAttributeRow('Persuasión', personaje.secondaryAttr['Persuasion']!),
+            _buildAttributeRow('Agilidad', personaje.secondaryAttr['Agilidad']!),
+            _buildAttributeRow('Intimidación', personaje.secondaryAttr['Intimidacion']!),
+            _buildAttributeRow('Crítico', personaje.secondaryAttr['Critico']!),
+            _buildAttributeRow('Puntería', personaje.secondaryAttr['Punteria']!),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildDetailRow(String label, String value) {
+    return Row(
+      children: [
+        Text(
+          '$label: ',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        Text(value),
+      ],
+    );
+  }
+
+  Widget _buildAttributeRow(String label, double value) {
+    return Row(
+      children: [
+        Text(
+          '$label: ',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        Text(value.toString()),
+      ],
     );
   }
 }

@@ -4,29 +4,43 @@ import 'dart:io';
 import 'dart:convert';
 
 abstract class ClaseBuilder{
-  late HashMap<String, int> secundarios;
-  late HashMap<String, int> primarios;
+  late HashMap<String, double> secundarios;
+  late HashMap<String, double> primarios;
 
   double multiplier = 0.0;
-  static String CFG_PATH = "package:ej4_creador_personajes/cfg";
+  static String CFG_PATH = 'C:/Users/HP/Desktop/DS/DSpracticas/ds/Practica\ 2/ej4_creador_personajes/lib/cfg';
   String clase = "null";
 
   ClaseBuilder(){
-    secundarios = HashMap<String, int>();
+    secundarios = HashMap<String, double>();
   }
 
-  HashMap<String, double> LoadCFG(){
+  HashMap<String, double> loadCFG() {
     HashMap<String, double> temp = HashMap<String, double>();
 
-/*  Por hacer
-    Supuestamente esta implementacion permite obtener cada linea del fichero
+    // Obtener la ruta del archivo de configuración correspondiente a la clase
+    String cfgFilePath = '${CFG_PATH}/clase/${clase}.txt';
+    // Verificar si el archivo existe
+    File cfgFile = File(cfgFilePath);
+    if (!cfgFile.existsSync()) {
+      print("El archivo de configuración $cfgFilePath no existe.");
+      return temp;
+    }
 
-    File(ClaseBuilder.CFG_PATH + clase + ".txt")
-      .openRead()
-      .transform(utf8.decoder)
-      .transform(const LineSplitter())
-      .forEach((l) => print('line: $l')); //Obtener info aqui creo
-*/    
+    // Leer el archivo de configuración línea por línea
+    cfgFile.openRead()
+    .transform(utf8.decoder)
+    .transform(const LineSplitter())
+    .forEach((line) {
+      // Dividir cada línea en nombre del atributo y valor
+      List<String> parts = line.split(':');
+      if (parts.length == 2) {
+        String attributeName = parts[0].trim();
+        double attributeValue = double.tryParse(parts[1].trim()) ?? 0.0; // Manejar posibles errores de conversión
+        temp[attributeName] = attributeValue;
+      }
+    });
+
     return temp;
   }
 
@@ -34,26 +48,32 @@ abstract class ClaseBuilder{
     return clase;
   }
 
-  void crearClase(HashMap<String, int> primaryAttr){
+  void crearClase(HashMap<String, double> primaryAttr){
 
-   /* var info = LoadCFG();
-    secundarios.update("Vida", (valor) => (primaryAttr["Resistencia"]! + primaryAttr["Fuerza"]!));
-    secundarios.update("Estamina", (valor) => (primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!));
-    secundarios.update("Mana", (valor) => (primaryAttr["Inteligencia"]! + primaryAttr["Sabiduria"]!));
-    secundarios.update("Persuasion", (valor) => (primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!));
-    secundarios.update("Agilidad", (valor) => (primaryAttr["Destreza"]! + primaryAttr["Inteligencia"]!));
-    secundarios.update("Intimidacion", (valor) => (primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!));
-    secundarios.update("Critico", (valor) => (primaryAttr["Percepcion"]! + primaryAttr["Inteligencia"]!));
-    secundarios.update("Punteria", (valor) => (primaryAttr["Destreza"]! + primaryAttr["Percepcion"]!));
-  
+    var info = loadCFG();
+
+    // Establecer los atributos secundarios que se obtienen directamente de los atributos primarios
+    secundarios["Vida"] = primaryAttr["Resistencia"]! + primaryAttr["Fuerza"]!;
+    secundarios["Estamina"] = primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!;
+    secundarios["Mana"] = primaryAttr["Inteligencia"]! + primaryAttr["Sabiduria"]!;
+    secundarios["Persuasion"] = primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!;
+    secundarios["Agilidad"] = primaryAttr["Destreza"]! + primaryAttr["Inteligencia"]!;
+    secundarios["Intimidacion"] = primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!;
+    secundarios["Critico"] = primaryAttr["Percepcion"]! + primaryAttr["Inteligencia"]!;
+    secundarios["Punteria"] = primaryAttr["Destreza"]! + primaryAttr["Percepcion"]!;
+
+    // Aplicar multiplicadores de los atributos secundarios adicionales del archivo de configuración
     info.forEach((key, value) {
-      var oldvalue = secundarios[key];
-      var mult = value;
-      secundarios.update(key, (valor) => ((oldvalue! * mult).toInt()));
-    });*/
+      if (secundarios.containsKey(key)) {
+        secundarios.update(key, (valor) => ((valor! * value).toDouble()));
+      } else {
+        // Si la clave no existe, crearla con un valor predeterminado
+        secundarios[key] = 0; // O cualquier otro valor predeterminado que desees
+      }
+    });
   }
 
-  HashMap<String, int> getClase(){
+  HashMap<String, double> getClase(){
     return secundarios;
   }
 }

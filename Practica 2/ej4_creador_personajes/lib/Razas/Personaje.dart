@@ -4,8 +4,8 @@ import 'dart:collection';
 class Personaje{
   late String nombre, raza, clase;
 
-  late HashMap<String, int> primaryAttr;
-  late HashMap<String, int> secondaryAttr;
+  late HashMap<String, double> primaryAttr;
+  late HashMap<String, double> secondaryAttr;
 
   Personaje();  //Dart no permite multiples constructores /overload
 
@@ -21,19 +21,19 @@ class Personaje{
     clase = "";
   }
 
-  HashMap<String, int> GetPrimary() {
+  HashMap<String, double> GetPrimary() {
     return primaryAttr;
   }
 
-  HashMap<String, int> GetSecondary() {
+  HashMap<String, double> GetSecondary() {
     return secondaryAttr;
   }
 
-  void SetPrimaryAttributes(HashMap<String, int> attr){
+  void SetPrimaryAttributes(HashMap<String, double> attr){
     primaryAttr = attr;
   }
 
-  void SetSecondaryAttributes(HashMap<String, int> attr){
+  void SetSecondaryAttributes(HashMap<String, double> attr){
     secondaryAttr = attr;
   }
 

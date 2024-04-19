@@ -9,7 +9,7 @@ import 'package:ej4_creador_personajes/Clases/clasesbuilder.dart';
 abstract class PersonajeBuilder{
   late Personaje personaje;
   late ClaseBuilder claseBuilder;
-  static String CFG_PATH = "package:ej4_creador_personajes/cfg";
+  static String CFG_PATH = '../../cfg';
   late String raza;  
 
   PersonajeBuilder(ClaseBuilder claseBuilder){
@@ -17,18 +17,29 @@ abstract class PersonajeBuilder{
     personaje = Personaje();
   }
 
-  HashMap<String, int> LoadCFG(){
-    HashMap<String, int> temp = HashMap<String, int>();
+  HashMap<String, double> loadCFG() {
+    HashMap<String, double> temp = HashMap<String, double>();
 
-/*  Por hacer
-    Supuestamente esta implementacion permite obtener cada linea del fichero
+    // Obtener la ruta del archivo de configuración correspondiente a la clase
+    String cfgFilePath = '${ClaseBuilder.CFG_PATH}/raza/$raza.txt';
+    // Verificar si el archivo existe
+    File cfgFile = File(cfgFilePath);
+    if (!cfgFile.existsSync()) {
+      print("El archivo de configuración $cfgFilePath no existe.");
+      return temp;
+    }
 
-    File(ClaseBuilder.CFG_PATH + clase + ".txt")
-      .openRead()
-      .transform(utf8.decoder)
-      .transform(const LineSplitter())
-      .forEach((l) => print('line: $l')); //Obtener info aqui creo
-*/    
+    // Leer el archivo de configuración línea por línea
+    List<String> lines = cfgFile.readAsLinesSync();
+    for (String line in lines) {
+      List<String> parts = line.split(':');
+      if (parts.length == 2) {
+        String attributeName = parts[0].trim();
+        double attributeValue = double.tryParse(parts[1].trim()) ?? 0;  // Manejar posibles errores de conversión
+        temp[attributeName] = attributeValue;
+      }
+    }
+
     return temp;
   }
 
@@ -44,7 +55,7 @@ abstract class PersonajeBuilder{
   }
 
   void crearPrimarios(){
-    var attr = LoadCFG();
+    var attr = loadCFG();
     personaje.SetPrimaryAttributes(attr);
   }
 
