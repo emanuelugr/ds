@@ -148,10 +148,10 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
               ),
               ClassButton(
                 text: 'Ladrón',
-                isSelected: selectedClass == 'Ladrón',
+                isSelected: selectedClass == 'Ladron',
                 onTap: () {
                   setState(() {
-                    selectedClass = 'Ladrón';
+                    selectedClass = 'Ladron';
                   });
                 },
               ),
@@ -278,74 +278,74 @@ class CharacterDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Obtener el personaje creado utilizando la fachada
     final personaje = Fachada.getInstancia().getProducto();
+    final nomRaza = personaje.raza.substring(0, 1).toUpperCase() + personaje.raza.substring(1);
+    final nomClase = personaje.clase.substring(0, 1).toUpperCase() + personaje.clase.substring(1);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles del Personaje'),
+        title: const Text('Detalles del Personaje'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Detalles de ${personaje.nombre}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              personaje.nombre,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            _buildDetailRow('Raza', personaje.raza),
-            _buildDetailRow('Clase', personaje.clase),
-            Divider(),
-            Text(
+            const SizedBox(height: 25),
+            buildLineaAtributo('Raza', nomRaza),
+            buildLineaAtributo('Clase', nomClase),
+            const SizedBox(height: 10),
+            const Divider(
+              thickness: 2,
+            ),
+            const SizedBox(height: 10),
+            const Text(
               'Atributos Primarios',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
             ),
-            _buildAttributeRow('Fuerza', personaje.primaryAttr['Fuerza']!),
-            _buildAttributeRow('Destreza', personaje.primaryAttr['Destreza']!),
-            _buildAttributeRow('Resistencia', personaje.primaryAttr['Resistencia']!),
-            _buildAttributeRow('Inteligencia', personaje.primaryAttr['Inteligencia']!),
-            _buildAttributeRow('Sabiduría', personaje.primaryAttr['Sabiduria']!),
-            _buildAttributeRow('Carisma', personaje.primaryAttr['Carisma']!),
-            _buildAttributeRow('Percepción', personaje.primaryAttr['Percepcion']!),
-            Divider(),
-            Text(
+            const SizedBox(height: 6),
+            buildLineaAtributo('Fuerza', personaje.primaryAttr['Fuerza']!.toString()),
+            buildLineaAtributo('Destreza', personaje.primaryAttr['Destreza']!.toString()),
+            buildLineaAtributo('Resistencia', personaje.primaryAttr['Resistencia']!.toString()),
+            buildLineaAtributo('Inteligencia', personaje.primaryAttr['Inteligencia']!.toString()),
+            buildLineaAtributo('Sabiduría', personaje.primaryAttr['Sabiduria']!.toString()),
+            buildLineaAtributo('Carisma', personaje.primaryAttr['Carisma']!.toString()),
+            buildLineaAtributo('Percepción', personaje.primaryAttr['Percepcion']!.toString()),
+            const SizedBox(height: 10),
+            const Divider(
+              thickness: 2,
+            ),
+            const SizedBox(height: 10),
+            const Text(
               'Atributos Secundarios',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
             ),
-            _buildAttributeRow('Vida', personaje.secondaryAttr['Vida']!),
-            _buildAttributeRow('Estamina', personaje.secondaryAttr['Estamina']!),
-            _buildAttributeRow('Mana', personaje.secondaryAttr['Mana']!),
-            _buildAttributeRow('Persuasión', personaje.secondaryAttr['Persuasion']!),
-            _buildAttributeRow('Agilidad', personaje.secondaryAttr['Agilidad']!),
-            _buildAttributeRow('Intimidación', personaje.secondaryAttr['Intimidacion']!),
-            _buildAttributeRow('Crítico', personaje.secondaryAttr['Critico']!),
-            _buildAttributeRow('Puntería', personaje.secondaryAttr['Punteria']!),
+            const SizedBox(height: 6),
+            buildLineaAtributo('Vida', personaje.secondaryAttr['Vida']!.toString()),
+            buildLineaAtributo('Estamina', personaje.secondaryAttr['Estamina']!.toString()),
+            buildLineaAtributo('Mana', personaje.secondaryAttr['Mana']!.toString()),
+            buildLineaAtributo('Persuasión', personaje.secondaryAttr['Persuasion']!.toString()),
+            buildLineaAtributo('Agilidad', personaje.secondaryAttr['Agilidad']!.toString()),
+            buildLineaAtributo('Intimidación', personaje.secondaryAttr['Intimidacion']!.toString()),
+            buildLineaAtributo('Crítico', personaje.secondaryAttr['Critico']!.toString()),
+            buildLineaAtributo('Puntería', personaje.secondaryAttr['Punteria']!.toString()),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildDetailRow(String label, String value) {
+  Widget buildLineaAtributo(String label, String value) {
     return Row(
       children: [
         Text(
           '$label: ',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         Text(value),
-      ],
-    );
-  }
-
-  Widget _buildAttributeRow(String label, double value) {
-    return Row(
-      children: [
-        Text(
-          '$label: ',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        Text(value.toString()),
       ],
     );
   }

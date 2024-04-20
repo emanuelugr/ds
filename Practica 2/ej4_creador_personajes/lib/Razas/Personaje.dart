@@ -37,8 +37,6 @@ class Personaje{
     secondaryAttr = attr;
   }
 
-  //No he introducido mostrarPersonaje ya que para esta no sirve
-
   void SetName(String nombre){
     this.nombre = nombre;
   }

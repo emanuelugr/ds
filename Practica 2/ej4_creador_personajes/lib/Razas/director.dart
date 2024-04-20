@@ -16,12 +16,6 @@ class Director{
     personaje.SetName(nombre);
   }
 
-/*
-  void mostrarPersonaje(){
-    personaje.mostrarPersonaje();
-  }
-*/
-
   Personaje getPersonaje(){
     return personaje;
   }

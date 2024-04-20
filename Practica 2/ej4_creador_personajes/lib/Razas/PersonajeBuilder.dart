@@ -1,7 +1,6 @@
 
 import 'dart:collection';
 import 'dart:io';
-import 'dart:convert';
 
 import 'package:ej4_creador_personajes/Razas/Personaje.dart';
 import 'package:ej4_creador_personajes/Clases/clasesbuilder.dart';

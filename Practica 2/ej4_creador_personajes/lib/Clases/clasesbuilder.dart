@@ -1,7 +1,6 @@
 
 import 'dart:collection';
 import 'dart:io';
-import 'dart:convert';
 
 abstract class ClaseBuilder{
   late HashMap<String, double> secundarios;
@@ -28,18 +27,15 @@ abstract class ClaseBuilder{
     }
 
     // Leer el archivo de configuración línea por línea
-    cfgFile.openRead()
-    .transform(utf8.decoder)
-    .transform(const LineSplitter())
-    .forEach((line) {
-      // Dividir cada línea en nombre del atributo y valor
+    List<String> lines = cfgFile.readAsLinesSync();
+    for (String line in lines) {
       List<String> parts = line.split(':');
       if (parts.length == 2) {
         String attributeName = parts[0].trim();
-        double attributeValue = double.tryParse(parts[1].trim()) ?? 0.0; // Manejar posibles errores de conversión
+        double attributeValue = double.tryParse(parts[1].trim()) ?? 0;  // Manejar posibles errores de conversión
         temp[attributeName] = attributeValue;
       }
-    });
+    }
 
     return temp;
   }
@@ -65,10 +61,7 @@ abstract class ClaseBuilder{
     // Aplicar multiplicadores de los atributos secundarios adicionales del archivo de configuración
     info.forEach((key, value) {
       if (secundarios.containsKey(key)) {
-        secundarios.update(key, (valor) => ((valor! * value).toDouble()));
-      } else {
-        // Si la clave no existe, crearla con un valor predeterminado
-        secundarios[key] = 0; // O cualquier otro valor predeterminado que desees
+        secundarios.update(key, (valor) => ((valor * value)));
       }
     });
   }
