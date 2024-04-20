@@ -34,9 +34,48 @@
 \tableofcontents
 
 \newpage
+\section{Abstract}
+
+En este documento se detalla el proceso de adaptación del ejercicio 3 de la práctica 1 desarrollado en Java al nuevo framework denominado Flutter.
+La tarea principal consistió en realizar el mantenimiento adaptativo y perfectivo de modo que se ha migrado de un lenguaje a otro y se añadido una interfaz gráfica para 
+permitir la interacción del usuario con el sistema.
+
+Durante el proceso de migración a Dart nos hemos encontrado con las diferencias fundamentales entre los dos lenguajes como es el caso de sintaxis y el manejo de valores NULL.
+
+En cuanto al diseño de la interfaz de usuario (UI), se priorizó la funcionalidad sobre la estética, ya que nuestro objetivo consistia en presentar un prototipo que permitiera mostrar 
+la interacción del usuario con el sistema. De modo que la interfaz se diseñó de manera sencilla y eficiente, centrándose sobretodo en la usabilidad y la claridad de la información presentada.
+
+Finalmente, el resultado obtenido fue una pequeña aplicación que permite al usuario crear personajes seleccionando diferentes opciones y muestra los datos del personaje creado.
+
+
 \section{Introducción}
+
+En esta práctica se ha introducido un nuevo framework llamado Flutter desarrollado por Google. Este ofrece una serie de herramientas a los desarrolladores para 
+crear aplicación multiplataforma con una sola base de código, es decir, el desarrollador escribe el código una vez y este puede ser compilado para diferentes plataformas como linux, windows,ios y android.
+
+El concepto central de Flutter se basa en el uso de widgets, los cuales representan los componentes visuales de la aplicación. 
+Estos widgets son altamente personalizables y pueden ser extendidos con facilidad, lo que permite a los desarrolladores crear interfaces
+de usuario de manera rápida y eficiente para múltiples plataformas. Este enfoque no solo agiliza el proceso de desarrollo, sino que también 
+reduce los costos asociados con el mantenimiento de aplicaciones para diferentes plataformas.
+
+Sin embargo, a pesar de sus beneficios, Flutter también presenta algunas desventajas que deben ser consideradas:
+- Curva de aprendizaje: Para los desarrolladores nuevos en Flutter, puede haber una curva de aprendizaje significativa, especialmente si no están familiarizados con el paradigma de desarrollo basado en widgets.
+- Legibilidad del código con widgets anidados: En los casos donde se utilizan múltiples widgets anidados la legibilidad del código disminuy drasticamente dificultando el mantenimiento y la comprensión del código.
+- Tamaño de la aplicación más grande: Debido a la inclusión del motor de Flutter y otros recursos necesarios en cada aplicación, el tamaño del ejecutable compilado suele ser más grande en comparación con las aplicaciones nativas.
+- SetState repinta todos los elementos: En Flutter, el uso de la función setState() para actualizar el estado de un widget provoca que todos los elementos se vuelvan a pintar, lo que puede afectar el rendimiento de la aplicación en casos de actualizaciones frecuentes del estado.
+
+A modo de conclusión podemos decir que a pesar de las desventajas mencionadas Flutter sigue siendo una opción relevante en el entorno de desarrollo crossplatform. Además, siendo un proyecto
+respaldado por Google da cierta garantia y seguridad en cuanto al futuro de este. 
+
 \subsection{Análisis del problema}
- 
+A partir de la información expuesta en el guion de practica se identifican claramente las siguientes dos propuestas:
+- Realizar el mantenimiento adaptativo:
+    Este consiste en convertir el codigo en Java obtenido en la practica anterior al Dart
+- Realziar el mantenimiento perfectivo:
+    Para ello introducimos una interfaz (UI) para permitir al usuario interactuar con el sistema
+
+
+
 \subsection{Ingeniería inversa}
 
 
