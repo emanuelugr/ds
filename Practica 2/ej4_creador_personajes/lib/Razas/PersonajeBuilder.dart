@@ -1,17 +1,16 @@
-
 import 'dart:collection';
 import 'dart:io';
 
 import 'package:ej4_creador_personajes/Razas/Personaje.dart';
 import 'package:ej4_creador_personajes/Clases/clasesbuilder.dart';
 
-abstract class PersonajeBuilder{
+abstract class PersonajeBuilder {
   late Personaje personaje;
   late ClaseBuilder claseBuilder;
-  static String CFG_PATH = 'C:/Users/HP/Desktop/DS/DSpracticas/ds/Practica\ 2/ej4_creador_personajes/lib/cfg';
-  late String raza;  
+  static String CFG_PATH = 'lib/cfg';
+  late String raza;
 
-  PersonajeBuilder(ClaseBuilder claseBuilder){
+  PersonajeBuilder(ClaseBuilder claseBuilder) {
     this.claseBuilder = claseBuilder;
     personaje = Personaje();
   }
@@ -34,7 +33,8 @@ abstract class PersonajeBuilder{
       List<String> parts = line.split(':');
       if (parts.length == 2) {
         String attributeName = parts[0].trim();
-        double attributeValue = double.tryParse(parts[1].trim()) ?? 0;  // Manejar posibles errores de conversión
+        double attributeValue = double.tryParse(parts[1].trim()) ??
+            0; // Manejar posibles errores de conversión
         temp[attributeName] = attributeValue;
       }
     }
@@ -42,29 +42,28 @@ abstract class PersonajeBuilder{
     return temp;
   }
 
-  void crearPersonaje(){
+  void crearPersonaje() {
     crearAtributos();
   }
 
-  void crearAtributos(){
+  void crearAtributos() {
     crearPrimarios();
     crearSecundarios();
     personaje.SetClass(claseBuilder.getClassName());
     personaje.SetRace(raza);
   }
 
-  void crearPrimarios(){
+  void crearPrimarios() {
     var attr = loadCFG();
     personaje.SetPrimaryAttributes(attr);
   }
 
-  void crearSecundarios(){
+  void crearSecundarios() {
     claseBuilder.crearClase(personaje.GetPrimary());
     personaje.SetSecondaryAttributes(claseBuilder.getClase());
   }
 
-  Personaje getPersonaje(){
+  Personaje getPersonaje() {
     return personaje;
   }
-
 }
