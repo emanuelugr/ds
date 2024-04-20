@@ -51,7 +51,7 @@ Finalmente, el resultado obtenido fue una pequeña aplicación que permite al us
 \section{Introducción}
 
 En esta práctica se ha introducido un nuevo framework llamado Flutter desarrollado por Google. Este ofrece una serie de herramientas a los desarrolladores para 
-crear aplicación multiplataforma con una sola base de código, es decir, el desarrollador escribe el código una vez y este puede ser compilado para diferentes plataformas como linux, windows,ios y android.
+crear aplicación multiplataforma con una sola base de código, es decir, el desarrollador escribe el código una vez y este puede ser compilado para diferentes plataformas como linux, windows, ios y android.
 
 El concepto central de Flutter se basa en el uso de widgets, los cuales representan los componentes visuales de la aplicación. 
 Estos widgets son altamente personalizables y pueden ser extendidos con facilidad, lo que permite a los desarrolladores crear interfaces
@@ -107,32 +107,54 @@ Por ultimo, consideramos importante mencionar que la clase CreadorDePersonajes j
 
 \subsection{Problemas encontrados}
 
+Durante el desarrollo de la aplicación han sido diversos los problemas encontrados. Entre estos podemos nombrar algunos sin mucha relevancia que aún así impedían el correcto funcionamiento de la aplicación y otros que han supuesto un verdadero dolor de cabeza.
+
+
+\begin{itemize}
+    \item Problema de lectura de los HasMaps:
+    
+    \hspace{1cm}Las características de los personajes vienen definidas por su clase y raza y se representan en HasMaps que almacenan el nombre del atributo correspondiente y su valor numérico. Estos atributos y sus valores se encuentran en los archivos .txt de cada clase y raza. La idea es leer estos archivos para generar así los HashMaps con las claves y valores específicos.
+    
+    \hspace{1cm}Para ello en un primer momento se había optado por utilizar openRead() seguido de funciones para separar las líneas y posteriormente iterar en cada una para extraer los datos. Sin embargo, el problema es que no se hacía correctamente la iteración de las líneas por problemas con las funciones que manejaban el archivo.
+
+    \hspace{1cm}Debido a que ese enfoque no ha resultado fructífero en ninguna de sus variantes, hemos decido utilizar otra aproximación usando la función readAsLinesSync(), pudiendo acceder a las líneas del archivo directamente y con la misma idea de iterar en cada una de ellas para extraer los datos.
+
+
+    \item Errores con la clase Ladrón:
+
+    \hspace{1cm}Con la aplicación aparentemente funcionando de forma correcta, seleccionar la clase Ladrón no devolvía un personaje con dicha clase. Después, de un análisis rápido hemos visto que el problema era utilizar `ladrón', con la tilde correspondiente, como selectedClass en el boton de la clase Ladrón, mientras que el procesamiento en la función \textunderscore{}crearPersonaje() llamaba al LadronBuilder(), solo en el caso de que estuviera seleccionado `ladron', sin tildar. La solución ha sido tan sencilla como unificar la cadena de caracteres en ambos casos a `ladron'.
+    
+\end{itemize}
+
 \subsection{Widgets utilizados}
-- MyApp: 
+
+\begin{itemize}[label=-]
+
+\item MyApp: 
 Se trata de StatelessWidget que define el entry point (main)
 
-- CreadorDePersonajes: 
+\item CreadorDePersonajes: 
 Es de tipo StatefulWidget que representa la pantalla principal de la aplicación donde se crea un personaje. 
 
-- _CreadorDePersonajes: 
+\item \textunderscore{}CreadorDePersonajes: 
     Se utiliza para representar el estado de la pantalla principal. (raza seleccionada, nombre del personaje...)
 
-- RaceButton:
+\item RaceButton:
     Es un widget sin estado. Encapsula definiciones de estilo para todos los botones de razas (reutilización del código)
 
-- ClassButton: 
+\item ClassButton: 
     Misma idea que RaceButton. Se utiliza para no repetir el mismo código.
 
-- CharacterDetailsScreen: 
+\item CharacterDetailsScreen: 
     Es un widget sin estado. Se trata de una vista con los detalles del personaje creado.
     
 
-- buildLineaAtributo:
+\item buildLineaAtributo:
     Este widget sin estado  se utiliza para construir una línea de atributo en la pantalla de detalles del personaje.
 
+\end{itemize}
 
-
-    \subsection{Mejoras}
+\subsection{Mejoras}
 
 
 
