@@ -68,24 +68,71 @@ A modo de conclusión podemos decir que a pesar de las desventajas mencionadas F
 respaldado por Google da cierta garantia y seguridad en cuanto al futuro de este. 
 
 \subsection{Análisis del problema}
-A partir de la información expuesta en el guion de practica se identifican claramente las siguientes dos propuestas:
-- Realizar el mantenimiento adaptativo:
-    Este consiste en convertir el codigo en Java obtenido en la practica anterior al Dart
-- Realziar el mantenimiento perfectivo:
-    Para ello introducimos una interfaz (UI) para permitir al usuario interactuar con el sistema
+A partir de la información expuesta en el guion de la practica se identifican claramente las siguientes dos propuestas:
 
+1. Realizar el mantenimiento adaptativo:
+Esta fase se realiza la migración del código existente en Java, obtenido en prácticas anteriores, al lenguaje Dart. El objetivo es adaptar el código para que sea compatible con el nuevo framework Flutter. 
+
+2. Realizar el mantenimiento perfectivo:
+En esta etapa se introduce un nuevo componente al sistema que es una interfaz de usuario (UI). Para ello recurimos al uso de los Widgets que nos permiten crear componentes visuales de la aplicación.
+Se han considerado los aspectos tales como la navegación entre pantallas, la disposición de los elementos de la interfaz y la respuesta a las acciones del usuario. 
 
 
 \subsection{Ingeniería inversa}
-
+No se qué poner aqui. Hacemos algo de ingenieria inversa en estas práctica?
 
 \newpage
+
 \section{Desarrollo}
+
+\subsection{Fase 1: Migración a Dart}
+
+Para afrontar la migración del código de un lenguaje a otro, hemos dedicado un tiempo para familiarizarnos con la sintaxis de Dart. Gracias a los ejercicios indivuales propuestos tuvimos oportunidad de obtener un poco de experiencia en el manejo de este lenguaje. Dada la simplicidad de este proceso, no consideramos necesario profundizar en detalles específicos.
+
+Posteriormente, hemos procedido a revisar la relación entre las entidades del sistema. En particular, hemos prestado especial atención a las clases Fachada y Menú. Dado que en la practica anterior la interacción con el sistema se llevaba a cabo mediante la terminal
+era necesario unir los modulos mediante una clase Fachada. No obstante, ahora, puesto que hemos añadido una interfaz grafica (UI) su presencia es dudosa cuanto menos. 
+
+Despues de debatirlo, hemos decidido mantener la estructura previa del código intacta. Esta decisión se basa en la utilidad potencial de la clase Menú como herramienta para la depuración y las pruebas en entornos donde no sea necesaria una interfaz gráfica.
+
+
+\subsection{Fase 2: UI}
+
+
+
+Durante esta fase del proyecto, nos hemos dedicado a revisar la documentación sobre los Widgets en Flutter. Utilizando los recursos disponibles en la página oficial del proyecto, hemos encontrado ejemplos prácticos que han sido de gran ayuda para el desarrollo de esta etapa de la práctica.
+
+Puesto que al tratarse de un proyecto en el campo de la ingeniería software, hemos adoptado un enfoque más practico en cuanto al diseño de la interfaz, priorizando la funcionalidad y claridad sobre consideraciones estéticas. Al final de todo, solo pretendemos mostrar un prototipo que demuestre la interacción entre distintos componentes del sistema.  
+
+Por ultimo, consideramos importante mencionar que la clase CreadorDePersonajes juega un papel clave en la aplicación. Esta clase se encarga de manejar la lógica relacionada con la interacción del usuario y la creación de personajes. En otras palabras, se asemeja al concepto de Controlador en el modelo MVC. 
+
 \subsection{Problemas encontrados}
 
 \subsection{Widgets utilizados}
+- MyApp: 
+Se trata de StatelessWidget que define el entry point (main)
 
-\subsection{Mejoras}
+- CreadorDePersonajes: 
+Es de tipo StatefulWidget que representa la pantalla principal de la aplicación donde se crea un personaje. 
+
+- _CreadorDePersonajes: 
+    Se utiliza para representar el estado de la pantalla principal. (raza seleccionada, nombre del personaje...)
+
+- RaceButton:
+    Es un widget sin estado. Encapsula definiciones de estilo para todos los botones de razas (reutilización del código)
+
+- ClassButton: 
+    Misma idea que RaceButton. Se utiliza para no repetir el mismo código.
+
+- CharacterDetailsScreen: 
+    Es un widget sin estado. Se trata de una vista con los detalles del personaje creado.
+    
+
+- buildLineaAtributo:
+    Este widget sin estado  se utiliza para construir una línea de atributo en la pantalla de detalles del personaje.
+
+
+
+    \subsection{Mejoras}
 
 
 
