@@ -31,8 +31,7 @@ abstract class ClaseBuilder {
       List<String> parts = line.split(':');
       if (parts.length == 2) {
         String attributeName = parts[0].trim();
-        double attributeValue = double.tryParse(parts[1].trim()) ??
-            0; // Manejar posibles errores de conversión
+        double attributeValue = double.tryParse(parts[1].trim()) ?? 0; // Manejar posibles errores de conversión
         temp[attributeName] = attributeValue;
       }
     }
@@ -49,20 +48,13 @@ abstract class ClaseBuilder {
 
     // Establecer los atributos secundarios que se obtienen directamente de los atributos primarios
     secundarios["Vida"] = primaryAttr["Resistencia"]! + primaryAttr["Fuerza"]!;
-    secundarios["Estamina"] =
-        primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!;
-    secundarios["Mana"] =
-        primaryAttr["Inteligencia"]! + primaryAttr["Sabiduria"]!;
-    secundarios["Persuasion"] =
-        primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!;
-    secundarios["Agilidad"] =
-        primaryAttr["Destreza"]! + primaryAttr["Inteligencia"]!;
-    secundarios["Intimidacion"] =
-        primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!;
-    secundarios["Critico"] =
-        primaryAttr["Percepcion"]! + primaryAttr["Inteligencia"]!;
-    secundarios["Punteria"] =
-        primaryAttr["Destreza"]! + primaryAttr["Percepcion"]!;
+    secundarios["Estamina"] = primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!;
+    secundarios["Mana"] = primaryAttr["Inteligencia"]! + primaryAttr["Sabiduria"]!;
+    secundarios["Persuasion"] = primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!;
+    secundarios["Agilidad"] = primaryAttr["Destreza"]! + primaryAttr["Inteligencia"]!;
+    secundarios["Intimidacion"] = primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!;
+    secundarios["Critico"] = primaryAttr["Percepcion"]! + primaryAttr["Inteligencia"]!;
+    secundarios["Punteria"] = primaryAttr["Destreza"]! + primaryAttr["Percepcion"]!;
 
     // Aplicar multiplicadores de los atributos secundarios adicionales del archivo de configuración
     info.forEach((key, value) {
