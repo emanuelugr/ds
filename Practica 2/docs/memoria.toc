@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Abstract}{2}{}%
+\contentsline {section}{\numberline {2}Introducción}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Análisis del problema}{2}{}%
+\contentsline {section}{\numberline {3}Desarrollo}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Fase 1: Migración a Dart}{3}{}%
+\contentsline {subsection}{\numberline {3.2}Fase 2: UI}{3}{}%
+\contentsline {subsection}{\numberline {3.3}Problemas encontrados}{3}{}%
+\contentsline {subsection}{\numberline {3.4}Widgets utilizados}{4}{}%
+\contentsline {section}{\numberline {4}Ejecución}{5}{}%

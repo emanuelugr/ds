@@ -53,7 +53,7 @@ Finalmente, el resultado obtenido fue una pequeña aplicación que permite al us
 En esta práctica se ha introducido un nuevo framework llamado Flutter desarrollado por Google. Este ofrece una serie de herramientas a los desarrolladores para 
 crear aplicación multiplataforma con una sola base de código, es decir, el desarrollador escribe el código una vez y este puede ser compilado para diferentes plataformas como linux, windows, ios y android.
 
-El concepto central de Flutter se basa en el uso de widgets, los cuales representan los componentes visuales de la aplicación. 
+El concepto esencial de Flutter son los widgets, los cuales representan los componentes visuales de la aplicación. 
 Estos widgets son altamente personalizables y pueden ser extendidos con facilidad, lo que permite a los desarrolladores crear interfaces
 de usuario de manera rápida y eficiente para múltiples plataformas. Este enfoque no solo agiliza el proceso de desarrollo, sino que también 
 reduce los costos asociados con el mantenimiento de aplicaciones para diferentes plataformas.
@@ -70,18 +70,16 @@ respaldado por Google da cierta garantia y seguridad en cuanto al futuro de este
 \subsection{Análisis del problema}
 A partir de la información expuesta en el guion de la practica se identifican claramente las siguientes dos propuestas:
 
-1. Realizar el mantenimiento adaptativo:
-Esta fase se realiza la migración del código existente en Java, obtenido en prácticas anteriores, al lenguaje Dart. El objetivo es adaptar el código para que sea compatible con el nuevo framework Flutter. 
+    \begin{itemize}
+        \item 1. Realizar el mantenimiento adaptativo:
 
-2. Realizar el mantenimiento perfectivo:
-En esta etapa se introduce un nuevo componente al sistema que es una interfaz de usuario (UI). Para ello recurimos al uso de los Widgets que nos permiten crear componentes visuales de la aplicación.
-Se han considerado los aspectos tales como la navegación entre pantallas, la disposición de los elementos de la interfaz y la respuesta a las acciones del usuario. 
+        Esta fase se realiza la migración del código existente en Java, obtenido en prácticas anteriores, al lenguaje Dart. El objetivo es adaptar el código para que sea compatible con el nuevo framework Flutter. 
 
+        \item 2. Realizar el mantenimiento perfectivo:
 
-\subsection{Ingeniería inversa}
-No se qué poner aqui. Hacemos algo de ingenieria inversa en estas práctica?
-
-\newpage
+        En esta etapa se introduce un nuevo componente al sistema que es una interfaz de usuario (UI). Para ello recurimos al uso de los Widgets que nos permiten crear componentes visuales de la aplicación.
+        Se han considerado los aspectos tales como la navegación entre pantallas, la disposición de los elementos de la interfaz y la respuesta a las acciones del usuario. 
+    \end{itemize}
 
 \section{Desarrollo}
 
@@ -124,6 +122,10 @@ Durante el desarrollo de la aplicación han sido diversos los problemas encontra
 
     \hspace{1cm}Con la aplicación aparentemente funcionando de forma correcta, seleccionar la clase Ladrón no devolvía un personaje con dicha clase. Después, de un análisis rápido hemos visto que el problema era utilizar `ladrón', con la tilde correspondiente, como selectedClass en el boton de la clase Ladrón, mientras que el procesamiento en la función \textunderscore{}crearPersonaje() llamaba al LadronBuilder(), solo en el caso de que estuviera seleccionado `ladron', sin tildar. La solución ha sido tan sencilla como unificar la cadena de caracteres en ambos casos a `ladron'.
     
+    \item Your CPU does not support required features (VT-x or SVM)
+    
+    \hspace{1cm} En los dispositivos que no tienen soporte para VT-x (intel) o SVM (amd) resulta imposible emular dispositivos android y de forma transitiva realizar pruebas de ejecución. No obstante, la solución para mitigar esto es cambiar la plataforma de destino. Es decir, ya que flutter es crossplatform podemos compilar ejecutables, por ejemplo, para Linux.  
+    
 \end{itemize}
 
 \subsection{Widgets utilizados}
@@ -154,10 +156,6 @@ Es de tipo StatefulWidget que representa la pantalla principal de la aplicación
 
 \end{itemize}
 
-\subsection{Mejoras}
-
-
-
 \newpage
 \section{Ejecución}
 
@@ -177,7 +175,5 @@ Es de tipo StatefulWidget que representa la pantalla principal de la aplicación
     \caption{Pantalla de detalle del personaje}
     \label{fig:ejecucion_2}
 \end{figure}
-
-
 
 \end{document} 
