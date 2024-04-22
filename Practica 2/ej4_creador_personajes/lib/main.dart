@@ -33,6 +33,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   String selectedRace = '';
   String selectedClass = '';
   String characterName = '';
+  
 
   void _crearPersonaje() {
     //Clase
@@ -73,9 +74,30 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
         pb = HumanoBuilder(cb);
     }
     f.crearPersonaje(pb,characterName);
-
     Navigator.push(context, MaterialPageRoute(builder:(context)=>CharacterDetailsScreen()),);
   }
+
+
+Widget _buildListaPersonajes() {
+  return ListView.builder(
+    itemCount: f.numPersonajes(),
+    itemBuilder: (context, index) {
+      final personaje = f.getProductoById(index);
+      return ListTile(
+        title: Text('${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
+        onTap: () {
+          // Aquí puedes agregar la lógica para mostrar detalles del personaje
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CharacterDetailsScreen(personaje: personaje)),
+          );
+        },
+      );
+    },
+  );
+}
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -277,7 +299,7 @@ class CharacterDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Obtener el personaje creado utilizando la fachada
-    final personaje = Fachada.getInstancia().getProducto();
+    final personaje = Fachada.getInstancia().getProductoLast();
     final nomRaza = personaje.raza.substring(0, 1).toUpperCase() + personaje.raza.substring(1);
     final nomClase = personaje.clase.substring(0, 1).toUpperCase() + personaje.clase.substring(1);
 
