@@ -4,6 +4,7 @@ import 'package:ej4_creador_personajes/Razas/PersonajeBuilder.dart';
 import 'package:ej4_creador_personajes/Razas/razas.dart';
 import 'package:flutter/material.dart';
 import 'package:ej4_creador_personajes/fachada.dart';
+import 'package:ej4_creador_personajes/gestorPersonajes.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,10 +31,10 @@ class CreadorDePersonajes extends StatefulWidget {
 
 class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   Fachada f = Fachada.getInstancia();
+  GestorPersonajes gestor = GestorPersonajes.getInstancia();
   String selectedRace = '';
   String selectedClass = '';
   String characterName = '';
-  
 
   void _crearPersonaje() {
     //Clase
@@ -73,31 +74,63 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       default:
         pb = HumanoBuilder(cb);
     }
-    f.crearPersonaje(pb,characterName);
-    Navigator.push(context, MaterialPageRoute(builder:(context)=>CharacterDetailsScreen()),);
+    
+    gestor.addPersonaje(f.crearPersonaje(pb, characterName));
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => CharacterDetailsScreen(gestor.getLength()-1)),
+    );
+
+    setState(() {});
+
   }
 
+  void eliminarPersonaje(index){
+    setState(() {
+      gestor.remPersonaje(index);
+    });
+  }
 
-Widget _buildListaPersonajes() {
-  return ListView.builder(
-    itemCount: f.numPersonajes(),
-    itemBuilder: (context, index) {
-      final personaje = f.getProductoById(index);
-      return ListTile(
-        title: Text('${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
-        onTap: () {
-          // Aquí puedes agregar la lógica para mostrar detalles del personaje
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CharacterDetailsScreen(personaje: personaje)),
-          );
-        },
-      );
-    },
-  );
-}
-
-
+  Widget _buildListaPersonajes() {
+    return ListView.builder(
+      itemCount: gestor.getLength(),
+      itemBuilder: (context, index) {
+        final personaje = gestor.getPersonaje(index);
+        return Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(
+                width: 500,
+                child: ListTile(
+                  title: Text(
+                      '${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CharacterDetailsScreen(index)),
+                    );
+                  },
+                )
+              ),
+              const SizedBox(width: 30),
+              FilledButton.tonal(
+                onPressed: () => eliminarPersonaje(index),
+                child: const Text(
+                  "ELIMINAR PERSONAJE",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -216,6 +249,15 @@ Widget _buildListaPersonajes() {
             },
             child: const Text('Crear Personaje'),
           ),
+          const SizedBox(height: 16.0),
+          const Text(
+            'Lista de Personajes:',
+            style: TextStyle(fontSize: 20.0),
+          ),
+          // Aquí se muestra la lista de personajes
+          Expanded(
+            child: _buildListaPersonajes(),
+          ),
         ],
       ),
     );
@@ -294,14 +336,20 @@ class ClassButton extends StatelessWidget {
   }
 }
 
-
 class CharacterDetailsScreen extends StatelessWidget {
+  final int index;
+  CharacterDetailsScreen(this.index, {super.key});
+
   @override
   Widget build(BuildContext context) {
     // Obtener el personaje creado utilizando la fachada
-    final personaje = Fachada.getInstancia().getProductoLast();
-    final nomRaza = personaje.raza.substring(0, 1).toUpperCase() + personaje.raza.substring(1);
-    final nomClase = personaje.clase.substring(0, 1).toUpperCase() + personaje.clase.substring(1);
+    //  final personaje = Fachada.getInstancia().getProductoLast();
+
+    final personaje = GestorPersonajes.getInstancia().getPersonaje(index);
+    final nomRaza = personaje.raza.substring(0, 1).toUpperCase() +
+        personaje.raza.substring(1);
+    final nomClase = personaje.clase.substring(0, 1).toUpperCase() +
+        personaje.clase.substring(1);
 
     return Scaffold(
       appBar: AppBar(
@@ -326,16 +374,26 @@ class CharacterDetailsScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               'Atributos Primarios',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 6),
-            buildLineaAtributo('Fuerza', personaje.primaryAttr['Fuerza']!.toString()),
-            buildLineaAtributo('Destreza', personaje.primaryAttr['Destreza']!.toString()),
-            buildLineaAtributo('Resistencia', personaje.primaryAttr['Resistencia']!.toString()),
-            buildLineaAtributo('Inteligencia', personaje.primaryAttr['Inteligencia']!.toString()),
-            buildLineaAtributo('Sabiduría', personaje.primaryAttr['Sabiduria']!.toString()),
-            buildLineaAtributo('Carisma', personaje.primaryAttr['Carisma']!.toString()),
-            buildLineaAtributo('Percepción', personaje.primaryAttr['Percepcion']!.toString()),
+            buildLineaAtributo(
+                'Fuerza', personaje.primaryAttr['Fuerza']!.toString()),
+            buildLineaAtributo(
+                'Destreza', personaje.primaryAttr['Destreza']!.toString()),
+            buildLineaAtributo('Resistencia',
+                personaje.primaryAttr['Resistencia']!.toString()),
+            buildLineaAtributo('Inteligencia',
+                personaje.primaryAttr['Inteligencia']!.toString()),
+            buildLineaAtributo(
+                'Sabiduría', personaje.primaryAttr['Sabiduria']!.toString()),
+            buildLineaAtributo(
+                'Carisma', personaje.primaryAttr['Carisma']!.toString()),
+            buildLineaAtributo(
+                'Percepción', personaje.primaryAttr['Percepcion']!.toString()),
             const SizedBox(height: 10),
             const Divider(
               thickness: 2,
@@ -343,17 +401,28 @@ class CharacterDetailsScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               'Atributos Secundarios',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 6),
-            buildLineaAtributo('Vida', personaje.secondaryAttr['Vida']!.toString()),
-            buildLineaAtributo('Estamina', personaje.secondaryAttr['Estamina']!.toString()),
-            buildLineaAtributo('Mana', personaje.secondaryAttr['Mana']!.toString()),
-            buildLineaAtributo('Persuasión', personaje.secondaryAttr['Persuasion']!.toString()),
-            buildLineaAtributo('Agilidad', personaje.secondaryAttr['Agilidad']!.toString()),
-            buildLineaAtributo('Intimidación', personaje.secondaryAttr['Intimidacion']!.toString()),
-            buildLineaAtributo('Crítico', personaje.secondaryAttr['Critico']!.toString()),
-            buildLineaAtributo('Puntería', personaje.secondaryAttr['Punteria']!.toString()),
+            buildLineaAtributo(
+                'Vida', personaje.secondaryAttr['Vida']!.toString()),
+            buildLineaAtributo(
+                'Estamina', personaje.secondaryAttr['Estamina']!.toString()),
+            buildLineaAtributo(
+                'Mana', personaje.secondaryAttr['Mana']!.toString()),
+            buildLineaAtributo('Persuasión',
+                personaje.secondaryAttr['Persuasion']!.toString()),
+            buildLineaAtributo(
+                'Agilidad', personaje.secondaryAttr['Agilidad']!.toString()),
+            buildLineaAtributo('Intimidación',
+                personaje.secondaryAttr['Intimidacion']!.toString()),
+            buildLineaAtributo(
+                'Crítico', personaje.secondaryAttr['Critico']!.toString()),
+            buildLineaAtributo(
+                'Puntería', personaje.secondaryAttr['Punteria']!.toString()),
           ],
         ),
       ),

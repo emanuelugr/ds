@@ -33,7 +33,8 @@ abstract class PersonajeBuilder {
       List<String> parts = line.split(':');
       if (parts.length == 2) {
         String attributeName = parts[0].trim();
-        double attributeValue = double.tryParse(parts[1].trim()) ?? 0; // Manejar posibles errores de conversión
+        double attributeValue = double.tryParse(parts[1].trim()) ??
+            0; // Manejar posibles errores de conversión
         temp[attributeName] = attributeValue;
       }
     }
@@ -42,6 +43,7 @@ abstract class PersonajeBuilder {
   }
 
   void crearPersonaje() {
+    personaje = Personaje(); //Reset character (problema de referencias)
     crearAtributos();
   }
 

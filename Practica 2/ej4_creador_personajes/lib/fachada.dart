@@ -6,7 +6,6 @@ import 'package:ej4_creador_personajes/Razas/director.dart';
 class Fachada{
   static Fachada? instancia;      // Variable inicializada como nula
   late Director director;
-  List<Personaje> personajes = [];
 
   // Constructor privado para evitar la creación de instancias fuera de la clase
   Fachada._();
@@ -19,30 +18,9 @@ class Fachada{
   }
 
   //En main se determinara que personaje (Clase y Raza) se va a construir y se lo pasamos
-  void crearPersonaje(PersonajeBuilder personajeBuilder, String nombre){
+  Personaje crearPersonaje(PersonajeBuilder personajeBuilder, String nombre){
     director = Director(personajeBuilder);
     director.crearPersonaje(nombre);
-    personajes.add(director.getPersonaje())
-  }
-
-
-//Control de errores debe pasar en el lado del codigo cliente? Revisar
-  Personaje getProductoLast(){
-    if(personajes.length>0){
-      return personajes[personajes.length-1];
-    }else{
-      throw "Lista vacia"
-    }
-  }
-
-  int numPersonanjes(){
-    return personajes.length;
-  }
-  Personaje getProductoById(int id){
-    if (id >= 0 && id < personajes.length) {
-      return personajes[id];
-    }else{
-      throw "Id incorrecto";
-    } 
+    return director.getPersonaje();
   }
 }
