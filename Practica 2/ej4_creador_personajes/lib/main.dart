@@ -4,6 +4,7 @@ import 'package:ej4_creador_personajes/Razas/PersonajeBuilder.dart';
 import 'package:ej4_creador_personajes/Razas/razas.dart';
 import 'package:flutter/material.dart';
 import 'package:ej4_creador_personajes/fachada.dart';
+import 'package:ej4_creador_personajes/gestorPersonajes.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,6 +31,7 @@ class CreadorDePersonajes extends StatefulWidget {
 
 class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   Fachada f = Fachada.getInstancia();
+  GestorPersonajes gestor = GestorPersonajes.getInstancia();
   String selectedRace = '';
   String selectedClass = '';
   String characterName = '';
@@ -72,30 +74,59 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       default:
         pb = HumanoBuilder(cb);
     }
-    f.crearPersonaje(pb, characterName);
+    
+    gestor.addPersonaje(f.crearPersonaje(pb, characterName));
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => CharacterDetailsScreen(gestor.getLength()-1)),
+    );
+
     setState(() {});
-    //Navigator.push(
-    // context,
-    // MaterialPageRoute(builder: (context) => CharacterDetailsScreen()),
-    //);
+
+  }
+
+  void eliminarPersonaje(index){
+    setState(() {
+      gestor.remPersonaje(index);
+    });
   }
 
   Widget _buildListaPersonajes() {
     return ListView.builder(
-      itemCount: f.numPersonanjes(),
+      itemCount: gestor.getLength(),
       itemBuilder: (context, index) {
-        final personaje = f.getProductoById(index);
-        return ListTile(
-          title: Text(
-              '${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CharacterDetailsScreen(index)),
-            );
-            // Aquí puedes agregar la lógica para mostrar detalles del personaje
-          },
+        final personaje = gestor.getPersonaje(index);
+        return Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(
+                width: 500,
+                child: ListTile(
+                  title: Text(
+                      '${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CharacterDetailsScreen(index)),
+                    );
+                  },
+                )
+              ),
+              const SizedBox(width: 30),
+              FilledButton.tonal(
+                onPressed: () => eliminarPersonaje(index),
+                child: const Text(
+                  "ELIMINAR PERSONAJE",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+              ),
+            ],
+          ),
         );
       },
     );
@@ -306,7 +337,7 @@ class ClassButton extends StatelessWidget {
 }
 
 class CharacterDetailsScreen extends StatelessWidget {
-  int index = 0;
+  final int index;
   CharacterDetailsScreen(this.index, {super.key});
 
   @override
@@ -314,7 +345,7 @@ class CharacterDetailsScreen extends StatelessWidget {
     // Obtener el personaje creado utilizando la fachada
     //  final personaje = Fachada.getInstancia().getProductoLast();
 
-    final personaje = Fachada.getInstancia().personajes[index];
+    final personaje = GestorPersonajes.getInstancia().getPersonaje(index);
     final nomRaza = personaje.raza.substring(0, 1).toUpperCase() +
         personaje.raza.substring(1);
     final nomClase = personaje.clase.substring(0, 1).toUpperCase() +
