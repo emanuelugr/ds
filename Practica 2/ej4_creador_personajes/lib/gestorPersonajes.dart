@@ -36,12 +36,4 @@ class GestorPersonajes{
     } 
   }
 
-  Personaje getProductoLast(){
-    if(personajes.length>0){
-      return personajes[personajes.length-1];
-    }else{
-      throw "Lista vacia";
-    }
-  }
-
 }
