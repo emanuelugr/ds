@@ -38,8 +38,8 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   String characterName = '';
 
   // Variables para ordenar y filtrar
-  String orderBy = 'Nombre';          // Por defecto ordenar por nombre
-  String filterByRace = ''; 
+  String orderBy = 'Nombre'; // Por defecto ordenar por nombre
+  String filterByRace = '';
   String filterByClass = '';
 
   void _crearPersonaje() {
@@ -80,20 +80,21 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       default:
         pb = HumanoBuilder(cb);
     }
-    
+
     gestor.addPersonaje(f.crearPersonaje(pb, characterName));
 
+    //var dummy = gestor.getPersonaje(gestor.getLength() - 1);
+    //dummy.ExportState("STATE_TEST.TXT");
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => CharacterDetailsScreen(gestor.getLength()-1)),
+          builder: (context) => CharacterDetailsScreen(gestor.getLength() - 1)),
     );
 
     setState(() {});
-
   }
 
-  void eliminarPersonaje(index){
+  void eliminarPersonaje(index) {
     setState(() {
       gestor.remPersonaje(index);
     });
@@ -106,7 +107,8 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       filteredList = filteredList.where((p) => p.raza == filterByRace).toList();
     }
     if (filterByClass.isNotEmpty) {
-      filteredList = filteredList.where((p) => p.clase == filterByClass).toList();
+      filteredList =
+          filteredList.where((p) => p.clase == filterByClass).toList();
     }
 
     // Aplicar orden
@@ -117,7 +119,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
     } else if (orderBy == 'Clase') {
       filteredList.sort((a, b) => a.clase.compareTo(b.clase));
     }
-    
+
     return ListView.builder(
       itemCount: filteredList.length,
       itemBuilder: (context, index) {
@@ -128,26 +130,26 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               SizedBox(
-                width: 500,
-                child: ListTile(
-                  title: Text(
-                      '${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CharacterDetailsScreen(index)),
-                    );
-                  },
-                )
-              ),
+                  width: 500,
+                  child: ListTile(
+                    title: Text(
+                        '${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CharacterDetailsScreen(index)),
+                      );
+                    },
+                  )),
               const SizedBox(width: 30),
               FilledButton.tonal(
                 onPressed: () => eliminarPersonaje(index),
                 child: const Text(
                   "ELIMINAR PERSONAJE",
                   style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                ),
               ),
             ],
           ),
@@ -300,7 +302,8 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
                         filterByRace = newValue!;
                       });
                     },
-                    items: ['', 'Elfo', 'Enano', 'Humano', 'Orco'].map((String value) {
+                    items: ['', 'Elfo', 'Enano', 'Humano', 'Orco']
+                        .map((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value.isEmpty ? 'Sin Filtro' : value),
@@ -315,7 +318,8 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
                         filterByClass = newValue!;
                       });
                     },
-                    items: ['', 'Caballero', 'Ladron', 'Mago', 'Ranger'].map((String value) {
+                    items: ['', 'Caballero', 'Ladron', 'Mago', 'Ranger']
+                        .map((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value.isEmpty ? 'Sin Filtro' : value),
@@ -327,7 +331,8 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
             ],
           ),
           const SizedBox(height: 36.0),
-          const Text('Lista de Personajes:',
+          const Text(
+            'Lista de Personajes:',
             style: TextStyle(fontSize: 20.0),
           ),
           // Aquí se muestra la lista de personajes
@@ -452,13 +457,20 @@ class CharacterDetailsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 6),
-            buildLineaAtributo('Fuerza', personaje.primaryAttr['Fuerza']!.toString()),
-            buildLineaAtributo('Destreza', personaje.primaryAttr['Destreza']!.toString()),
-            buildLineaAtributo('Resistencia',personaje.primaryAttr['Resistencia']!.toString()),
-            buildLineaAtributo('Inteligencia',personaje.primaryAttr['Inteligencia']!.toString()),
-            buildLineaAtributo('Sabiduría', personaje.primaryAttr['Sabiduria']!.toString()),
-            buildLineaAtributo('Carisma', personaje.primaryAttr['Carisma']!.toString()),
-            buildLineaAtributo('Percepción', personaje.primaryAttr['Percepcion']!.toString()),
+            buildLineaAtributo(
+                'Fuerza', personaje.primaryAttr['Fuerza']!.toString()),
+            buildLineaAtributo(
+                'Destreza', personaje.primaryAttr['Destreza']!.toString()),
+            buildLineaAtributo('Resistencia',
+                personaje.primaryAttr['Resistencia']!.toString()),
+            buildLineaAtributo('Inteligencia',
+                personaje.primaryAttr['Inteligencia']!.toString()),
+            buildLineaAtributo(
+                'Sabiduría', personaje.primaryAttr['Sabiduria']!.toString()),
+            buildLineaAtributo(
+                'Carisma', personaje.primaryAttr['Carisma']!.toString()),
+            buildLineaAtributo(
+                'Percepción', personaje.primaryAttr['Percepcion']!.toString()),
             const SizedBox(height: 10),
             const Divider(
               thickness: 2,
@@ -472,14 +484,22 @@ class CharacterDetailsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 6),
-            buildLineaAtributo('Vida', personaje.secondaryAttr['Vida']!.toString()),
-            buildLineaAtributo('Estamina', personaje.secondaryAttr['Estamina']!.toString()),
-            buildLineaAtributo('Mana', personaje.secondaryAttr['Mana']!.toString()),
-            buildLineaAtributo('Persuasión',personaje.secondaryAttr['Persuasion']!.toString()),
-            buildLineaAtributo('Agilidad', personaje.secondaryAttr['Agilidad']!.toString()),
-            buildLineaAtributo('Intimidación',personaje.secondaryAttr['Intimidacion']!.toString()),
-            buildLineaAtributo('Crítico', personaje.secondaryAttr['Critico']!.toString()),
-            buildLineaAtributo('Puntería', personaje.secondaryAttr['Punteria']!.toString()),
+            buildLineaAtributo(
+                'Vida', personaje.secondaryAttr['Vida']!.toString()),
+            buildLineaAtributo(
+                'Estamina', personaje.secondaryAttr['Estamina']!.toString()),
+            buildLineaAtributo(
+                'Mana', personaje.secondaryAttr['Mana']!.toString()),
+            buildLineaAtributo('Persuasión',
+                personaje.secondaryAttr['Persuasion']!.toString()),
+            buildLineaAtributo(
+                'Agilidad', personaje.secondaryAttr['Agilidad']!.toString()),
+            buildLineaAtributo('Intimidación',
+                personaje.secondaryAttr['Intimidacion']!.toString()),
+            buildLineaAtributo(
+                'Crítico', personaje.secondaryAttr['Critico']!.toString()),
+            buildLineaAtributo(
+                'Puntería', personaje.secondaryAttr['Punteria']!.toString()),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:io';
 
 class Personaje {
   late String nombre, raza, clase;
@@ -46,5 +47,24 @@ class Personaje {
 
   void SetRace(String raza) {
     this.raza = raza;
+  }
+
+  void ExportState(String path) {
+    // Abrir el archivo en modo escritura
+    File file = File(path);
+    IOSink sink = file.openWrite(mode: FileMode.write);
+
+    // Vuelco las parejas key:value de atributos primarios
+    primaryAttr.forEach((key, value) {
+      sink.write('$key:$value\n');
+    });
+
+    // Vuelco las parejas key:value de atributos secundarios
+    secondaryAttr.forEach((key, value) {
+      sink.write('$key:$value\n');
+    });
+
+    // Cerrar el archivo
+    sink.close();
   }
 }
