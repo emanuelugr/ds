@@ -172,4 +172,224 @@ La función loadCFG() de la clase ClaseBuilder.
 
 \end{itemize}
 
+\section{Diseño}
+\subsection{Creador de personajes}
+\subsubsection{Grupo: Archivos de configuración}
+\textbf{TLDR}:
+Estos casos de prueba aseguran que los archivos de configuración necesarios para construir personajes estén presentes en el sistema y puedan ser accedidos correctamente por el programa.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba}
+	\begin{itemize}
+		\item Configuración de clase: verificar que los archivos de configuración de clase existen en la ruta especificada
+		\item Configuración de raza: verificar que los archivos de configuración de raza existen en la ruta especificada
+	\end{itemize}
+	\item \textbf{Entorno de prueba}\\
+	No se requieren herramientas ni infraestructuras adicionales.
+
+	\item \textbf{Datos de prueba}
+	\begin{itemize}
+		\item 	Se requiere ClaseBuilder debidamente inicializado.
+			\item Se requiere PersonajeBuidler debidamente inicializado.
+			\item Se requieren rutas donde se ubican los archivos de configuración.
+	\end{itemize}
+
+	
+	\item \textbf{Condición base}\\
+	Los archivos lib/cfg/* existen y son accesibles. 
+\end{itemize}
+
+
+\subsubsection{Grupo: ClaseBuilder CFG}
+\textbf{TLDR:} Verifica que la función \texttt{loadCFG()} de ClaseBuilder carga correctamente los atributos de clase.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Lectura de atributos de clase: verificar que la función \texttt{loadCFG()} de ClaseBuilder funciona correctamente y carga los atributos de clase esperados.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Se requiere ClaseBuilder debidamente inicializado.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item ClaseBuilder está inicializado correctamente y ha cargado los valores desde el archivo de configuración correctamente.
+	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Grupo: PersonajeBuilder CFG}
+\textbf{TLDR:} Verifica que la función \texttt{loadCFG()} de PersonajeBuilder carga correctamente los atributos de personaje.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Lectura de atributos de personaje: verificar que la función \texttt{loadCFG()} de PersonajeBuilder funciona correctamente y carga los atributos de personaje esperados.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Se requiere PersonajeBuilder debidamente inicializado.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item PersonajeBuilder está inicializado correctamente  y cha cargado los valores desde el archivo de configuración correctamente.
+	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Grupo: Creación de Personaje}
+\textbf{TLDR:} Verifica que la creación de un personaje utilizando los constructores de ClaseBuilder y PersonajeBuilder produce un personaje con los atributos esperados.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Verificar que los atributos del personaje son los esperados después de su creación.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Se requieren ClaseBuilder y PersonajeBuilder debidamente inicializados.
+	\end{itemize}
+	
+\item \textbf{Condición base:}
+\begin{itemize}
+	\item ClaseBuilder y PersonajeBuilder están inicializados correctamente y la construcción de los atributos en el builder da el mismo resultado que \texttt{loadCFG()}.
+\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Grupo: Exportación del estado}
+\textbf{TLDR:} Verifica que la exportación del estado de un personaje se realiza correctamente y que se genera el archivo esperado.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Verificar que el archivo de exportación del estado del personaje se genera correctamente en la ubicación especificada.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Se requiere un personaje correctamente construido y una ubicación de archivo de exportación válida.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El personaje está correctamente construido y la ubicación de archivo de exportación es válida. Finalmente que el archivo efectivamente se ha creado.
+	\end{itemize}
+\end{itemize}
+
+
+
+\subsubsection{Grupo: Funcionamiento Director}
+\textbf{TLDR:} Verifica que el director pueda crear un personaje correctamente y que el personaje creado tenga el nombre esperado.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Verificar que el director pueda crear un personaje con el nombre especificado.
+		\item Verificar que el nombre del personaje creado coincida con el nombre especificado.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Se requiere un director correctamente inicializado y un nombre de personaje válido.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El director está correctamente inicializado y puede crear un personaje con el nombre especificado.
+	\end{itemize}
+\end{itemize}
+
+
+
+\subsubsection{Grupo: Funcionamiento de la Fachada}
+\textbf{TLDR:} Verifica que la fachada pueda crear un personaje correctamente con los constructores proporcionados y que el personaje creado tenga el nombre esperado.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Verificar que la fachada pueda crear un personaje utilizando los constructores de ClaseBuilder y PersonajeBuilder.
+		\item Verificar que el nombre del personaje creado coincida con el nombre especificado.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Se requiere una fachada correctamente inicializada, un constructor de ClaseBuilder y PersonajeBuilder válidos, y un nombre de personaje válido.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item La fachada está correctamente inicializada y puede crear un personaje utilizando los constructores proporcionados.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Gestor personajes}
+Se encarga de verificar el funcionamiento adecuado del gestor de personajes en el sistema. Este gestor gestiona una la lista de personajes, permitiendo añadir, eliminar y realizar operaciones como ordenar y filtrar por diferentes criterios, como nombre, clase, raza o atributo.
+
+\subsubsection{Añadir Personaje}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes pueda añadir correctamente un personaje a la lista de personajes.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se añade un personaje a la lista del gestor de personajes.
+	\end{itemize}
+	
+	arduino
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado y un personaje válido.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+		\item Personaje válido.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y la lista de personajes está vacía.
+	\end{itemize}
+	
+\end{itemize}
+
+
 \end{document} 
