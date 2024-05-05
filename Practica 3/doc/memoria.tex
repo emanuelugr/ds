@@ -41,10 +41,10 @@
 
 \begin{itemize}
 	\item \textbf{Test 1}: CFG de ClaseBuilder\\
-\textbf{Propósito}: Verificar que la función loadCFG() de ClaseBuilder funciona correctamente.
+\textbf{Propósito}: Verificar que la función loadCFG() de ClaseBuilder funcióna correctamente.
 
 	\item \textbf{Test 2}: CFG de PersonajeBuilder
-\\ \textbf{Propósito}: Confirmar que la función loadCFG() de PersonajeBuilder funciona correctamente.
+\\ \textbf{Propósito}: Confirmar que la función loadCFG() de PersonajeBuilder funcióna correctamente.
 
 
 	\item \textbf{Test 3}: Creación correcta del personaje\\
@@ -55,12 +55,12 @@
 \\\textbf{Propósito}: Verificar que la exportación del personaje se realiza correctamente.
 
 
-	\item \textbf{Test 5}: Funcionamiento del director
+	\item \textbf{Test 5}: funciónamiento del director
 \\ \textbf{Propósito}: Confirmar que el director puede crear un personaje correctamente.
 
 
-	\item \textbf{Test 6}: Funcionamiento de la fachada
-\\ \textbf{Propósito}: Verificar que la fachada funciona como se espera.
+	\item \textbf{Test 6}: funciónamiento de la fachada
+\\ \textbf{Propósito}: Verificar que la fachada funcióna como se espera.
 
 \end{itemize}
 
@@ -75,28 +75,30 @@
 \\ \textbf{Propósito}: Verificar que se pueden eliminar personajes de la lista del gestor.
 
 
-	\item \textbf{Test 3}: Ordenar la lista segun el nombre
-\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el nombre funciona correctamente.
+	\item \textbf{Test 3}: Ordenar la lista según el nombre
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el nombre funcióna correctamente.
 
 
-    \item \textbf{Test 4}: Ordenar la lista segun la clase
-\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el clase funciona correctamente.
+    \item \textbf{Test 4}: Ordenar la lista según la clase
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista según el clase funcióna correctamente.
 
 
-    \item \textbf{Test 5}: Ordernar la lista segun la raza
-\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el raza funciona correctamente.
+    \item \textbf{Test 5}: Ordernar la lista según la raza
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista según el raza funcióna correctamente.
 
 
-    \item \textbf{Test 6}: Ordernar la lista segun el atributo
-\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el atributo funciona correctamente.
+    \item \textbf{Test 6}: Ordernar la lista según el atributo
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista según el atributo funcióna correctamente.
 
 
-    \item \textbf{Test 7}: Filtrar la lista segun la clase
-\\ \textbf{Propósito}: Confirmar que el filtrado de la lista segun el clase funciona correctamente.
+    \item \textbf{Test 7}: Filtrar la lista según la clase
+\\ \textbf{Propósito}: Confirmar que el filtrado de la lista segun el clase funcióna correctamente.
 
 
-    \item \textbf{Test 8}: Filtrar la lista segun la raza
-\\ \textbf{Propósito}: Confirmar que el filtrado de la lista segun el raza funciona correctamente.
+    \item \textbf{Test 8}: Filtrar la lista según la raza
+\\ \textbf{Propósito}: Confirmar que el filtrado de la lista según el raza funcióna correctamente.
+
+\end{itemize}
 
 \newpage
 \section{Análisis}
@@ -104,206 +106,272 @@
 \subsection{Creador de personajes}
 
 \subsection{CFG de ClaseBuilder}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-\textbf{Elemento a Probar}: 
+\item \textbf{Elemento a Probar}: 
 
-La función loadCFG() de la clase ClaseBuilder.
+\item La función loadCFG() de la clase ClaseBuilder.
 
-\textbf{Condiciones para la Prueba}:
+\item \textbf{Condiciones para la Prueba}:
 
-        Se requiere que exista un archivo de configuración válido para la clase en cuestión.
-        La función loadCFG() debe cargar correctamente los valores del archivo de configuración.
+\item Se requiere que exista un archivo de configuración válido para la clase en cuestión. La función loadCFG() debe cargar correctamente los valores del archivo de configuración.
    
-\textbf{ Datos Necesarios para la Prueba:}
-        Un archivo de configuración válido que contenga los atributos de la clase con sus respectivos valores.
-        Valores esperados para cada atributo de la clase según el archivo de configuración.
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item Un archivo de configuración válido que contenga los atributos de la clase con sus respectivos valores.
+Valores esperados para cada atributo de la clase según el archivo de configuración.
+
+\end{itemize}
+
 
 \subsection{CFG de PersonajeBuilder}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-\textbf{Elemento a Probar}:
+\item \textbf{Elemento a Probar}:
 
- La función loadCFG() de la clase PersonajeBuilder.
+\item La función loadCFG() de la clase PersonajeBuilder.
 
-\textbf{Condiciones para la Prueba}:
+\item \textbf{Condiciones para la Prueba}:
 
-        Se requiere que exista un archivo de configuración válido para el personaje en cuestión.
-        La función loadCFG() debe cargar correctamente los valores del archivo de configuración.
-        
-    \textbf{Datos Necesarios para la Prueba:}
-    
-        Un archivo de configuración válido que contenga los atributos del personaje con sus respectivos valores.
-        Valores esperados para cada atributo del personaje según el archivo de configuración.
+\item Se requiere que exista un archivo de configuración válido para el personaje en cuestión.
+La función loadCFG() debe cargar correctamente los valores del archivo de configuración.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item Un archivo de configuración válido que contenga los atributos del personaje con sus respectivos valores.
+Valores esperados para cada atributo del personaje según el archivo de configuración.
+
+\end{itemize}
 
 \subsection{Creación correcta del personaje}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-   \textbf{ Elemento a Probar}: 
-   
-   El proceso de creación de un personaje utilizando PersonajeBuilder.
-   
-    \textbf{Condiciones para la Prueba:}
-        Se deben cargar correctamente los valores de los archivos de configuración de la clase y el personaje.
-        Los atributos del personaje creado deben coincidir con los valores esperados según las configuraciones de clase y personaje.
-        
-    \textbf{Datos Necesarios para la Prueba:}
-        Archivos de configuración válidos para la clase y el personaje.
-        Valores esperados para los atributos del personaje basados en las configuraciones de clase y personaje.
+\item \textbf{Elemento a Probar}: 
+
+\item El proceso de creación de un personaje utilizando PersonajeBuilder.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se deben cargar correctamente los valores de los archivos de configuración de la clase y el personaje.
+Los atributos del personaje creado deben coincidir con los valores esperados según las configuraciones de clase y personaje.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item Archivos de configuración válidos para la clase y el personaje.
+Valores esperados para los atributos del personaje basados en las configuraciones de clase y personaje.
+
+\end{itemize}
 
 \subsection{Exportación Correcta del personaje}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
+\item \textbf{Elemento a Probar}:
 
-    \textbf{Elemento a Probar}:
-    
-     El proceso de exportación de un personaje.
-    
-   \textbf{ Condiciones para la Prueba:}
-   
-        El personaje debe haber sido creado correctamente.
-        La función de exportación debe generar un archivo con la estructura correcta y los datos del personaje.
-        
-    \textbf{Datos Necesarios para la Prueba:}
-    
-        Un personaje creado y válido.
-        Valores esperados para los atributos del personaje en el archivo de exportación.
+\item El proceso de exportación de un personaje.
 
-\subsection{Funcionamiento del director}
+\item \textbf{Condiciones para la Prueba:}
 
-   \textbf{ Elemento a Probar:} 
-   
-   El proceso de creación de un personaje a través del director.
-   
-   \textbf{ Condiciones para la Prueba:}
-        El director debe ser capaz de crear un personaje utilizando un constructor específico.
-        
-    \textbf{Datos Necesarios para la Prueba:}
-    
-        Un constructor válido para el tipo de personaje deseado.
-        Valores esperados para los atributos del personaje creado.
+\item El personaje debe haber sido creado correctamente.
+La función de exportación debe generar un archivo con la estructura correcta y los datos del personaje.
 
-\subsection{Funcionamiento de la fachada}
+\item \textbf{Datos Necesarios para la Prueba:}
 
-   \textbf{ Elemento a Probar:} 
-   El funcionamiento de la fachada en una operación específica.
-   
-    \textbf{Condiciones para la Prueba:}
-    
-        La fachada debe ser capaz de realizar la operación deseada correctamente.
-        
-   \textbf{ Datos Necesarios para la Prueba:}
-   
-        Datos de entrada necesarios para la operación.
-        Valores esperados para el resultado de la operación.
+\item Un personaje creado y válido.
+Valores esperados para los atributos del personaje en el archivo de exportación.
+
+\end{itemize}
+
+\subsection{funciónamiento del director}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
+
+\item \textbf{Elemento a Probar:} 
+
+\item El proceso de creación de un personaje a través del director.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item El director debe ser capaz de crear un personaje utilizando un constructor específico.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item Un constructor válido para el tipo de personaje deseado.
+Valores esperados para los atributos del personaje creado.
+
+\end{itemize}
+
+\subsection{funciónamiento de la fachada}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
+
+\item \textbf{Elemento a Probar:} 
+
+\item El funciónamiento de la fachada en una operación específica.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item La fachada debe ser capaz de realizar la operación deseada correctamente.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item Datos de entrada necesarios para la operación.
+Valores esperados para el resultado de la operación.
 
 \end{itemize}
 
 \subsection{Gestor de personajes}
 
 \subsection{Añadir personajes}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-\textbf{Elemento a Probar}: 
+\item \textbf{Elemento a Probar}: 
 
-La funcion addPersonaje(Personaje) de GestorPersonajes
+\item La función addPersonaje(Personaje) de GestorPersonajes
 
-\textbf{Condiciones para la Prueba}:
+\item \textbf{Condiciones para la Prueba}:
 
-        Se requiere que exista un personaje valido ya creado y la instancia de GestorPersonajes
-   
-\textbf{ Datos Necesarios para la Prueba:}
-        Un personaje valido ya creado
-        La instancia de GestorPersonajes
+\item Se requiere que exista un personaje valido ya creado y la instancia de GestorPersonajes
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item Un personaje valido ya creado y la instancia de GestorPersonajes
+
+\end{itemize}
 
 \subsection{Eliminar Personajes}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-\textbf{Elemento a Probar}:
+\item \textbf{Elemento a Probar}:
 
- La función remPersonaje(indice) de la clase PersonajeBuilder.
+\item La función remPersonaje(indice) de la clase PersonajeBuilder.
 
-\textbf{Condiciones para la Prueba}:
+\item \textbf{Condiciones para la Prueba}:
 
-        Se requiere que en GestorPersonajes se haya incluido previamente un personaje valido.
-        
-    \textbf{Datos Necesarios para la Prueba:}
-    
-        La instancia de GestorPersonajes con al menos un personaje valido a eliminar.
-        El indice de la posicion del personaje a eliminar de GestorPersonajes
+\item Se requiere que en GestorPersonajes se haya incluido previamente un personaje valido.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos un personaje valido a eliminar. El índice de la posicion del personaje a eliminar de GestorPersonajes
+
+\end{itemize}
 
 \subsection{Ordenar lista de personajes por nombre}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-   \textbf{ Elemento a Probar}: 
-   
-   La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por nombre.
-   
-    \textbf{Condiciones para la Prueba:}
-        Se requiere que en GestorPersonajes haya al menos 2 personajes con distinto nombre.
+\item \textbf{Elemento a Probar}: 
 
-    \textbf{Datos Necesarios para la Prueba:}
-        La instancia de GestorPersonajes con al menos 2 personajes de distinto nombre.
-        Una variable de opcion para que el orden sea ascendente o descendente.
+\item La función ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por nombre.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se requiere que en GestorPersonajes haya al menos 2 personajes con distinto nombre.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos 2 personajes de distinto nombre.
+Una variable de opcion para que el orden sea ascendente o descendente.
+
+\end{itemize}
 
 \subsection{Ordenar lista de personajes por clase}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-    \textbf{ Elemento a Probar}: 
-    
-    La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por clase.
-    
-        \textbf{Condiciones para la Prueba:}
-            Se requiere que en GestorPersonajes haya al menos 2 personajes con distinta clase.   
-    
-        \textbf{Datos Necesarios para la Prueba:}
-            La instancia de GestorPersonajes con al menos 2 personajes de distinto clase.
-            Una variable de opcion para que el orden sea ascendente o descendente.
+\item \textbf{Elemento a Probar}: 
+
+\item La función ordenarPersonaje(ascendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por clase.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se requiere que en GestorPersonajes haya al menos 2 personajes con distinta clase.   
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos 2 personajes de distinto clase. Una variable de opción para que el orden sea ascendente o descendente.
+
+\end{itemize}
 
 \subsection{Ordenar lista de personajes por raza}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-    \textbf{ Elemento a Probar}: 
-    
-    La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por raza.
-    
-        \textbf{Condiciones para la Prueba:}
-            Se requiere que en GestorPersonajes haya al menos 2 personajes con distinta raza.    
-    
-        \textbf{Datos Necesarios para la Prueba:}
-            La instancia de GestorPersonajes con al menos 2 personajes de distinto raza.
-            Una variable de opcion para que el orden sea ascendente o descendente.
+\item \textbf{Elemento a Probar}: 
+
+\item La función ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por raza.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se requiere que en GestorPersonajes haya al menos 2 personajes con distinta raza.    
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos 2 personajes de distinto raza.
+Una variable de opcion para que el orden sea ascendente o descendente.
+
+\end{itemize}
 
 \subsection{Ordenar lista de personajes por atributo}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-    \textbf{ Elemento a Probar}: 
-    
-    La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por un atributo.
-    
-        \textbf{Condiciones para la Prueba:}
-            Se requiere que en GestorPersonajes haya al menos 2 personajes con el atributo a ordenar distinto.
-    
-        \textbf{Datos Necesarios para la Prueba:}
-            La instancia de GestorPersonajes con al menos 2 personajes con distinto valor en el atributo a ordenar.
-            Una variable de opcion para que el orden sea ascendente o descendente.
-            El atributo por el que se quiere ordenar la lista.
+\item \textbf{Elemento a Probar}: 
+
+\item La función ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por un atributo.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se requiere que en GestorPersonajes haya al menos 2 personajes con el atributo a ordenar distinto.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos 2 personajes con distinto valor en el atributo a ordenar. Una variable de opcion para que el orden sea ascendente o descendente. El atributo por el que se quiere ordenar la lista.
+
+\end{itemize}
 
 \subsection{Filtrar lista de personajes por raza}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-    \textbf{ Elemento a Probar}: 
-    
-    La funcion filtrarPorRaza(raza) de GestorPersonaje cuando se quiere filtrar la lista por una raza especifica.
-    
-        \textbf{Condiciones para la Prueba:}
-            Se requiere que en GestorPersonajes haya al menos un personaje de la raza a filtrar, y al menos un personaje que no pertenezca a esa raza.
-    
-        \textbf{Datos Necesarios para la Prueba:}
-            La instancia de GestorPersonajes con al menos un personaje de la raza a filtrar, y al menos un personaje que no pertenezca a esa raza.
+\item \textbf{Elemento a Probar}: 
+
+\item La función filtrarPorRaza(raza) de GestorPersonaje cuando se quiere filtrar la lista por una raza específica.
+
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se requiere que en GestorPersonajes haya al menos un personaje de la raza a filtrar y, al menos, un personaje que no pertenezca a esa raza.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos un personaje de la raza a filtrar y, al menos, un personaje que no pertenezca a esa raza.
+
+\end{itemize}
 
 \subsection{Filtrar lista de personajes por clase}
+\renewcommand{\labelitemi}{}
+\begin{itemize}
 
-    \textbf{ Elemento a Probar}: 
-    
-    La funcion filtrarPorClase(clase) de GestorPersonaje cuando se quiere filtrar la lista por una clase especifica.
-    
-        \textbf{Condiciones para la Prueba:}
-            Se requiere que en GestorPersonajes haya al menos un personaje de la clase a filtrar, y al menos un personaje que no pertenezca a esa clase.
-    
-        \textbf{Datos Necesarios para la Prueba:}
-            La instancia de GestorPersonajes con al menos un personaje de la clase a filtrar, y al menos un personaje que no pertenezca a esa clase.
+\item \textbf{Elemento a Probar}: 
 
+\item La función filtrarPorClase(clase) de GestorPersonaje cuando se quiere filtrar la lista por una clase especifica.
 
+\item \textbf{Condiciones para la Prueba:}
+
+\item Se requiere que en GestorPersonajes haya al menos un personaje de la clase a filtrar y, al menos, un personaje que no pertenezca a esa clase.
+
+\item \textbf{Datos Necesarios para la Prueba:}
+
+\item La instancia de GestorPersonajes con al menos un personaje de la clase a filtrar y, al menos, un personaje que no pertenezca a esa clase.
+
+\end{itemize}
+
+\newpage
 \section{Diseño}
 \subsection{Creador de personajes}
 \subsubsection{Grupo: Archivos de configuración}
@@ -316,8 +384,10 @@ Estos casos de prueba aseguran que los archivos de configuración necesarios par
 		\item Configuración de clase: verificar que los archivos de configuración de clase existen en la ruta especificada
 		\item Configuración de raza: verificar que los archivos de configuración de raza existen en la ruta especificada
 	\end{itemize}
-	\item \textbf{Entorno de prueba}\\
-	No se requieren herramientas ni infraestructuras adicionales.
+	\item \textbf{Entorno de prueba}
+        \begin{itemize}
+		\item No se requieren herramientas ni infraestructuras adicionales.
+	\end{itemize}
 
 	\item \textbf{Datos de prueba}
 	\begin{itemize}
@@ -338,7 +408,7 @@ Estos casos de prueba aseguran que los archivos de configuración necesarios par
 \begin{itemize}
 	\item \textbf{Casos de prueba:}
 	\begin{itemize}
-		\item Lectura de atributos de clase: verificar que la función \texttt{loadCFG()} de ClaseBuilder funciona correctamente y carga los atributos de clase esperados.
+		\item Lectura de atributos de clase: verificar que la función \texttt{loadCFG()} de ClaseBuilder funcióna correctamente y carga los atributos de clase esperados.
 	\end{itemize}
 	
 	\item \textbf{Entorno de prueba:}
@@ -364,7 +434,7 @@ Estos casos de prueba aseguran que los archivos de configuración necesarios par
 \begin{itemize}
 	\item \textbf{Casos de prueba:}
 	\begin{itemize}
-		\item Lectura de atributos de personaje: verificar que la función \texttt{loadCFG()} de PersonajeBuilder funciona correctamente y carga los atributos de personaje esperados.
+		\item Lectura de atributos de personaje: verificar que la función \texttt{loadCFG()} de PersonajeBuilder funcióna correctamente y carga los atributos de personaje esperados.
 	\end{itemize}
 	
 	\item \textbf{Entorno de prueba:}
@@ -437,7 +507,7 @@ Estos casos de prueba aseguran que los archivos de configuración necesarios par
 
 
 
-\subsubsection{Grupo: Funcionamiento Director}
+\subsubsection{Grupo: funciónamiento Director}
 \textbf{TLDR:} Verifica que el director pueda crear un personaje correctamente y que el personaje creado tenga el nombre esperado.
 
 \begin{itemize}
@@ -465,7 +535,7 @@ Estos casos de prueba aseguran que los archivos de configuración necesarios par
 
 
 
-\subsubsection{Grupo: Funcionamiento de la Fachada}
+\subsubsection{Grupo: funciónamiento de la Fachada}
 \textbf{TLDR:} Verifica que la fachada pueda crear un personaje correctamente con los constructores proporcionados y que el personaje creado tenga el nombre esperado.
 
 \begin{itemize}
@@ -492,7 +562,7 @@ Estos casos de prueba aseguran que los archivos de configuración necesarios par
 \end{itemize}
 
 \subsection{Gestor personajes}
-Se encarga de verificar el funcionamiento adecuado del gestor de personajes en el sistema. Este gestor gestiona una la lista de personajes, permitiendo añadir, eliminar y realizar operaciones como ordenar y filtrar por diferentes criterios, como nombre, clase, raza o atributo.
+Se encarga de verificar el funciónamiento adecuado del gestor de personajes en el sistema. Este gestor gestiona una la lista de personajes, permitiendo añadir, eliminar y realizar operaciones como ordenar y filtrar por diferentes criterios, como nombre, clase, raza o atributo.
 
 \subsubsection{Añadir Personaje}
 \textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes pueda añadir correctamente un personaje a la lista de personajes.
@@ -720,13 +790,14 @@ Se encarga de verificar el funcionamiento adecuado del gestor de personajes en e
 \begin{wrapfigure}{l}{0.5\textwidth}
 \includegraphics[width=\linewidth]{ejecucion_tests.png}
 \end{wrapfigure}
-Para realizar las pruebas, hemos integrado dos nuevas funcionalidades en nuestra aplicación:
+
+Para realizar las pruebas, hemos integrado dos nuevas funciónalidades en nuestra aplicación:
 
 \begin{itemize}
-\item Gestor de personajes: Este componente se encarga de manejar a los personajes en nuestro sistema. Ofrece una interfaz que permite agregar, eliminar y consultar personajes en una lista. Además, ofrece funcionalidades avanzadas como filtrado y ordenamiento sobre el conjunto de personajes.
+\item[\textendash] Gestor de personajes: Este componente se encarga de manejar a los personajes en nuestro sistema. Ofrece una interfaz que permite agregar, eliminar y consultar personajes en una lista. Además, ofrece funciónalidades avanzadas como filtrado y ordenamiento sobre el conjunto de personajes.
 
 
-\item Exportación de estado: Implementamos un método en la clase Personaje para exportar su estado a un archivo de texto. Aunque no especificamos la estructura del archivo en esta etapa, la principal meta era demostrar la capacidad de serializar los datos de un personaje.
+\item[\textendash] Exportación de estado: Implementamos un método en la clase Personaje para exportar su estado a un archivo de texto. Aunque no especificamos la estructura del archivo en esta etapa, la principal meta era demostrar la capacidad de serializar los datos de un personaje.
 
 \end{itemize}
 
@@ -736,15 +807,15 @@ Cabe mencionar que previamente hemos realizado dos iteraciones sobre este ejerci
 A pesar de no haber surgido problemas durante las pruebas de esta práctica, identificamos algunos puntos que requerían atención y que han sido mitigados a tiempo durante la practica 2 que resumimos a continuación:
 
 \begin{itemize}
-\item Builder: Observamos que se reutilizaba la referencia de Personaje en lugar de crear nuevas instancias durante la construcción de personajes. Esto causaba problemas cuando intentábamos guardar varios personajes en una lista, ya que las modificaciones en una referencia afectaban a otras. La solución fue garantizar que cada construcción generara una instancia única del personaje.
+\item[\textbullet] Builder: Observamos que se reutilizaba la referencia de Personaje en lugar de crear nuevas instancias durante la construcción de personajes. Esto causaba problemas cuando intentábamos guardar varios personajes en una lista, ya que las modificaciones en una referencia afectaban a otras. La solución fue garantizar que cada construcción generara una instancia única del personaje.
 
 
-\item Archivos de configuración: Detectamos que la ausencia de archivos de configuración causaba fallos en la creación de atributos de personajes. El problema era el uso de caminos absolutos. La solución fue utilizar rutas de archivos relativas. 
+\item[\textbullet] Archivos de configuración: Detectamos que la ausencia de archivos de configuración causaba fallos en la creación de atributos de personajes. El problema era el uso de caminos absolutos. La solución fue utilizar rutas de archivos relativas. 
 
 \end{itemize}
 
 
-Aunque el código base demostró ser robusto y confiable, consideramos que la implementación de pruebas y la depuración podrían haber mejorado el proceso de desarrollo. Definir un conjunto claro de requisitos funcionales desde el principio habría agilizado la identificación y resolución de problemas, lo que resultaría en un desarrollo más eficiente y seguro. 
+Aunque el código base demostró ser robusto y confiable, consideramos que la implementación de pruebas y la depuración podrían haber mejorado el proceso de desarrollo. Definir un conjunto claro de requisitos funciónales desde el principio habría agilizado la identificación y resolución de problemas, lo que resultaría en un desarrollo más eficiente y seguro. 
 
 
 
