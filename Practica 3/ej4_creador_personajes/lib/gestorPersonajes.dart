@@ -36,31 +36,54 @@ class GestorPersonajes{
     } 
   }
 
-  //Ordenar Lista
+  //Ordenar el personaje según su tipo
+  void ordenarPersonaje(bool ascen, String tipo, [String atributo = ""]) {
+    List<Personaje> copiaPersonajes = List.from(personajes);
 
-  void ordenarPorNombre(bool desc){
-    if (desc){
-      personajes.sort((a, b) => a.nombre.compareTo(b.nombre));
-    } else{
-      personajes.sort((a, b) => b.nombre.compareTo(a.nombre));
+    switch(tipo){
+      case "nombre":
+        if (ascen) {
+          copiaPersonajes.sort((a, b) => a.nombre.compareTo(b.nombre));
+        } else {
+          copiaPersonajes.sort((a, b) => b.nombre.compareTo(a.nombre));
+        }
+        break;
+      case "raza":
+        if (ascen) {
+          copiaPersonajes.sort((a, b) => a.raza.compareTo(b.raza));
+        } else {
+          copiaPersonajes.sort((a, b) => b.raza.compareTo(a.raza));
+        }
+        break;
+      case "clase":
+        if (ascen) {
+          copiaPersonajes.sort((a, b) => a.clase.compareTo(b.clase));
+        } else {
+          copiaPersonajes.sort((a, b) => b.clase.compareTo(a.clase));
+        }
+        break;
+      case "atributo":
+        if (ascen) {
+          copiaPersonajes.sort((a, b) => a.secondaryAttr[atributo]!.compareTo(b.secondaryAttr[atributo]!));
+        } else {
+          copiaPersonajes.sort((a, b) => b.secondaryAttr[atributo]!.compareTo(a.secondaryAttr[atributo]!));
+        }
+        break;
     }
 
-  }
-
-  void ordenarPorAtributo(bool desc, String atributo){
-    if (desc){
-      personajes.sort((a, b) => a.secondaryAttr[atributo]!.compareTo(b.secondaryAttr[atributo]!));
-    } else{
-      personajes.sort((a, b) => b.secondaryAttr[atributo]!.compareTo(a.secondaryAttr[atributo]!));
-    }
+    personajes = copiaPersonajes;
   }
 
   List<Personaje> filtrarPorRaza(String filtroRaza){
-    return personajes.where((p) => p.raza == filtroRaza).toList();
+    List<Personaje> copiaPersonajes = List.from(personajes); 
+
+    return copiaPersonajes.where((p) => p.raza == filtroRaza).toList();
   }
 
   List<Personaje> filtrarPorClase(String filtroClase){
-    return personajes.where((p) => p.clase == filtroClase).toList();
+    List<Personaje> copiaPersonajes = List.from(personajes); 
+
+    return copiaPersonajes.where((p) => p.clase == filtroClase).toList();
   }
 
 }

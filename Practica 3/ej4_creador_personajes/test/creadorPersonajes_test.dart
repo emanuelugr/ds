@@ -30,6 +30,7 @@ void main() {
         expect(await f.exists(), true);
       });
     });
+
     //Test 1: CFG de ClaseBuilder
     group("ClaseBuilder CFG", () {
       //Probamos que la funcion CFG de ClaseBuilder funciona correctamente
@@ -112,8 +113,7 @@ void main() {
       test("Atributo S Estamina", () {
         expect(
             secondaryAttr['Estamina'],
-            (primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!) *
-                sec['Estamina']!);
+            (primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!) * sec['Estamina']!);
       });
       test("Atributo S Mana", () {
         expect(secondaryAttr['Mana'],
@@ -121,26 +121,24 @@ void main() {
       });
       test("Atributo S Persuasión", () {
         expect(
-            secondaryAttr['Persuasión'],
-            (primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!) *
-                sec['Persuasion']!);
+            secondaryAttr['Persuasion'],
+            (primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!) * sec['Persuasion']!);
       });
-      test("Atributo S Intimidacion", () {
+      test("Atributo S Intimidación", () {
         expect(
             secondaryAttr['Intimidacion'],
-            (primaryAttr["Destreza"]! + primaryAttr["Inteligencia"]!) *
-                sec['Intimidacion']!);
+            (primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!) * sec['Intimidacion']!);
       });
       test("Atributo S Agilidad", () {
         expect(secondaryAttr['Agilidad'],
-            primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!);
+            primaryAttr["Destreza"]! + primaryAttr["Inteligencia"]!);
       });
       test("Atributo S Crítico", () {
-        expect(secondaryAttr['Crítico'],
+        expect(secondaryAttr['Critico'],
             primaryAttr["Percepcion"]! + primaryAttr["Inteligencia"]!);
       });
       test("Atributo S Puntería", () {
-        expect(secondaryAttr['Puntería'],
+        expect(secondaryAttr['Punteria'],
             primaryAttr["Destreza"]! + primaryAttr["Percepcion"]!);
       });
     });
@@ -150,18 +148,30 @@ void main() {
     //Test 5: Funcionamiento del director
     group("Funcionamiento director", () {
       Director dir = Director(perBuilder);
-      String nombre = "TestLadronOrco";
-      dir.crearPersonaje(nombre);
-/*
-      test("Director", (){
-        Director dir = Director(perBuilder);
+      var nombre = 'Zorg';
+
+      test('Crear Personaje', () {
+        dir.crearPersonaje(nombre);
+        var personaje = dir.getPersonaje();
+
+        expect(personaje, isInstanceOf<Personaje>());
+        expect(personaje.nombre, nombre);
       });
-*/
     });
 
     //Test 6: Funcionamiento de la fachada
+    group('Funcionamiento fachada', () {
+      test('Crear Personaje', () {
+        var fachada = Fachada.getInstancia();
+        var builder = ElfoBuilder(MagoBuilder()); 
+        String nombre = "Legolas";
 
-    //Si eso, tmb pueden ser tests negativos I.E probar que NO se pueda hacer una cosa.
+        var personaje = fachada.crearPersonaje(builder, nombre);
+
+        expect(personaje, isInstanceOf<Personaje>());
+        expect(personaje.nombre, nombre);
+      });
+    });
   });
 
   group("Gestor de personajes", () {
@@ -177,6 +187,7 @@ void main() {
     test("Añadir Personaje", () {
       gestor.addPersonaje(dir1.getPersonaje());
       gestor.addPersonaje(dir2.getPersonaje());
+      gestor.addPersonaje(dir3.getPersonaje());
 
       expect(gestor.getPersonaje(0).nombre, "Alucard");
     });
@@ -185,63 +196,64 @@ void main() {
     test("Eliminar Personaje", () {
       gestor.addPersonaje(dir1.getPersonaje());
       gestor.addPersonaje(dir2.getPersonaje());
+      gestor.remPersonaje(1);
       gestor.remPersonaje(0);
 
-      expect(gestor.getPersonaje(0).nombre, "Belmont");
+      expect(gestor.getPersonaje(0).nombre, "Cintia");
+      expect(gestor.getPersonaje(1).nombre, "Alucard");
     });
 
     group("Operaciones sobre la lista", () {
-      setUp(() {
-        gestor.addPersonaje(
-            dir3.getPersonaje()); //Cintia (Elfo Mago) | Punteria = 20.0
-        gestor.addPersonaje(
-            dir1.getPersonaje()); //Alucard (Caballero Humano) | Punteria = 16.0
-        gestor.addPersonaje(
-            dir2.getPersonaje()); //Belmont (Enano Ranger) | Punteria = 24.0
-      });
-
       //Test 3: Ordenacion por nombre
       test("Ordenar por nombre", () {
-        gestor.ordenarPorNombre(true);
+        gestor.ordenarPersonaje(true, "nombre");    // Si true, ordena de menor a mayor, alfabéticamente de la A a la Z
 
-        String orden =
-            "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
 
         expect(orden, "Alucard-Belmont-Cintia");
       });
 
-      //Test 4: Ordenacion por atributo
+      //Test 4: Ordenacion por clase
+      test("Ordenar por clase", () {
+        gestor.ordenarPersonaje(false, "clase");    // Si false, ordena de mayor a menor, alfabéticamente de la Z a la A
+
+        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+
+        expect(orden, "Belmont-Cintia-Alucard");  // Ranger, Mago, Caballero
+      });
+
+      //Test 5: Ordenacion por raza
+      test("Ordenar por raza", () {
+        gestor.ordenarPersonaje(true, "raza");
+
+        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+
+        expect(orden, "Cintia-Belmont-Alucard");  // Elfo, Enano, Humano
+      });
+
+      //Test 6: Ordenacion por atributo
       test("Ordenar por atributo", () {
-        gestor.ordenarPorAtributo(true, "Punteria");
+        gestor.ordenarPersonaje(false, "atributo", "Punteria");
 
-        String orden =
-            "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
 
-        expect(orden, "Belmont-Cintia-Alucard");
+        expect(orden, "Belmont-Cintia-Alucard");  // 24, 20, 16
       });
 
-      //Test 5: Filtrar por raza
-      group("Filtro por raza", () {
-        gestor.filtrarPorRaza("Elfo");
+      //Test 7: Filtrar por raza
+      test("Filtro por raza", () {
+        var personajesFiltrados = gestor.filtrarPorRaza("Elfo");
 
-        test("Solo hay una entrada", () {
-          expect(gestor.getLength(), 1);
-        });
-        test("Es un elfo", () {
-          expect(gestor.getPersonaje(0).raza, "Elfo");
-        });
+        expect(personajesFiltrados.length, 1);
+        expect(personajesFiltrados[0].raza, "Elfo");
       });
 
-      //Test 6: Filtrar por clase
-      group("Filtro por clase", () {
-        gestor.filtrarPorClase("Caballero");
+      //Test 8: Filtrar por clase
+      test("Filtro por clase", () {
+        var personajesFiltrados = gestor.filtrarPorClase("Caballero");
 
-        test("Solo hay una entrada", () {
-          expect(gestor.getLength(), 1);
-        });
-        test("Es un caballero", () {
-          expect(gestor.getPersonaje(0).clase, "Caballero");
-        });
+        expect(personajesFiltrados.length, 1);
+        expect(personajesFiltrados[0].clase, "Caballero");
       });
     });
   });
