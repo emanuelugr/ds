@@ -1,6 +1,7 @@
 \documentclass{article}
 %Para imagenes
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{float}
 \usepackage{enumitem} % Paquete para personalizar listas
 \usepackage[margin=2cm]{geometry} % Ajusta todos los márgenes a 2 centímetros
@@ -302,8 +303,6 @@ La funcion addPersonaje(Personaje) de GestorPersonajes
         \textbf{Datos Necesarios para la Prueba:}
             La instancia de GestorPersonajes con al menos un personaje de la clase a filtrar, y al menos un personaje que no pertenezca a esa clase.
 
-
-\end{itemize}
 
 \section{Diseño}
 \subsection{Creador de personajes}
@@ -716,8 +715,39 @@ Se encarga de verificar el funcionamiento adecuado del gestor de personajes en e
 	
 \end{itemize}
 
-\section{Depuracion}
+\newpage
+\section{Conclusiones}
+\begin{wrapfigure}{l}{0.5\textwidth}
+\includegraphics[width=\linewidth]{ejecucion_tests.png}
+\end{wrapfigure}
+Para realizar las pruebas, hemos integrado dos nuevas funcionalidades en nuestra aplicación:
 
-A la hora de hacer los tests, no hemos tenido que cambiar nada del codigo realmente, debido a que lo qu enetregamos en la practica anterior funcionaba correctamente. Si hemos hecho algunas mejoras al modelo de la aplicacion, para obtener asi mas funcionalidad sobre la que realizar los distintos tests.
+\begin{itemize}
+\item Gestor de personajes: Este componente se encarga de manejar a los personajes en nuestro sistema. Ofrece una interfaz que permite agregar, eliminar y consultar personajes en una lista. Además, ofrece funcionalidades avanzadas como filtrado y ordenamiento sobre el conjunto de personajes.
+
+
+\item Exportación de estado: Implementamos un método en la clase Personaje para exportar su estado a un archivo de texto. Aunque no especificamos la estructura del archivo en esta etapa, la principal meta era demostrar la capacidad de serializar los datos de un personaje.
+
+\end{itemize}
+
+Cabe mencionar que previamente hemos realizado dos iteraciones sobre este ejercicio. En la primera iteración, durante practica 1, ofreimos una implementación en Java. En la segunda , migramos a Flutter y reescribimos todo el código en Dart. Durante esta migración nos hemos enfrentado con bastantes desafios que finalmente han sido superados. Como resultado de este esfuerzo logramos obtener un código solido y estable que cumple con los requisitos planteados en las practicas anteriores. Debido a esto, durante las pruebas propuestas para esta practica no tuvimos que recurrir a la depuración ni tampoco a realizar cambios en el codigo base. \\
+
+
+A pesar de no haber surgido problemas durante las pruebas de esta práctica, identificamos algunos puntos que requerían atención y que han sido mitigados a tiempo durante la practica 2 que resumimos a continuación:
+
+\begin{itemize}
+\item Builder: Observamos que se reutilizaba la referencia de Personaje en lugar de crear nuevas instancias durante la construcción de personajes. Esto causaba problemas cuando intentábamos guardar varios personajes en una lista, ya que las modificaciones en una referencia afectaban a otras. La solución fue garantizar que cada construcción generara una instancia única del personaje.
+
+
+\item Archivos de configuración: Detectamos que la ausencia de archivos de configuración causaba fallos en la creación de atributos de personajes. El problema era el uso de caminos absolutos. La solución fue utilizar rutas de archivos relativas. 
+
+\end{itemize}
+
+
+Aunque el código base demostró ser robusto y confiable, consideramos que la implementación de pruebas y la depuración podrían haber mejorado el proceso de desarrollo. Definir un conjunto claro de requisitos funcionales desde el principio habría agilizado la identificación y resolución de problemas, lo que resultaría en un desarrollo más eficiente y seguro. 
+
+
+
+
 
 \end{document} 
