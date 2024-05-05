@@ -113,7 +113,8 @@ void main() {
       test("Atributo S Estamina", () {
         expect(
             secondaryAttr['Estamina'],
-            (primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!) * sec['Estamina']!);
+            (primaryAttr["Destreza"]! + primaryAttr["Resistencia"]!) *
+                sec['Estamina']!);
       });
       test("Atributo S Mana", () {
         expect(secondaryAttr['Mana'],
@@ -122,12 +123,14 @@ void main() {
       test("Atributo S Persuasión", () {
         expect(
             secondaryAttr['Persuasion'],
-            (primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!) * sec['Persuasion']!);
+            (primaryAttr["Carisma"]! + primaryAttr["Sabiduria"]!) *
+                sec['Persuasion']!);
       });
       test("Atributo S Intimidación", () {
         expect(
             secondaryAttr['Intimidacion'],
-            (primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!) * sec['Intimidacion']!);
+            (primaryAttr["Fuerza"]! + primaryAttr["Carisma"]!) *
+                sec['Intimidacion']!);
       });
       test("Atributo S Agilidad", () {
         expect(secondaryAttr['Agilidad'],
@@ -144,8 +147,18 @@ void main() {
     });
 
     //Test 4: Exportacion Correcta del personaje
-    group("Exportacion del estado",(){
-      //pendiente      
+    group("Exportacion del estado", () {
+      Director d = Director(perBuilder);
+      d.crearPersonaje("EdwardGrieg");
+      var p = d.getPersonaje();
+
+      String path = "dump_personaje.txt";
+      p.ExportState(path);
+
+      test("Exportar estado ", () async {
+        File f = File(path);
+        expect(await f.exists(), true);
+      });
     });
 
     //Test 5: Funcionamiento del director
@@ -166,7 +179,7 @@ void main() {
     group('Funcionamiento fachada', () {
       test('Crear Personaje', () {
         var fachada = Fachada.getInstancia();
-        var builder = ElfoBuilder(MagoBuilder()); 
+        var builder = ElfoBuilder(MagoBuilder());
         String nombre = "Legolas";
 
         var personaje = fachada.crearPersonaje(builder, nombre);
@@ -209,38 +222,44 @@ void main() {
     group("Operaciones sobre la lista", () {
       //Test 3: Ordenacion por nombre
       test("Ordenar por nombre", () {
-        gestor.ordenarPersonaje(true, "nombre");    // Si true, ordena de menor a mayor, alfabéticamente de la A a la Z
+        gestor.ordenarPersonaje(true,
+            "nombre"); // Si true, ordena de menor a mayor, alfabéticamente de la A a la Z
 
-        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+        String orden =
+            "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
 
         expect(orden, "Alucard-Belmont-Cintia");
       });
 
       //Test 4: Ordenacion por clase
       test("Ordenar por clase", () {
-        gestor.ordenarPersonaje(false, "clase");    // Si false, ordena de mayor a menor, alfabéticamente de la Z a la A
+        gestor.ordenarPersonaje(false,
+            "clase"); // Si false, ordena de mayor a menor, alfabéticamente de la Z a la A
 
-        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+        String orden =
+            "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
 
-        expect(orden, "Belmont-Cintia-Alucard");  // Ranger, Mago, Caballero
+        expect(orden, "Belmont-Cintia-Alucard"); // Ranger, Mago, Caballero
       });
 
       //Test 5: Ordenacion por raza
       test("Ordenar por raza", () {
         gestor.ordenarPersonaje(true, "raza");
 
-        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+        String orden =
+            "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
 
-        expect(orden, "Cintia-Belmont-Alucard");  // Elfo, Enano, Humano
+        expect(orden, "Cintia-Belmont-Alucard"); // Elfo, Enano, Humano
       });
 
       //Test 6: Ordenacion por atributo
       test("Ordenar por atributo", () {
         gestor.ordenarPersonaje(false, "atributo", "Punteria");
 
-        String orden = "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
+        String orden =
+            "${gestor.getPersonaje(0).nombre}-${gestor.getPersonaje(1).nombre}-${gestor.getPersonaje(2).nombre}";
 
-        expect(orden, "Belmont-Cintia-Alucard");  // 24, 20, 16
+        expect(orden, "Belmont-Cintia-Alucard"); // 24, 20, 16
       });
 
       //Test 7: Filtrar por raza
