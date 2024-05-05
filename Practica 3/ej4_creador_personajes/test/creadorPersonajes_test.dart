@@ -144,6 +144,9 @@ void main() {
     });
 
     //Test 4: Exportacion Correcta del personaje
+    group("Exportacion del estado",(){
+      //pendiente      
+    });
 
     //Test 5: Funcionamiento del director
     group("Funcionamiento director", () {
