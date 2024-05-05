@@ -199,24 +199,37 @@ void main() {
     Director dir3 = Director(ElfoBuilder(MagoBuilder()));
     dir3.crearPersonaje("Cintia");
 
+    Director dir4 = Director(OrcoBuilder(MagoBuilder()));
+    dir4.crearPersonaje("Marginado");
+
     //Test 1: Se añaden personajes a la lista
     test("Añadir Personaje", () {
       gestor.addPersonaje(dir1.getPersonaje());
       gestor.addPersonaje(dir2.getPersonaje());
       gestor.addPersonaje(dir3.getPersonaje());
+      gestor.addPersonaje(dir4.getPersonaje());
 
       expect(gestor.getPersonaje(0).nombre, "Alucard");
       expect(gestor.getPersonaje(1).nombre, "Belmont");
       expect(gestor.getPersonaje(2).nombre, "Cintia");
-      expect(gestor.personajes.length, 3);
+      expect(gestor.getPersonaje(3).nombre, "Marginado");
+
+      expect(gestor.personajes.length, 4);
     });
 
     //Test 2: Se eliminan bien los personajes
     test("Eliminar Personaje", () {
+      gestor.personajes.clear();
+
+      gestor.addPersonaje(dir1.getPersonaje());
+      gestor.addPersonaje(dir2.getPersonaje());
+      gestor.addPersonaje(dir3.getPersonaje());
+      gestor.addPersonaje(dir4.getPersonaje());
+
       expect(() => gestor.remPersonaje(gestor.getLength()),
           isNot(throwsA(isA<Exception>())));
-      gestor.remPersonaje(2);
-      expect(gestor.personajes.length, 2);
+      gestor.remPersonaje(3);
+      expect(gestor.personajes.length, 3);
     });
 
     group("Operaciones sobre la lista", () {
