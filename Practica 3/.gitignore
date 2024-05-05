@@ -1,4 +1,5 @@
 *.pyc
 doc/*
 !doc/memoria.tex
+!doc/memoria.pdf
 ej4_creador_personajes/dump_personaje.txt
