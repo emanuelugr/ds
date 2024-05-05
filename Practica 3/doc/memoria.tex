@@ -66,7 +66,6 @@
 \subsection{"Gestor de personajes"}
 	\begin{itemize}
 
-
 	\item \textbf{Test 1}: Añadir Personaje
 \\ \textbf{Propósito}: Confirmar que se pueden agregar personajes a la lista del gestor.
 
@@ -75,11 +74,34 @@
 \\ \textbf{Propósito}: Verificar que se pueden eliminar personajes de la lista del gestor.
 
 
-	\item \textbf{Test 3}: Operaciones sobre la lista
-\\ \textbf{Propósito}: Confirmar que las operaciones sobre la lista de personajes funcionan correctamente.
+	\item \textbf{Test 3}: Ordenar la lista segun el nombre
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el nombre funciona correctamente.
+
+
+    \item \textbf{Test 4}: Ordenar la lista segun la clase
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el clase funciona correctamente.
+
+
+    \item \textbf{Test 5}: Ordernar la lista segun la raza
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el raza funciona correctamente.
+
+
+    \item \textbf{Test 6}: Ordernar la lista segun el atributo
+\\ \textbf{Propósito}: Confirmar que la lista ordenada de la lista segun el atributo funciona correctamente.
+
+
+    \item \textbf{Test 7}: Filtrar la lista segun la clase
+\\ \textbf{Propósito}: Confirmar que el filtrado de la lista segun el clase funciona correctamente.
+
+
+    \item \textbf{Test 8}: Filtrar la lista segun la raza
+\\ \textbf{Propósito}: Confirmar que el filtrado de la lista segun el raza funciona correctamente.
 
 \newpage
 \section{Análisis}
+
+\subsection{Creador de personajes}
+
 \subsection{CFG de ClaseBuilder}
 
 \textbf{Elemento a Probar}: 
@@ -169,6 +191,117 @@ La función loadCFG() de la clase ClaseBuilder.
    
         Datos de entrada necesarios para la operación.
         Valores esperados para el resultado de la operación.
+
+\end{itemize}
+
+\subsection{Gestor de personajes}
+
+\subsection{Añadir personajes}
+
+\textbf{Elemento a Probar}: 
+
+La funcion addPersonaje(Personaje) de GestorPersonajes
+
+\textbf{Condiciones para la Prueba}:
+
+        Se requiere que exista un personaje valido ya creado y la instancia de GestorPersonajes
+   
+\textbf{ Datos Necesarios para la Prueba:}
+        Un personaje valido ya creado
+        La instancia de GestorPersonajes
+
+\subsection{Eliminar Personajes}
+
+\textbf{Elemento a Probar}:
+
+ La función remPersonaje(indice) de la clase PersonajeBuilder.
+
+\textbf{Condiciones para la Prueba}:
+
+        Se requiere que en GestorPersonajes se haya incluido previamente un personaje valido.
+        
+    \textbf{Datos Necesarios para la Prueba:}
+    
+        La instancia de GestorPersonajes con al menos un personaje valido a eliminar.
+        El indice de la posicion del personaje a eliminar de GestorPersonajes
+
+\subsection{Ordenar lista de personajes por nombre}
+
+   \textbf{ Elemento a Probar}: 
+   
+   La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por nombre.
+   
+    \textbf{Condiciones para la Prueba:}
+        Se requiere que en GestorPersonajes haya al menos 2 personajes con distinto nombre.
+
+    \textbf{Datos Necesarios para la Prueba:}
+        La instancia de GestorPersonajes con al menos 2 personajes de distinto nombre.
+        Una variable de opcion para que el orden sea ascendente o descendente.
+
+\subsection{Ordenar lista de personajes por clase}
+
+    \textbf{ Elemento a Probar}: 
+    
+    La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por clase.
+    
+        \textbf{Condiciones para la Prueba:}
+            Se requiere que en GestorPersonajes haya al menos 2 personajes con distinta clase.   
+    
+        \textbf{Datos Necesarios para la Prueba:}
+            La instancia de GestorPersonajes con al menos 2 personajes de distinto clase.
+            Una variable de opcion para que el orden sea ascendente o descendente.
+
+\subsection{Ordenar lista de personajes por raza}
+
+    \textbf{ Elemento a Probar}: 
+    
+    La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por raza.
+    
+        \textbf{Condiciones para la Prueba:}
+            Se requiere que en GestorPersonajes haya al menos 2 personajes con distinta raza.    
+    
+        \textbf{Datos Necesarios para la Prueba:}
+            La instancia de GestorPersonajes con al menos 2 personajes de distinto raza.
+            Una variable de opcion para que el orden sea ascendente o descendente.
+
+\subsection{Ordenar lista de personajes por atributo}
+
+    \textbf{ Elemento a Probar}: 
+    
+    La funcion ordenarPersonaje(descendente, tipo, atributo) de GestorPersonaje cuando se quiere ordenar la lista por un atributo.
+    
+        \textbf{Condiciones para la Prueba:}
+            Se requiere que en GestorPersonajes haya al menos 2 personajes con el atributo a ordenar distinto.
+    
+        \textbf{Datos Necesarios para la Prueba:}
+            La instancia de GestorPersonajes con al menos 2 personajes con distinto valor en el atributo a ordenar.
+            Una variable de opcion para que el orden sea ascendente o descendente.
+            El atributo por el que se quiere ordenar la lista.
+
+\subsection{Filtrar lista de personajes por raza}
+
+    \textbf{ Elemento a Probar}: 
+    
+    La funcion filtrarPorRaza(raza) de GestorPersonaje cuando se quiere filtrar la lista por una raza especifica.
+    
+        \textbf{Condiciones para la Prueba:}
+            Se requiere que en GestorPersonajes haya al menos un personaje de la raza a filtrar, y al menos un personaje que no pertenezca a esa raza.
+    
+        \textbf{Datos Necesarios para la Prueba:}
+            La instancia de GestorPersonajes con al menos un personaje de la raza a filtrar, y al menos un personaje que no pertenezca a esa raza.
+
+\subsection{Filtrar lista de personajes por clase}
+
+    \textbf{ Elemento a Probar}: 
+    
+    La funcion filtrarPorClase(clase) de GestorPersonaje cuando se quiere filtrar la lista por una clase especifica.
+    
+        \textbf{Condiciones para la Prueba:}
+            Se requiere que en GestorPersonajes haya al menos un personaje de la clase a filtrar, y al menos un personaje que no pertenezca a esa clase.
+    
+        \textbf{Datos Necesarios para la Prueba:}
+            La instancia de GestorPersonajes con al menos un personaje de la clase a filtrar, y al menos un personaje que no pertenezca a esa clase.
+
 
 \end{itemize}
 
@@ -371,8 +504,6 @@ Se encarga de verificar el funcionamiento adecuado del gestor de personajes en e
 		\item Se añade un personaje a la lista del gestor de personajes.
 	\end{itemize}
 	
-	arduino
-	
 	\item \textbf{Entorno de prueba:}
 	\begin{itemize}
 		\item Se necesita un gestor de personajes inicializado y un personaje válido.
@@ -391,5 +522,202 @@ Se encarga de verificar el funcionamiento adecuado del gestor de personajes en e
 	
 \end{itemize}
 
+\subsubsection{Eliminar Personaje}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes pueda eliminar correctamente un personaje de la lista de personajes.
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se elimina un personaje de la lista del gestor de personajes.
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado y un personaje válido en la lista del gestor.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+		\item Personaje válido dentro del gestor.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y el personaje esta en la lista del gestor.
+	\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Ordenar lista por nombre}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes puede ordenar la lista de personajes segun el nombre 
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se desea ordenar la lista del gestor segun el nombre de los personajes
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado con varios personajes en su lista y de distinto nombre.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+        \item Variable para ordenar la lista de forma ascendente y descendete
+		\item Personajes validos dentro de la lista con nombres diferentes
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y los personajes estan en su lista
+	\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Ordenar lista por raza}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes puede ordenar la lista de personajes segun el raza 
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se desea ordenar la lista del gestor segun el raza de los personajes
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado con varios personajes en su lista y de distinto raza.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+        \item Variable para ordenar la lista de forma ascendente y descendete
+		\item Personajes validos dentro de la lista con razas diferentes
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y los personajes estan en su lista
+	\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Ordenar lista por clase}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes puede ordenar la lista de personajes segun el clase 
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se desea ordenar la lista del gestor segun el clase de los personajes
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado con varios personajes en su lista y de distinto clase.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+        \item Variable para ordenar la lista de forma ascendente y descendete
+		\item Personajes validos dentro de la lista con clase diferentes
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y los personajes estan en su lista
+	\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Ordenar lista por atributo}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes puede ordenar la lista de personajes segun el atributo 
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se desea ordenar la lista del gestor segun el atributo elegido de los personajes
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado con varios personajes en su lista y que tengan el atributo elegido de distinto valor
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+        \item Variable para ordenar la lista de forma ascendente y descendete
+        \item Atributo a elegir para la lista ordenada
+		\item Personajes validos dentro de la lista con con el valor del atributo diferentes
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y los personajes estan en su lista
+	\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Filtrar lista por raza}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes puede filtrar la lista de personajes segun la raza 
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se desea filtrar la lista del gestor segun el raza de los personajes
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado con varios personajes en su lista, al menos uno de la raza a filtrar y al menos otro de distinta raza.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+		\item Personajes validos dentro de la lista, con al menos un personaje de la raza a filtrar y otro de distinta raza.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y los personajes estan en su lista.
+	\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Filtrar lista por clase}
+\textbf{TLDR:} Este caso de prueba verifica que el gestor de personajes puede filtrar la lista de personajes segun la clase 
+
+\begin{itemize}
+	\item \textbf{Casos de prueba:}
+	\begin{itemize}
+		\item Se desea filtrar la lista del gestor segun el clase de los personajes
+	\end{itemize}
+	
+	\item \textbf{Entorno de prueba:}
+	\begin{itemize}
+		\item Se necesita un gestor de personajes inicializado con varios personajes en su lista, al menos uno de la clase a filtrar y al menos otro de distinta raza.
+	\end{itemize}
+	
+	\item \textbf{Datos de prueba:}
+	\begin{itemize}
+		\item Gestor de personajes correctamente inicializado.
+		\item Personajes validos dentro de la lista, con al menos un personaje de la clase a filtrar y otro de distinta clase.
+	\end{itemize}
+	
+	\item \textbf{Condición base:}
+	\begin{itemize}
+		\item El gestor de personajes está correctamente inicializado y los personajes estan en su lista.
+	\end{itemize}
+	
+\end{itemize}
+
+\section{Depuracion}
+
+A la hora de hacer los tests, no hemos tenido que cambiar nada del codigo realmente, debido a que lo qu enetregamos en la practica anterior funcionaba correctamente. Si hemos hecho algunas mejoras al modelo de la aplicacion, para obtener asi mas funcionalidad sobre la que realizar los distintos tests.
 
 \end{document} 
