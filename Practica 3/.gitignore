@@ -2,4 +2,6 @@
 doc/*
 !doc/memoria.tex
 !doc/memoria.pdf
+!doc/*.jpg
+!doc/*.png
 ej4_creador_personajes/dump_personaje.txt
