@@ -34,135 +34,142 @@
 \tableofcontents
 
 \newpage
-\section{Planification of Software tests}
-\subsection{Race Selection}
+\section{Planificación}
 
-\textbf{Test:}
+\subsection{"Creador de personajes"}
+
 \begin{itemize}
-    \item Select each valid race (Elfo, Enano, Humano, Orco) from the available options.
+	\item \textbf{Test 1}: CFG de ClaseBuilder\\
+\textbf{Propósito}: Verificar que la función loadCFG() de ClaseBuilder funciona correctamente.
+
+	\item \textbf{Test 2}: CFG de PersonajeBuilder
+\\ \textbf{Propósito}: Confirmar que la función loadCFG() de PersonajeBuilder funciona correctamente.
+
+
+	\item \textbf{Test 3}: Creación correcta del personaje\\
+\textbf{Propósito}: Asegurar que la creación de un personaje utilizando PersonajeBuilder se realiza correctamente.
+
+
+	\item \textbf{Test 4}: Exportación Correcta del personaje
+\\\textbf{Propósito}: Verificar que la exportación del personaje se realiza correctamente.
+
+
+	\item \textbf{Test 5}: Funcionamiento del director
+\\ \textbf{Propósito}: Confirmar que el director puede crear un personaje correctamente.
+
+
+	\item \textbf{Test 6}: Funcionamiento de la fachada
+\\ \textbf{Propósito}: Verificar que la fachada funciona como se espera.
+
 \end{itemize}
 
-\textbf{Explanation:}\\
-This test verifies that the application properly recognizes and processes user selections for character race. It ensures characters can be created with intended racial attributes.
+\subsection{"Gestor de personajes"}
+	\begin{itemize}
 
-\subsection{Class Selection}
 
-\textbf{Test:}
-\begin{itemize}
-    \item Select each valid class (Caballero, Ladrón, Mago, Ranger) from the available options.
-\end{itemize}
+	\item \textbf{Test 1}: Añadir Personaje
+\\ \textbf{Propósito}: Confirmar que se pueden agregar personajes a la lista del gestor.
 
-\textbf{Explanation:}\\
-Similar to race selection, this test ensures the application handles class selection correctly. It guarantees characters can be created with the functionalities associated with their chosen class. 
 
-\subsection{Character Name}
+	\item \textbf{Test 2}: Eliminar Personaje
+\\ \textbf{Propósito}: Verificar que se pueden eliminar personajes de la lista del gestor.
 
-\textbf{Test:}
-\begin{itemize}
-    \item Enter a valid character name.
-    \item Leave the character name field empty.
-    \item Enter a character name with a really long name
-\end{itemize}
 
-\textbf{Explanation:}\\
-This test verifies the application allows valid character naming and handles empty or excessively long names appropriately. Testing empty and long names helps identify potential issues like crashes or errors when a user doesn't provide a name or exceeds the limit.
-
-\subsection{Character Creation}
-
-\textbf{Test:}
-\begin{itemize}
-    \item Create a character with valid selections for race, class, and name.
-    \item Attempt to create a character with missing selections .
-\end{itemize}
-
-\textbf{Explanation:}\\
-This test confirms the core functionality of the application: creating characters based on user selections. It ensures characters are created as intended. Testing with missing selections helps identify potential bugs or incomplete functionalities if required fields are left empty.
-
-\subsection{Character List Filtering}
-
-\textbf{Test:}
-\begin{itemize}
-    \item Filter characters by each available race.
-    \item Filter characters by each available class.
-    \item Filter characters by both race and class.
-\end{itemize}
-
-\textbf{Explanation:}\\
-This test verifies the functionality of the character list filtering system. It ensures users can effectively search and find characters based on specific criteria.
-
-\subsection{Character List Sorting}
-
-\textbf{Test:}
-\begin{itemize}
-    \item Sort characters by name.
-    \item Sort characters by race.
-    \item Sort characters by class.
-\end{itemize}
-
-\textbf{Explanation:}\\
-This test verifies the functionality of the character list sorting system. It ensures users can organize their characters based on different criteria for easier browsing.
-
-    \subsection{Character Details Screen}
-        \textbf {Test:}
-        \begin{itemize}
-            \item Create a character and navigate to its details screen.
-            \item Verify that the displayed details (name, race, class, attributes) match the created character's information.
-        \end{itemize}
-        
-        \textbf {Explanation:}\\
-         This test confirms that the application correctly retrieves and displays information for a selected character. It ensures users can access and review the details of their creations.
-
-    
-    \subsection{Character Deletion} 
-    
-        \textbf{Test:} 
-        \begin{itemize}
-            \item Create a character.
-            \item Delete the created character from the list
-            \item Verify that the character is removed from the list and cannot be accessed anymore.
-        \end{itemize}
-        
-        \textbf{Explanation:}\\ 
-        This test verifies the functionality of character deletion. It ensures users can manage their character collection and remove unwanted characters.It's also important to check for proper handling during deletion, such as confirmation prompts to avoid accidental character loss.
-        
-\newpage
-\section{Test Case Analysis}
-\begin{table}[htbp]
-\begin{tabular}{|p{5cm}|p{6cm}|p{6cm}|}
-\hline
-\textbf{Name of the Test} & \textbf{Conditions} & \textbf{Needed Data} \\ \hline
-Valid Race Selection & User selects each available race & - List of available races \\ \hline
-Valid Class Selection & User selects each valid class from the available options & - List of available classes \\ \hline
-Valid Character Name & User enters a valid character name & - \\ \hline
-Empty Character Name & User leaves the character name field empty & - \\ \hline
-Long Character Name & User enters long character name & - Character name length limit (if any) \\ \hline
-Valid Character Creation & User creates a character with valid selections for race, class, and name & - List of available races \& classes \\ \hline
-Missing Selection Creation & User attempts to create a character with missing selections & - List of available races \& classes \\ \hline
-Race Filter & User filters characters by each available race & - List of available races \\ \hline
-Class Filter & User filters characters by each available class & - List of available classes \\ \hline
-Race \& Class Filter & User filters characters by both race and class & - List of available races \& classes \\ \hline
-Name Sorting (Ascending) & User sorts characters by name & - A set of characters with different names \\ \hline
-Race Sorting (Ascending) & User sorts characters by race & - A set of characters with different races \\ \hline
-Class Sorting (Ascending) & User sorts characters by class & - A set of characters with different classes \\ \hline
-Character Details View & User creates a character and views its details screen & - \\ \hline
-\end{tabular}
-\end{table}
+	\item \textbf{Test 3}: Operaciones sobre la lista
+\\ \textbf{Propósito}: Confirmar que las operaciones sobre la lista de personajes funcionan correctamente.
 
 \newpage
-\section{Test Design}
+\section{Análisis}
+\subsection{CFG de ClaseBuilder}
 
-\begin{table}[htbp]
-\small % Reducir el tamaño de la fuente
-\begin{tabular}{|p{6cm}|p{2.5cm}|p{3cm}|p{4.5cm}|}
-\hline
-\textbf{Sorted Test Cases} & \textbf{Test Environment} & \textbf{Test Data} & \textbf{Relation to Test Conditions} \\ \hline
-Valid Selections: \newline 1. Select each valid race. \newline 2. Select each valid class. \newline 3. Enter a valid character name. & Mobile Device Simulator / Linux / Windows & - List of available races \& classes & Valid Race Selection, Valid Class Selection, Valid Character Name \\ \hline
-Empty/Long Character Name: \newline 1. Leave character name field empty. \newline 2. Enter a long name. & Mobile Device Simulator / Linux / Windows & & Empty Character Name, Long Character Name \\ \hline
-Missing Selection Creation: \newline 1. Attempt to create a character with missing race or class. & Mobile Device Simulator / Linux / Windows & - List of available races \& classes & Missing Selection Creation \\ \hline
-Character Creation \& Details: \newline 1. Create a character with valid selections. \newline 2. View details of a created character. & Mobile Device Simulator / Linux / Windows & - List of available races \& classes & Valid Character Creation, Character Details View \\ \hline
-Filtering \& Sorting: \newline 1. Filter characters by race (individually). \newline 2. Filter characters by class (individually). \newline 3. Filter characters by race \& class combined. \newline 4. Sort characters by name. \newline 5. Sort characters by race. \newline 6. Sort characters by class. & Mobile Device Simulator / Linux / Windows & - List of available races \& classes \newline - Set of characters with different names, races, and classes & Race Filter, Class Filter, Race \& Class Filter, Name Sorting, Race Sorting, Class Sorting \\ \hline
-Character Deletion: \newline 1. Delete a created character from the list. & Mobile Device Simulator / Linux / Windows & - & Character Deletion \\ \hline
-\end{tabular}
-\end{table}
+\textbf{Elemento a Probar}: 
+
+La función loadCFG() de la clase ClaseBuilder.
+
+\textbf{Condiciones para la Prueba}:
+
+        Se requiere que exista un archivo de configuración válido para la clase en cuestión.
+        La función loadCFG() debe cargar correctamente los valores del archivo de configuración.
+   
+\textbf{ Datos Necesarios para la Prueba:}
+        Un archivo de configuración válido que contenga los atributos de la clase con sus respectivos valores.
+        Valores esperados para cada atributo de la clase según el archivo de configuración.
+
+\subsection{CFG de PersonajeBuilder}
+
+\textbf{Elemento a Probar}:
+
+ La función loadCFG() de la clase PersonajeBuilder.
+
+\textbf{Condiciones para la Prueba}:
+
+        Se requiere que exista un archivo de configuración válido para el personaje en cuestión.
+        La función loadCFG() debe cargar correctamente los valores del archivo de configuración.
+        
+    \textbf{Datos Necesarios para la Prueba:}
+    
+        Un archivo de configuración válido que contenga los atributos del personaje con sus respectivos valores.
+        Valores esperados para cada atributo del personaje según el archivo de configuración.
+
+\subsection{Creación correcta del personaje}
+
+   \textbf{ Elemento a Probar}: 
+   
+   El proceso de creación de un personaje utilizando PersonajeBuilder.
+   
+    \textbf{Condiciones para la Prueba:}
+        Se deben cargar correctamente los valores de los archivos de configuración de la clase y el personaje.
+        Los atributos del personaje creado deben coincidir con los valores esperados según las configuraciones de clase y personaje.
+        
+    \textbf{Datos Necesarios para la Prueba:}
+        Archivos de configuración válidos para la clase y el personaje.
+        Valores esperados para los atributos del personaje basados en las configuraciones de clase y personaje.
+
+\subsection{Exportación Correcta del personaje}
+
+
+    \textbf{Elemento a Probar}:
+    
+     El proceso de exportación de un personaje.
+    
+   \textbf{ Condiciones para la Prueba:}
+   
+        El personaje debe haber sido creado correctamente.
+        La función de exportación debe generar un archivo con la estructura correcta y los datos del personaje.
+        
+    \textbf{Datos Necesarios para la Prueba:}
+    
+        Un personaje creado y válido.
+        Valores esperados para los atributos del personaje en el archivo de exportación.
+
+\subsection{Funcionamiento del director}
+
+   \textbf{ Elemento a Probar:} 
+   
+   El proceso de creación de un personaje a través del director.
+   
+   \textbf{ Condiciones para la Prueba:}
+        El director debe ser capaz de crear un personaje utilizando un constructor específico.
+        
+    \textbf{Datos Necesarios para la Prueba:}
+    
+        Un constructor válido para el tipo de personaje deseado.
+        Valores esperados para los atributos del personaje creado.
+
+\subsection{Funcionamiento de la fachada}
+
+   \textbf{ Elemento a Probar:} 
+   El funcionamiento de la fachada en una operación específica.
+   
+    \textbf{Condiciones para la Prueba:}
+    
+        La fachada debe ser capaz de realizar la operación deseada correctamente.
+        
+   \textbf{ Datos Necesarios para la Prueba:}
+   
+        Datos de entrada necesarios para la operación.
+        Valores esperados para el resultado de la operación.
+
+\end{itemize}
 
 \end{document} 
