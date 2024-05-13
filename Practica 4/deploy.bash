@@ -40,32 +40,35 @@ basic_installation() {
 
 full_installation(){
     echo "No esta terminado"
-    exit 1
-    basic_installation
+    #exit 1
+    #basic_installation
     # configuración servicio http
     rails new ruby_api --api
     echo "gem 'rack-cors'" >> ruby_api/Gemfile
-    bundle install --path ruby_api
+    cd ruby_api
+    bundle install
 
-
-    # copiar configuración + clases
-    cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
-    cp ruby_conf/routes.rb ruby_api/config/routes.rb
 
     # Base de datos (Pendiente)
     #Esto creará un archivo de migración en db/migrate y un archivo de modelo en app/models.
     rails generate model Personaje nombre:string raza:string clase:string data:json
-
-    rails g model Tarea descripcion:string completada:boolean usuario:string
+    #Guardar los datos (?)
     rails db:migrate
-    rails g controller Tareas
+    #Generar plantilla
+    rails generate controller Personaje
+    
+    
+    cd -
+    # copiar configuración + clases
+    cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
+    cp ruby_conf/routes.rb ruby_api/config/routes.rb
 
 }
 
 if [ "$1" = "--basic" ]; then
     basic_installation
 elif [ "$1" = "--full" ]; then
-    echo "Hola mundo"
+    full_installation
 else
     echo "Use: $0 [--basic | --full]"
     exit 1
