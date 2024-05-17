@@ -42,6 +42,9 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   String filterByRace = '';
   String filterByClass = '';
 
+  String currentUser = "Alejandro";
+  List<String> users = ["Alejandro", "Timur", "Emanuel", "Thomas"];
+
   void _crearPersonaje() {
     //Clase
     ClaseBuilder cb;
