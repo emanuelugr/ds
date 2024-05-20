@@ -58,7 +58,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       await gestor.cargarPersonajes(currentUser);
       setState(() {});
     } catch (e) {
-      print("Error loading tasks: $e");
+      print("Error loading personajes: $e");
     }
   }
 
@@ -113,10 +113,10 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
     setState(() {});
   }
 
-  void eliminarPersonaje(index) {
-    setState(() {
-      gestor.remPersonaje(index);
-    });
+  void eliminarPersonaje(index) async {
+    Personaje p = gestor.getPersonaje(index);
+    await gestor.eliminar(p);
+    setState(() {});
   }
 
   Widget _buildListaPersonajes() {
