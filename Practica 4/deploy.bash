@@ -97,9 +97,6 @@ full_installation(){
     cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
     cp ruby_conf/routes.rb ruby_api/config/routes.rb
     cp ruby_conf/personajes_controller.rb ruby_api/app/controllers/personajes_controller.rb
-
-   
-
 }
 
 if [ "$1" = "--basic" ]; then
@@ -112,5 +109,5 @@ else
 fi
 
 check_exit_status
- echo "Si todo ha ido bien podrá inicar el servidor desde la carpeta ruby_api lanzando el comando rails server"
+echo "Si todo ha ido bien podrá inicar el servidor desde la carpeta ruby_api lanzando el comando rails server"
 echo "done"

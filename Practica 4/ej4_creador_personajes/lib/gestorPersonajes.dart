@@ -1,10 +1,9 @@
-
 import 'package:ej4_creador_personajes/Razas/Personaje.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class GestorPersonajes{
+class GestorPersonajes {
   static GestorPersonajes? instancia;
   List<Personaje> personajes = [];
   final String apiUrl = "http://localhost:3000/personajes";
@@ -19,14 +18,15 @@ class GestorPersonajes{
   Future<void> cargarPersonajes(String usuario) async {
     final response = await http.get(Uri.parse('$apiUrl?usuario=$usuario'));
     if (response.statusCode == 200) {
-      List<dynamic> tareasJson = json.decode(response.body);
+      List<dynamic> personajesJson = json.decode(response.body);
 
       personajes.clear();
-      personajes.addAll(tareasJson.map((json) => Personaje.fromJson(json)).toList());
+      personajes.addAll(
+          personajesJson.map((json) => Personaje.fromJson(json)).toList());
     } else {
-      throw Exception('Failed to load tasks');
+      throw Exception('Error al cargar personajes');
     }
-  }  
+  }
 
   Future<void> agregar(Personaje personaje) async {
     final response = await http.post(
@@ -55,7 +55,6 @@ class GestorPersonajes{
   }
 
   Future<void> cambiarNombre(Personaje personaje, String nombre) async {
-
     final response = await http.patch(
       Uri.parse('$apiUrl/${personaje.id}'),
       headers: <String, String>{
@@ -69,39 +68,39 @@ class GestorPersonajes{
     if (response.statusCode == 200) {
       personaje.nombre = nombre;
     } else {
-      throw Exception('Failed to update task');
+      throw Exception('Error al actualizar personaje');
     }
   }
 
-  void addPersonaje(Personaje p){
+  void addPersonaje(Personaje p) {
     personajes.add(p);
   }
 
-  int getLength(){
+  int getLength() {
     return personajes.length;
   }
 
-  Personaje getPersonaje(int id){
+  Personaje getPersonaje(int id) {
     if (id >= 0 && id < personajes.length) {
       return personajes[id];
-    }else{
+    } else {
       throw "Id incorrecto";
-    } 
+    }
   }
 
-  void remPersonaje(int id){
+  void remPersonaje(int id) {
     if (id >= 0 && id < personajes.length) {
       personajes.removeAt(id);
-    }else{
+    } else {
       throw "Id incorrecto";
-    } 
+    }
   }
 
   //Ordenar el personaje según su tipo
   void ordenarPersonaje(bool ascen, String tipo, [String atributo = ""]) {
     List<Personaje> copiaPersonajes = List.from(personajes);
 
-    switch(tipo){
+    switch (tipo) {
       case "nombre":
         if (ascen) {
           copiaPersonajes.sort((a, b) => a.nombre.compareTo(b.nombre));
@@ -125,9 +124,11 @@ class GestorPersonajes{
         break;
       case "atributo":
         if (ascen) {
-          copiaPersonajes.sort((a, b) => a.secondaryAttr[atributo]!.compareTo(b.secondaryAttr[atributo]!));
+          copiaPersonajes.sort((a, b) =>
+              a.secondaryAttr[atributo]!.compareTo(b.secondaryAttr[atributo]!));
         } else {
-          copiaPersonajes.sort((a, b) => b.secondaryAttr[atributo]!.compareTo(a.secondaryAttr[atributo]!));
+          copiaPersonajes.sort((a, b) =>
+              b.secondaryAttr[atributo]!.compareTo(a.secondaryAttr[atributo]!));
         }
         break;
     }
@@ -135,16 +136,15 @@ class GestorPersonajes{
     personajes = copiaPersonajes;
   }
 
-  List<Personaje> filtrarPorRaza(String filtroRaza){
-    List<Personaje> copiaPersonajes = List.from(personajes); 
+  List<Personaje> filtrarPorRaza(String filtroRaza) {
+    List<Personaje> copiaPersonajes = List.from(personajes);
 
     return copiaPersonajes.where((p) => p.raza == filtroRaza).toList();
   }
 
-  List<Personaje> filtrarPorClase(String filtroClase){
-    List<Personaje> copiaPersonajes = List.from(personajes); 
+  List<Personaje> filtrarPorClase(String filtroClase) {
+    List<Personaje> copiaPersonajes = List.from(personajes);
 
     return copiaPersonajes.where((p) => p.clase == filtroClase).toList();
   }
-
 }
