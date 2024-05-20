@@ -45,7 +45,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   String currentUser = "Alejandro";
   List<String> users = ["Alejandro", "Timur", "Emanuel", "Thomas"];
 
-  void _crearPersonaje() {
+  void _crearPersonaje() async {
     //Clase
     ClaseBuilder cb;
     switch (selectedClass) {
@@ -84,7 +84,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
         pb = HumanoBuilder(cb);
     }
 
-    gestor.addPersonaje(f.crearPersonaje(pb, characterName));
+    await gestor.agregar(f.crearPersonaje(pb, characterName));
 
     //var dummy = gestor.getPersonaje(gestor.getLength() - 1);
     //dummy.ExportState("STATE_TEST.TXT");
@@ -93,7 +93,6 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       MaterialPageRoute(
           builder: (context) => CharacterDetailsScreen(gestor.getLength() - 1)),
     );
-
     setState(() {});
   }
 

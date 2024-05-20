@@ -74,6 +74,7 @@ class GestorPersonajes {
 
   void addPersonaje(Personaje p) {
     personajes.add(p);
+    //agregar(p);
   }
 
   int getLength() {
