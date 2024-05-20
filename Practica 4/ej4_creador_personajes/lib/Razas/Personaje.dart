@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'dart:io';
 
 class Personaje {
-  late String nombre, raza, clase;
+  late String nombre, raza, clase, usuario;
   int id = -1;
 
   late HashMap<String, double> primaryAttr;
@@ -20,6 +20,7 @@ class Personaje {
     nombre = nom;
     raza = "";
     clase = "";
+    usuario = "";
   }
 
   HashMap<String, double> GetPrimary() {
@@ -40,6 +41,10 @@ class Personaje {
 
   void SetName(String nombre) {
     this.nombre = nombre;
+  }
+
+  void SetUsuario(String usuario) {
+    this.usuario = usuario;
   }
 
   void SetClass(String clase) {
@@ -76,6 +81,7 @@ class Personaje {
   factory Personaje.fromJson(Map<String, dynamic> json) {
     Personaje personaje = Personaje();
     personaje.SetId(json['id'] as int);
+    personaje.SetUsuario(json['usuario'] as String);
     personaje.SetName(json['nombre'] as String);
     personaje.SetRace(json['raza'] as String);
     personaje.SetClass(json['clase'] as String);
@@ -93,7 +99,8 @@ class Personaje {
       'raza': raza,
       'clase': clase,
       'primAttr': primaryAttr,
-      'secAttr': secondaryAttr
+      'secAttr': secondaryAttr,
+      'usuario': usuario
     };
   }
 }

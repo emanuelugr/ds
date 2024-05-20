@@ -1,10 +1,9 @@
-
 import 'package:ej4_creador_personajes/Razas/Personaje.dart';
 import 'package:ej4_creador_personajes/Razas/PersonajeBuilder.dart';
 import 'package:ej4_creador_personajes/Razas/director.dart';
 
-class Fachada{
-  static Fachada? instancia;      // Variable inicializada como nula
+class Fachada {
+  static Fachada? instancia; // Variable inicializada como nula
   late Director director;
 
   // Constructor privado para evitar la creación de instancias fuera de la clase
@@ -18,9 +17,10 @@ class Fachada{
   }
 
   //En main se determinara que personaje (Clase y Raza) se va a construir y se lo pasamos
-  Personaje crearPersonaje(PersonajeBuilder personajeBuilder, String nombre){
+  Personaje crearPersonaje(
+      PersonajeBuilder personajeBuilder, String nombre, String usuario) {
     director = Director(personajeBuilder);
-    director.crearPersonaje(nombre);
+    director.crearPersonaje(nombre, usuario);
     return director.getPersonaje();
   }
 }

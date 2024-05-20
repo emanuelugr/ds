@@ -44,67 +44,49 @@ basic_installation() {
     cd -
 }
 
-full_installation(){
-    echo "No esta terminado"
-    #exit 1
-    basic_installation
-    # configuración servicio http
-    rails new ruby_api --api
-    echo "gem 'rack-cors'" >> ruby_api/Gemfile
-    cd ruby_api
-    bundle install
-
-
-    # Base de datos 
-    #Esto creará un archivo de migración en db/migrate y un archivo de modelo en app/models.
-    rails generate model Personaje nombre:string raza:string clase:string primAttr:json secAttr:json
-    #Guardar los datos (?)
-    rails db:migrate
-    #Generar plantilla, aunque realmente se  copiara de ruby_conf/personajes_controller.rb
-    rails generate controller PersonajesController
-    
-    
-    cd -
-    # copiar Cors + Routes
-    cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
-    cp ruby_conf/routes.rb ruby_api/config/routes.rb
-    cp ruby_conf/personajes_controller.rb ruby_api/app/controllers/personajes_controller.rb
-}
-
-
 
 full_installation(){
     basic_installation
 
     # configuración servicio http
+    mkdir ruby_api
     rails new ruby_api --api
     echo "gem 'rack-cors'" >> ruby_api/Gemfile
     cd ruby_api
-    bundle install
+    bundle install  
+    cd -
 
+    #configurar
+    set_cfg
+}
 
+set_cfg(){
+    cd ruby_api
     # Base de datos 
     #Esto creará un archivo de migración en db/migrate y un archivo de modelo en app/models.
-    rails generate model Personaje nombre:string raza:string clase:string primAttr:json secAttr:json
+    rails generate model Personaje nombre:string raza:string clase:string primAttr:json secAttr:json usuario:string
     #Guardar los datos (?)
     rails db:migrate
     #Generar plantilla, aunque realmente se  copiara de ruby_conf/personajes_controller.rb
     rails generate controller PersonajesController
-    
-    
     cd -
-    # copiar Cors + Routes
+
+    echo "copiando configuracion..."
     cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
-    cp ruby_conf/routes.rb ruby_api/config/routes.rb
+    #cp ruby_conf/routes.rb ruby_api/config/routes.rb
     cp ruby_conf/personajes_controller.rb ruby_api/app/controllers/personajes_controller.rb
 }
+
+
 
 if [ "$1" = "--basic" ]; then
     basic_installation
 elif [ "$1" = "--full" ]; then
     full_installation
+elif [ "$1" = "--set-cfg" ]; then
+    set_cfg
 else
-    echo "Use: $0 [--basic | --full]"
+    echo "Use: $0 [--basic | --full | --set-cfg]"
     exit 1
 fi
 

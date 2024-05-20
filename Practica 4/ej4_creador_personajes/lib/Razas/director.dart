@@ -9,10 +9,11 @@ class Director {
     this.personajeBuilder = personajeBuilder;
   }
 
-  void crearPersonaje(String nombre) {
+  void crearPersonaje(String nombre, String usuario) {
     personajeBuilder.crearPersonaje();
     personaje = personajeBuilder.getPersonaje();
     personaje.SetName(nombre);
+    personaje.SetUsuario(usuario);
   }
 
   Personaje getPersonaje() {

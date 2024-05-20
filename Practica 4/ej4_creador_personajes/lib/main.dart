@@ -101,7 +101,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
         pb = HumanoBuilder(cb);
     }
 
-    await gestor.agregar(f.crearPersonaje(pb, characterName));
+    await gestor.agregar(f.crearPersonaje(pb, characterName, currentUser));
 
     //var dummy = gestor.getPersonaje(gestor.getLength() - 1);
     //dummy.ExportState("STATE_TEST.TXT");
