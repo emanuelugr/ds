@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:ej4_creador_personajes/Clases/clases.dart';
 import 'package:ej4_creador_personajes/Clases/clasesbuilder.dart';
 import 'package:ej4_creador_personajes/Razas/PersonajeBuilder.dart';
@@ -44,6 +46,21 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
 
   String currentUser = "Alejandro";
   List<String> users = ["Alejandro", "Timur", "Emanuel", "Thomas"];
+
+  @override
+  void initState() {
+    super.initState();
+    _cargarTareasIniciales();
+  }
+
+  void _cargarTareasIniciales() async {
+    try {
+      await gestor.cargarPersonajes(currentUser);
+      setState(() {});
+    } catch (e) {
+      print("Error loading tasks: $e");
+    }
+  }
 
   void _crearPersonaje() async {
     //Clase
@@ -105,6 +122,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   Widget _buildListaPersonajes() {
     // Aplicar filtro
     List<Personaje> filteredList = gestor.personajes;
+    //gestor.getLista(currentUser) as List<Personaje>;
     if (filterByRace.isNotEmpty) {
       filteredList = filteredList.where((p) => p.raza == filterByRace).toList();
     }
@@ -162,6 +180,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
 
   @override
   Widget build(BuildContext context) {
+    gestor.cargarPersonajes(currentUser);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
