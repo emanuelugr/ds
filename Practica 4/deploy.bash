@@ -10,7 +10,7 @@ basic_installation() {
 
 
     #Asumo si ya existen los directorios entonces está instalado
-    if ![ -d "$HOME/.rbenv" ]; then
+    if ! [ -d "$HOME/.rbenv" ]; then
         cd $HOME
         sudo apt update -y
         sudo apt install -y git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev 
@@ -51,32 +51,42 @@ full_installation(){
     basic_installation
 
     # configuración servicio http
-    mkdir ruby_api
-    rails new ruby_api --api
-    echo "gem 'rack-cors'" >> ruby_api/Gemfile
-    cd ruby_api
-    bundle install  
-    cd -
+    if ! [ -d "ruby_api" ]; then
+        mkdir ruby_api
+        rails new ruby_api --api
+        echo "gem 'rack-cors'" >> ruby_api/Gemfile
+        cd ruby_api
+        bundle install  
+        cd -
+    else
+        echo "Carpeta ruby_api ya existe"
+        echo "Pasando a la configuracion"
+    fi
 
     #configurar
     set_cfg
 }
 
 set_cfg(){
-    cd ruby_api
-    # Base de datos 
-    #Esto creará un archivo de migración en db/migrate y un archivo de modelo en app/models.
-    rails generate model Personaje nombre:string raza:string clase:string primAttr:json secAttr:json usuario:string
-    #Guardar los datos (?)
-    rails db:migrate
-    #Generar plantilla, aunque realmente se  copiara de ruby_conf/personajes_controller.rb
-    rails generate controller PersonajesController
-    cd -
+    
+    if [ -d "ruby_api" ]; then
+        cd ruby_api
+        # Base de datos 
+        #Esto creará un archivo de migración en db/migrate y un archivo de modelo en app/models.
+        rails generate model Personaje nombre:string raza:string clase:string primAttr:json secAttr:json usuario:string
+        #Guardar los datos (?)
+        rails db:migrate
+        #Generar plantilla, aunque realmente se  copiara de ruby_conf/personajes_controller.rb
+        rails generate controller PersonajesController
+        cd -
 
-    echo "copiando configuracion..."
-    cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
-    #cp ruby_conf/routes.rb ruby_api/config/routes.rb
-    cp ruby_conf/personajes_controller.rb ruby_api/app/controllers/personajes_controller.rb
+        echo "copiando configuracion..."
+        cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
+        #cp ruby_conf/routes.rb ruby_api/config/routes.rb
+        cp ruby_conf/personajes_controller.rb ruby_api/app/controllers/personajes_controller.rb
+    else
+        echo "Carpeta ruby_api no encontrada. Nada que hacer..."
+    fi
 }
 
 
