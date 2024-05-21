@@ -1,0 +1,15 @@
+Percepcion:7.0
+Sabiduria:4.0
+Inteligencia:6.0
+Fuerza:15.0
+Carisma:3.0
+Resistencia:13.0
+Destreza:8.0
+Critico:13.0
+Estamina:15.75
+Persuasion:10.5
+Intimidacion:9.0
+Punteria:15.0
+Agilidad:14.0
+Mana:10.0
+Vida:28.0
