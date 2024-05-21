@@ -59,6 +59,10 @@ class Personaje {
     this.id = id;
   }
 
+  String GetUsuario() {
+    return this.usuario;
+  }
+
   void ExportState(String path) {
     // Abrir el archivo en modo escritura
     File file = File(path);

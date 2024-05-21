@@ -226,10 +226,12 @@ void main() {
       await gestor.agregar(dir3.getPersonaje());
       await gestor.agregar(dir4.getPersonaje());
 
-      await gestor.eliminar(dir1.getPersonaje());
+      //Apunto id del marginado
+      Personaje marginado = gestor.getPersonaje(gestor.getLength() - 1);
+      final idEliminado = marginado.id;
 
-      // Obtener el id del personaje eliminado
-      final idEliminado = dir1.getPersonaje().id;
+      //Borro marginado
+      await gestor.eliminar(marginado);
 
       // Comprobar que la lista de personajes no contiene el personaje con el id eliminado
       final personajeExiste =

@@ -45,12 +45,14 @@ class GestorPersonajes {
 
   Future<void> eliminar(Personaje personaje) async {
     final response = await http.delete(
+      //Uri.parse('$apiUrl?usuario=$usuario&id=$id')
+      //Uri.parse('$apiUrl?usuario=$usuario'),
       Uri.parse('$apiUrl/${personaje.id}'),
     );
     if (response.statusCode == 200) {
       personajes.removeWhere((t) => t.id == personaje.id);
     } else {
-      throw Exception('Failed to delete task');
+      throw Exception('Failed to delete personaje $response.statusCode)');
     }
   }
 
