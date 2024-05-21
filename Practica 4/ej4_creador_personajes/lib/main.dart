@@ -186,6 +186,21 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          DropdownButton<String>(
+            value: currentUser,
+            onChanged: (String? newValue) {
+              setState(() {
+                currentUser = newValue!;
+              }); //fin set State
+              _cargarTareasIniciales();
+            },
+            items: users.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
           const Text(
             'Raza:',
             style: TextStyle(fontSize: 20.0),
