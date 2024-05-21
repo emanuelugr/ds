@@ -38,6 +38,6 @@ class PersonajesController < ApplicationController
     private
 
     def personaje_params
-        params.require(:personaje).permit(:nombre, :raza, :clase, primAttr: {}, secAttr: {},:usuario)
+        params.require(:personaje).permit(:usuario, :nombre, :raza, :clase, primAttr: {}, secAttr: {})
     end
 end
