@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  raza: MyString
+  clase: MyString
+  primAttr: 
+  secAttr: 
+  usuario: MyString
+
+two:
+  nombre: MyString
+  raza: MyString
+  clase: MyString
+  primAttr: 
+  secAttr: 
+  usuario: MyString
