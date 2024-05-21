@@ -46,6 +46,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
 
   String currentUser = "Alejandro";
   List<String> users = ["Alejandro", "Timur", "Emanuel", "Thomas"];
+  late List<TextEditingController> _controllerslist;
 
   @override
   void initState() {
@@ -56,6 +57,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   void _cargarTareasIniciales() async {
     try {
       await gestor.cargarPersonajes(currentUser);
+      _controllerslist = List.generate(gestor.personajes.length+1, (index) =>TextEditingController());
       setState(() {});
     } catch (e) {
       print("Error loading personajes: $e");
@@ -110,12 +112,23 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
       MaterialPageRoute(
           builder: (context) => CharacterDetailsScreen(gestor.getLength() - 1)),
     );
+
+    _controllerslist.add(TextEditingController());
     setState(() {});
   }
 
   void eliminarPersonaje(index) async {
     Personaje p = gestor.getPersonaje(index);
     await gestor.eliminar(p);
+    setState(() {});
+  }
+
+    void modificarNombre(index) async {
+    String nombre = _controllerslist[index].text;
+    if (nombre != ""){
+      Personaje p = gestor.getPersonaje(index);
+      await gestor.cambiarNombre(p, nombre);
+    }
     setState(() {});
   }
 
@@ -163,6 +176,33 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
                       );
                     },
                   )),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 177, 177, 177),
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20))
+                ),
+                child: SizedBox(
+                  width: 200,
+                  child: TextFormField(
+                    textAlign: TextAlign.center,
+                    //initialValue: get(index),
+                    controller: _controllerslist[index],
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 30),
+              FilledButton.tonal(
+                onPressed: () => modificarNombre(index),
+                child: const Text(
+                  "CAMBIAR NOMBRE",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+              ),
               const SizedBox(width: 30),
               FilledButton.tonal(
                 onPressed: () => eliminarPersonaje(index),
