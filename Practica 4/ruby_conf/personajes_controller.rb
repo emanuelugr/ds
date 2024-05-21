@@ -3,6 +3,7 @@ class PersonajesController < ApplicationController
     def index
         @personajes = Personaje.where(usuario: params[:usuario])
         #@personajes = Personaje.all
+        logger.debug "Usuario param: #{params[:usuario]}"
         logger.info "Cargando los personajes del usuario: #{params[:usuario]}, Total: #{@personajes.count}"
         render json: @personajes
     end
@@ -38,6 +39,6 @@ class PersonajesController < ApplicationController
     private
 
     def personaje_params
-        params.require(:personaje).permit(:nombre, :raza, :clase, primAttr: {}, secAttr: {},:usuario)
+        params.require(:personaje).permit(:usuario,:nombre, :raza, :clase, primAttr: {}, secAttr: {})
     end
 end

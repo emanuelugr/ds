@@ -7,41 +7,43 @@ check_exit_status() {
 }
 
 basic_installation() {
-    cd $HOME
-    sudo apt update -y
-    sudo apt install -y git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev 
-    check_exit_status
 
 
-    if [ -d "$HOME/.rbenv" ]; then
-        rm -rf $HOME/.rbenv
+    #Asumo si ya existen los directorios entonces está instalado
+    if ![ -d "$HOME/.rbenv" ]; then
+        cd $HOME
+        sudo apt update -y
+        sudo apt install -y git curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev 
         check_exit_status
+
+        git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
+        check_exit_status
+        git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+        check_exit_status
+
+        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+        echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+        source .bashrc # Not sure about this line
+        check_exit_status
+
+
+        $HOME/.rbenv/bin/rbenv install 3.3.1
+        check_exit_status
+
+        $HOME/.rbenv/bin/rbenv  global 3.3.1
+        check_exit_status
+
+
+        echo "Instalando rails"
+        gem install rails
+        check_exit_status
+        $HOME/.rbenv/bin/rbenv  rehash
+        check_exit_status
+        cd -
+    else
+        echo "$HOME/.rbenv ya existe. Nada que hacer"
     fi
 
-    git clone https://github.com/rbenv/rbenv.git $HOME/.rbenv
-    check_exit_status
-    git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-    check_exit_status
-
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-    source .bashrc # Not sure about this line
-    check_exit_status
-
-    $HOME/.rbenv/bin/rbenv install 3.3.1
-    check_exit_status
-
-    $HOME/.rbenv/bin/rbenv  global 3.3.1
-    check_exit_status
-    
-
-    echo "Instalando rails"
-    gem install rails
-    check_exit_status
-    $HOME/.rbenv/bin/rbenv  rehash
-    check_exit_status
-
-    cd -
 }
 
 
