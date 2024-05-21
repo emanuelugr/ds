@@ -48,30 +48,21 @@ basic_installation() {
 
 
 full_installation(){
-    basic_installation
 
-    # configuración servicio http
+    basic_installation
+    set_api
+
+}
+
+
+set_api(){
     if ! [ -d "ruby_api" ]; then
         mkdir ruby_api
         rails new ruby_api --api
         echo "gem 'rack-cors'" >> ruby_api/Gemfile
         cd ruby_api
         bundle install  
-        cd -
-    else
-        echo "Carpeta ruby_api ya existe"
-        echo "Pasando a la configuracion"
-    fi
-
-    #configurar
-    set_cfg
-}
-
-set_cfg(){
-    
-    if [ -d "ruby_api" ]; then
-        cd ruby_api
-        # Base de datos 
+         # Base de datos 
         #Esto creará un archivo de migración en db/migrate y un archivo de modelo en app/models.
         rails generate model Personaje nombre:string raza:string clase:string primAttr:json secAttr:json usuario:string
         #Guardar los datos (?)
@@ -82,11 +73,12 @@ set_cfg(){
 
         echo "copiando configuracion..."
         cp ruby_conf/cors.rb ruby_api/config/initializers/cors.rb
-        #cp ruby_conf/routes.rb ruby_api/config/routes.rb
+        cp ruby_conf/routes.rb ruby_api/config/routes.rb
         cp ruby_conf/personajes_controller.rb ruby_api/app/controllers/personajes_controller.rb
     else
-        echo "Carpeta ruby_api no encontrada. Nada que hacer..."
+        echo "Carpeta ruby_api ya existe. Nada que hacer"
     fi
+
 }
 
 
@@ -95,10 +87,10 @@ if [ "$1" = "--basic" ]; then
     basic_installation
 elif [ "$1" = "--full" ]; then
     full_installation
-elif [ "$1" = "--set-cfg" ]; then
-    set_cfg
+elif [ "$1" = "--set-api" ]; then
+    set_api
 else
-    echo "Use: $0 [--basic | --full | --set-cfg]"
+    echo "Use: $0 [--basic | --full | --set-api]"
     exit 1
 fi
 
