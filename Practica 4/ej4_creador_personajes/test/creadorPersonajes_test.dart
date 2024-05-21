@@ -15,7 +15,7 @@ import 'package:ej4_creador_personajes/Razas/director.dart';
 void main() {
   String classCfgPath = "lib/cfg/clase/";
   String raceCfgPath = "lib/cfg/raza/";
-
+  String currentUser = "Alejandro";
   group("Creador de personajes", () {
     ClaseBuilder classBuilder = LadronBuilder();
     PersonajeBuilder perBuilder = OrcoBuilder(classBuilder);
@@ -149,7 +149,7 @@ void main() {
     //Test 4: Exportacion Correcta del personaje
     group("Exportacion del estado", () {
       Director d = Director(perBuilder);
-      d.crearPersonaje("EdwardGrieg");
+      d.crearPersonaje("EdwardGrieg", currentUser);
       var p = d.getPersonaje();
 
       String path = "dump_personaje.txt";
@@ -167,7 +167,7 @@ void main() {
       var nombre = 'Zorg';
 
       test('Crear Personaje', () {
-        dir.crearPersonaje(nombre);
+        dir.crearPersonaje(nombre, currentUser);
         var personaje = dir.getPersonaje();
 
         expect(personaje, isInstanceOf<Personaje>());
@@ -182,7 +182,7 @@ void main() {
         var builder = ElfoBuilder(MagoBuilder());
         String nombre = "Legolas";
 
-        var personaje = fachada.crearPersonaje(builder, nombre);
+        var personaje = fachada.crearPersonaje(builder, nombre, currentUser);
 
         expect(personaje, isInstanceOf<Personaje>());
         expect(personaje.nombre, nombre);
@@ -193,21 +193,21 @@ void main() {
   group("Gestor de personajes", () {
     GestorPersonajes gestor = GestorPersonajes.getInstancia();
     Director dir1 = Director(HumanoBuilder(CaballeroBuilder()));
-    dir1.crearPersonaje("Alucard");
+    dir1.crearPersonaje("Alucard", currentUser);
     Director dir2 = Director(EnanoBuilder(RangerBuilder()));
-    dir2.crearPersonaje("Belmont");
+    dir2.crearPersonaje("Belmont", currentUser);
     Director dir3 = Director(ElfoBuilder(MagoBuilder()));
-    dir3.crearPersonaje("Cintia");
+    dir3.crearPersonaje("Cintia", currentUser);
 
     Director dir4 = Director(OrcoBuilder(MagoBuilder()));
-    dir4.crearPersonaje("Marginado");
+    dir4.crearPersonaje("Marginado", currentUser);
 
     //Test 1: Se añaden personajes a la lista
-    test("Añadir Personaje", () {
-      gestor.addPersonaje(dir1.getPersonaje());
-      gestor.addPersonaje(dir2.getPersonaje());
-      gestor.addPersonaje(dir3.getPersonaje());
-      gestor.addPersonaje(dir4.getPersonaje());
+    test("Añadir Personaje", () async {
+      await gestor.agregar(dir1.getPersonaje());
+      await gestor.agregar(dir2.getPersonaje());
+      await gestor.agregar(dir3.getPersonaje());
+      await gestor.agregar(dir4.getPersonaje());
 
       expect(gestor.getPersonaje(0).nombre, "Alucard");
       expect(gestor.getPersonaje(1).nombre, "Belmont");
@@ -218,17 +218,25 @@ void main() {
     });
 
     //Test 2: Se eliminan bien los personajes
-    test("Eliminar Personaje", () {
+    test("Eliminar Personaje", () async {
       gestor.personajes.clear();
 
-      gestor.addPersonaje(dir1.getPersonaje());
-      gestor.addPersonaje(dir2.getPersonaje());
-      gestor.addPersonaje(dir3.getPersonaje());
-      gestor.addPersonaje(dir4.getPersonaje());
+      await gestor.agregar(dir1.getPersonaje());
+      await gestor.agregar(dir2.getPersonaje());
+      await gestor.agregar(dir3.getPersonaje());
+      await gestor.agregar(dir4.getPersonaje());
 
-      expect(() => gestor.remPersonaje(gestor.getLength()),
-          isNot(throwsA(isA<Exception>())));
-      gestor.remPersonaje(3);
+      await gestor.eliminar(dir1.getPersonaje());
+
+      // Obtener el id del personaje eliminado
+      final idEliminado = dir1.getPersonaje().id;
+
+      // Comprobar que la lista de personajes no contiene el personaje con el id eliminado
+      final personajeExiste =
+          gestor.personajes.any((personaje) => personaje.id == idEliminado);
+
+      // Esperar que personajeExiste sea falso
+      expect(personajeExiste, isFalse);
       expect(gestor.personajes.length, 3);
     });
 
