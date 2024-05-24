@@ -47,17 +47,19 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
   String currentUser = "Alejandro";
   List<String> users = ["Alejandro", "Timur", "Emanuel", "Thomas"];
   late List<TextEditingController> _controllerslist;
+  List<Personaje> filteredList = [];
 
   @override
   void initState() {
     super.initState();
-    _cargarTareasIniciales();
+    _cargarPersonajes();
   }
 
-  void _cargarTareasIniciales() async {
+  void _cargarPersonajes() async {
     try {
       await gestor.cargarPersonajes(currentUser);
-      _controllerslist = List.generate(gestor.personajes.length+1, (index) =>TextEditingController());
+      _controllerslist = List.generate(
+          gestor.personajes.length + 1, (index) => TextEditingController());
       setState(() {});
     } catch (e) {
       print("Error loading personajes: $e");
@@ -110,31 +112,37 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => CharacterDetailsScreen(gestor.getLength() - 1)),
+          builder: (context) => CharacterDetailsScreen(
+              gestor.getPersonaje(gestor.getLength() - 1))),
     );
 
     _controllerslist.add(TextEditingController());
-    setState(() {});
+    setState(() {
+      _cargarPersonajes();
+    });
   }
 
-  void eliminarPersonaje(index) async {
-    Personaje p = gestor.getPersonaje(index);
-    await gestor.eliminar(p);
-    setState(() {});
+  void eliminarPersonaje(personaje) async {
+    await gestor.eliminar(personaje);
+    setState(() {
+      _cargarPersonajes();
+    });
   }
 
-    void modificarNombre(index) async {
+  void modificarNombre(personaje, index) async {
     String nombre = _controllerslist[index].text;
-    if (nombre != ""){
-      Personaje p = gestor.getPersonaje(index);
-      await gestor.cambiarNombre(p, nombre);
+    if (nombre != "") {
+      _controllerslist[index].text = "";
+      await gestor.cambiarNombre(personaje, nombre);
     }
-    setState(() {});
+    setState(() {
+      _cargarPersonajes();
+    });
   }
 
   Widget _buildListaPersonajes() {
     // Aplicar filtro
-    List<Personaje> filteredList = gestor.personajes;
+    filteredList = gestor.personajes;
     //gestor.getLista(currentUser) as List<Personaje>;
     if (filterByRace.isNotEmpty) {
       filteredList = filteredList.where((p) => p.raza == filterByRace).toList();
@@ -166,23 +174,22 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
                   width: 500,
                   child: ListTile(
                     title: Text(
-                        '${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
+                        'Index: $index, ID: ${personaje.id} ${personaje.nombre} - ${personaje.raza} - ${personaje.clase}'),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                CharacterDetailsScreen(index)),
+                                CharacterDetailsScreen(personaje)),
                       );
                     },
                   )),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: const Color.fromARGB(255, 177, 177, 177),
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20))
-                ),
+                    border: Border.all(
+                      color: const Color.fromARGB(255, 177, 177, 177),
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: SizedBox(
                   width: 200,
                   child: TextFormField(
@@ -197,15 +204,15 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
               ),
               const SizedBox(width: 30),
               FilledButton.tonal(
-                onPressed: () => modificarNombre(index),
+                onPressed: () => modificarNombre(personaje, index),
                 child: const Text(
                   "CAMBIAR NOMBRE",
                   style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                ),
               ),
               const SizedBox(width: 30),
               FilledButton.tonal(
-                onPressed: () => eliminarPersonaje(index),
+                onPressed: () => eliminarPersonaje(personaje),
                 child: const Text(
                   "ELIMINAR PERSONAJE",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -232,7 +239,7 @@ class _CreadorDePersonajesState extends State<CreadorDePersonajes> {
               setState(() {
                 currentUser = newValue!;
               }); //fin set State
-              _cargarTareasIniciales();
+              _cargarPersonajes();
             },
             items: users.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
@@ -494,13 +501,12 @@ class ClassButton extends StatelessWidget {
 }
 
 class CharacterDetailsScreen extends StatelessWidget {
-  final int index;
-  CharacterDetailsScreen(this.index, {super.key});
+  final Personaje personaje;
+  CharacterDetailsScreen(this.personaje, {super.key});
 
   @override
   Widget build(BuildContext context) {
     // Obtener el personaje creado utilizando la fachada
-    final personaje = GestorPersonajes.getInstancia().getPersonaje(index);
     final nomRaza = personaje.raza;
     final nomClase = personaje.clase;
 
